@@ -210,7 +210,7 @@ var Layout = function () {
 
         Metronic.destroySlimScroll(menu);
 
-        if ($('.page-sidebar-fixed').size() === 0) {
+        if ($('.page-sidebar-fixed').length === 0) {
             handleSidebarAndContentHeight();
             return;
         }

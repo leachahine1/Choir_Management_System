@@ -70,7 +70,7 @@
 
                     </div>
                     <div class="col-md-9 profile-info datilsBodyMB">
-                        <div class="portlet box green">
+                        <div class="portlet box purple">
                             <div class="portlet-title">
                                 <div class="caption">
                                     <?php echo $ChoirTile; ?> Songs And Section_leaders
@@ -125,7 +125,7 @@
                 <div class="row">
 
                     <div class="col-md-12 profile-info datilsBodyMB">
-                        <div class="portlet box green">
+                        <div class="portlet box purple">
                             <div class="portlet-title">
                                 <div class="caption">
                                     <?php echo $ChoirTile; ?> Weekly Choir Routine

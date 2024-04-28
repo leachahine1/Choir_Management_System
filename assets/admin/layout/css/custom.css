@@ -150,7 +150,7 @@
     margin-top: -34px;
     padding: 2px 7px;
 }
-.choir_memberDetails {
+.Choir_memberDetails {
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
     -moz-border-right-colors: none;
@@ -160,14 +160,14 @@
     border-style: none solid solid;
     border-width: 0 1px 1px;    
 }
-.choir_memberDetails .portlet-title{
+.Choir_memberDetails .portlet-title{
     background-color: #ebebeb;
     margin-right: 0 !important;
 }
-.choir_memberDetails .portlet-title .caption{
+.Choir_memberDetails .portlet-title .caption{
     color: #000;
 }
-.choir_memberDetails .portlet-tabs > .tab-content{
+.Choir_memberDetails .portlet-tabs > .tab-content{
     background-color: #FAFAFA;
 }
 .accessButton{

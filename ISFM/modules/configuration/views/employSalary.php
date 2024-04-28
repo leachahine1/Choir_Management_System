@@ -38,7 +38,7 @@
         <div class="row">
             <div class="col-md-5 ">
                 <!-- BEGIN SAMPLE FORM PORTLET-->
-                <div class="portlet box green ">
+                <div class="portlet box purple ">
                     <div class="portlet-title">
                         <div class="caption">
                             <?php echo lang('con_s_emp_sfom'); ?>
@@ -123,7 +123,7 @@
             </div>
             <div class="col-md-7">
                 <!-- BEGIN REHEARSALPLE TABLE PORTLET-->
-                <div class="portlet box green">
+                <div class="portlet box purple">
                     <div class="portlet-title">
                         <div class="caption">
                             <?php echo lang('con_sch_emp_sala'); ?>

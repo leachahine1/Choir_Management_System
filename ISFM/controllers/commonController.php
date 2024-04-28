@@ -28,14 +28,12 @@ class CommonController extends CI_Controller
     public function ajaxChoirInfo()
         {
         $ChoirTitle = $this->input->get('q',TRUE);
-        $query = $this->common->getWhere('Choir', 'Choir_title', $ChoirTitle);
-        foreach ($query as $row) {
-            $data = $row;
-        }
+        $Choirs  = $this->common->getWhere('Choir', 'Choir_title', $ChoirTitle);
+        foreach ($Choirs as $Choir) {
+
         echo '<input type="hidden" name="Choir" value="' . $ChoirTitle . '">';
-        if (!empty($data['section'])) {
-            $section = $data['section'];
-            $sectionArray = explode(",", $section);
+        if (!empty($Choir['section'])) {
+            $sectionArray = explode(",", $Choir['section']);
             echo '<div class="form-group">
                         <label class="col-md-3 control-label">Section <span class="requiredStar"> * </span></label>
                         <div class="col-md-6">
@@ -45,8 +43,8 @@ class CommonController extends CI_Controller
                 echo '<option value="' . $sec . '">' . $sec . '</option>';
             }
             echo '</select></div>
-                    </div>';
-        } else {
+                    </div>';}
+        else {
             $section = 'This Choir has no section.';
             echo '<div class="form-group">
                         <label class="col-md-3 control-label"></label>
@@ -55,6 +53,7 @@ class CommonController extends CI_Controller
                                 <strong>Info!</strong> ' . $section . '
                         </div></div></div>';
         }
+    }
         }
         
     //This function will update class Choir_member into the next class if he/she pass in the final rehearsal

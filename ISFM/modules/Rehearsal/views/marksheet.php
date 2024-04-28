@@ -46,7 +46,7 @@
                     <?php echo lang('exa_stna'); ?> : &nbsp;&nbsp;<?php echo $Choir_memberName; ?><br>
                     <?php echo lang('exa_sid'); ?> : &nbsp;&nbsp;<?php echo $Choir_memberId; ?><br>
                 </div>
-                <div class="portlet box green">
+                <div class="portlet box purple">
                     <div class="portlet-title">
                         <div class="caption">
                             <?php echo lang('exa_emarshee'); ?> 

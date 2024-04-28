@@ -126,6 +126,25 @@ class Songs extends MX_Controller {
                 </div></div>';
         }
     }
+
+    // Add this function inside the Songs controller class
+
+public function graphs() {
+    // Your graph-related logic goes here
+    
+    // For example, let's say you want to display a bar chart of song counts per Choir
+    // You can fetch the data from the database using your model and pass it to a view
+    
+    // Fetch data from the model
+    $song_counts_per_choir = $this->song_model->getSongCountsPerChoir();
+
+    // Pass the data to a view
+    $data['song_counts'] = $song_counts_per_choir;
+    $this->load->view('temp/header');
+    $this->load->view('Graphs', $data); // Assuming you have a view named graphs_view.php
+    $this->load->view('temp/footer');
+}
+
     //This function will return class optional song
     public function optional_song() {
         $Choir_id = $this->input->get('c_id', TRUE);

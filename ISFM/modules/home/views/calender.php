@@ -31,7 +31,7 @@
         <!-- BEGIN PAGE CONTENT-->
         <div class="row">
             <div class="col-md-12">
-                <div class="portlet box green-meadow calendar">
+                <div class="portlet box purple-meadow calendar">
                     <div class="portlet-title">
                         <div class="caption">
                             <i class="fa fa-gift"></i><?php echo lang('cal_calender'); ?>

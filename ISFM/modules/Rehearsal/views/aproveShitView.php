@@ -38,7 +38,7 @@
         <div class="row">
             <div class="col-sm-8 ">
                 <!-- BEGIN SAMPLE FORM PORTLET-->
-                <div class="portlet box green ">
+                <div class="portlet box purple ">
                     <div class="portlet-title">
                         <div class="caption">
                             <i class="fa fa-bars"></i> <?php echo lang('exa_caatrs'); ?>
@@ -108,7 +108,7 @@
             </div>
             <div class="col-sm-4 ">
                 <!-- BEGIN SAMPLE FORM PORTLET-->
-                <div class="portlet box green ">
+                <div class="portlet box purple ">
                     <div class="portlet-title">
                         <div class="caption">
                             <i class="fa fa-bars"></i> <?php echo lang('exa_comfcr'); ?>

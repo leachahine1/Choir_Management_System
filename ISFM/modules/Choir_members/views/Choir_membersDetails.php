@@ -335,7 +335,7 @@
 
                                 <div class="row">
                                     <div class="col-md-12" id="print">
-                                        <div class="portlet box green">
+                                        <div class="portlet box purple">
                                             <div class="portlet-title">
                                                 <div class="caption">
                                                     <?php

@@ -167,7 +167,7 @@
             <!---End Left Site Content-->
             <!---Start Right Site Content-->
             <div class="col-md-7">
-                <div class="portlet box green">
+                <div class="portlet box purple">
                     <div class="portlet-title">
                         <div class="caption">
                             <?php echo lang('sto_pol'); ?>

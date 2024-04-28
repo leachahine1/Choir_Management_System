@@ -37,7 +37,7 @@
         <div class="row">
             <div class="col-md-12 ">
                 <!-- BEGIN SAMPLE FORM PORTLET-->
-                <div class="portlet box green ">
+                <div class="portlet box purple ">
                     <div class="portlet-title">
                         <div class="caption">
                             <i class="fa fa-bars"></i> <?php
@@ -75,7 +75,7 @@
                                     <input class="form-control" type="text" name="section_leaderName" value="<?php echo $section_leader; ?>" readonly="">
                                 </div><div class="clearfix"> </div>
                             </div>
-                            <div class="portlet box green">
+                            <div class="portlet box purple">
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <?php echo lang('exa_asr'); ?>

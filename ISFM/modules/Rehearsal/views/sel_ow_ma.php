@@ -37,7 +37,7 @@
             <div class="col-md-12">
                 <div class="tab-content">
                     <div id="tab_0" class="tab-pane active">
-                        <div class="portlet box green">
+                        <div class="portlet box purple">
                             <div class="portlet-title">
                                 <div class="caption">
                                     <?php echo lang('exa_scasfms'); ?>

@@ -32,7 +32,7 @@
         <div class="row">
             <div class="col-md-12 ">
                 <!-- BEGIN SAMPLE FORM PORTLET-->
-                <div class="portlet box green ">
+                <div class="portlet box purple ">
                     <div class="portlet-title">
                         <div class="caption">
                             <i class="fa fa-bars"></i> <?php echo lang('par_gtppei'); ?>
@@ -71,9 +71,15 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-3 control-label"><?php echo lang('par_stu_id'); ?><span class="requiredStar">  </span></label>
+                                    <label class="col-md-3 control-label"><?php echo lang('header_cor_clas'); ?><span class="requiredStar">  </span></label>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="" name="Choir_title" value="<?php echo $row['Choir_member_id']; ?>" readonly="">
+                                        <input type="text" class="form-control" placeholder="" name="Choir_title" value="<?php echo $row['Choir_id']; ?>" readonly="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label"><?php echo lang('clas_section'); ?><span class="requiredStar">  </span></label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" placeholder="" name="Choir_title" value="<?php echo $row['section']; ?>" readonly="">
                                     </div>
                                 </div>
                                 <div id="ajaxResult">
@@ -94,7 +100,7 @@
                                 <div class="form-group">
                                     <label class="col-md-3 control-label"><?php echo lang('par_rela'); ?> <span class="requiredStar">  </span></label>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="" value="<?php echo $row['relation']; ?>"  name="guardianRelation">
+                                        <input type="text" class="form-control" placeholder="" value="<?php echo $row['level']; ?>"  name="guardianLevel">
                                     </div>
                                 </div>
                                 <div class="form-group">

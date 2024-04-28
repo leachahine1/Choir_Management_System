@@ -480,7 +480,7 @@ class Users extends CI_Controller {
             $sectionArray = explode(",", $section);
 
             echo '<div class="form-group">
-                        <label class="col-md-3 control-label">session <span class="requiredStar"> * </span></label>
+                        <label class="col-md-3 control-label">section <span class="requiredStar"> * </span></label>
                         <div class="col-md-6">
                             <select name="section" class="form-control">
                                 <option value="">Select one</option>';
@@ -565,10 +565,10 @@ class Users extends CI_Controller {
                 $userid = $this->common->usersId();
                 $additionalData1 = array(
                     'user_id' => $this->db->escape_like_str($userid),
-                    'Choir_member_id' => $this->db->escape_like_str($this->input->post('Choir_memberId', TRUE)),
+                    'section' => $this->db->escape_like_str($this->input->post('section', TRUE)),
                     'Choir_id' => $this->db->escape_like_str($this->input->post('Choir_id', TRUE)),
                     'section_trainers_name' => $this->db->escape_like_str($username),
-                    'relation' => $this->db->escape_like_str($this->input->post('guardianRelation', TRUE)),
+                    'level' => $this->db->escape_like_str($this->input->post('guardianLevel', TRUE)),
                     'email' => $this->db->escape_like_str($this->input->post('email', TRUE)),
                     'phone' => $this->db->escape_like_str($phone)
                 );
@@ -731,6 +731,18 @@ class Users extends CI_Controller {
                 </div>';
         }
     }
+
+    public function Choir_InfoById() {
+        $Choir_id = $this->input->get('q', TRUE);
+        if (empty($Choir_id)) {
+            echo 'No valid Choir ID provided.';
+            return; // Exit if no ID is provided
+        }
+        $query = $this->common->ChoirIdInfo($Choir_id);
+        // rest of the function...
+    }
+    
+
 
     //Whene give the Choir_member id from the frontend input file.
     //Then this function return Choir_member information

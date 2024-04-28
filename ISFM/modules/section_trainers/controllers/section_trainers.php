@@ -21,7 +21,7 @@ class Section_trainers extends CI_Controller {
     public function section_trainersInformation() {
         if ($this->input->post('submit', TRUE)) {
             $Choir_id = $this->input->post('Choir_id', TRUE);
-            $data['ChoirTitle'] = $this->common->Choir_title($Choir_id);
+            $data['Choir_title'] = $this->common->Choir_title($Choir_id);
             $data['section_trainers'] = $this->common->getWhere('section_trainers_info', 'Choir_id', $Choir_id);
             $this->load->view('temp/header');
             $this->load->view('section_trainersInformation', $data);
@@ -36,20 +36,20 @@ class Section_trainers extends CI_Controller {
     //This function is used for filtering to get Choir_members information(which Choir and which section if the section in that Choir)
     //If any one want to select Choir section for get that section's section_trainers thene he can call this ajax function from view file.
     public function ajaxChoirSection() {
-        $ChoirTitle = $this->input->get('q');
-        $query = $this->common->getWhere('Choir', 'Choir_title', $ChoirTitle);
+        $Choir_id = $this->input->get('q');
+        $query = $this->common->getWhere('Choir', 'id', $Choir_id);
         foreach ($query as $row) {
             $data = $row;
         }
-        echo '<input type="hidden" name="Choir" value="' . $ChoirTitle . '">';
+        echo '<input type="hidden" name="Choir_title" value="' . $data['id'] . '">';
         if (!empty($data['section'])) {
             $section = $data['section'];
             $sectionArray = explode(",", $section);
             echo '<div class="form-group">
-                        <label class="col-md-3 control-label"></label>
-                        <div class="col-md-4">
+                        <label class="col-md-3 control-label">'.lang('clasc_3').' <span class="requiredStar"> * </span></label>
+                        <div class="col-md-6">
                             <select name="section" class="form-control">
-                                <option value="all">' . lang('parc_1') . '</option>';
+                                <option value="all">'.lang('clasc_4').'</option>';
             foreach ($sectionArray as $sec) {
                 echo '<option value="' . $sec . '">' . $sec . '</option>';
             }
@@ -60,10 +60,14 @@ class Section_trainers extends CI_Controller {
                         <label class="col-md-3 control-label"></label>
                         <div class="col-md-6">
                         <div class="alert alert-warning">
-                                <strong>' . lang('parc_2') . '</strong> ' . lang('parc_3') . '
+                                <strong>'.lang('clasc_5').'</strong> '.lang('clasc_6').'
                         </div></div></div>';
         }
     }
+    
+      
+        
+    
     //This function will update the section_trainers information.
     public function editSection_trainersInfo() {
         $userID = $this->input->get('puid');
@@ -81,7 +85,7 @@ class Section_trainers extends CI_Controller {
             $this->db->update('users', $additional_data);
             $additionalData1 = array(
                 'section_trainers_name' => $this->db->escape_like_str($username),
-                'relation' => $this->db->escape_like_str($this->input->post('guardianRelation', TRUE)),
+                'level' => $this->db->escape_like_str($this->input->post('guardianLevel', TRUE)),
                 'email' => $this->db->escape_like_str($this->input->post('email', TRUE)),
                 'phone' => $this->db->escape_like_str($this->input->post('phone', TRUE)),
             );

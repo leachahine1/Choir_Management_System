@@ -32,7 +32,7 @@
         <div class="row">
             <div class="col-md-12">
                 <!-- BEGIN REHEARSALPLE TABLE PORTLET-->
-                <div class="portlet box green">
+                <div class="portlet box purple">
                     <div class="portlet-title">
                         <div class="caption">
                             Edit Choir_member Fee Item's Information

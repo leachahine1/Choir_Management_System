@@ -35,7 +35,7 @@
                 }
                 ?>
                 <!-- BEGIN SAMPLE FORM PORTLET-->
-                <div class="portlet box green ">
+                <div class="portlet box purple ">
                     <div class="portlet-title">
                         <div class="caption">
                             <?php echo lang('acc_anatfa'); ?> 
@@ -90,7 +90,7 @@
 
             <div class="col-md-12">
                 <!-- BEGIN All account list-->
-                <div class="portlet box green">
+                <div class="portlet box purple">
                     <div class="portlet-title">
                         <div class="caption">
                             <?php echo lang('acc_loat'); ?> 

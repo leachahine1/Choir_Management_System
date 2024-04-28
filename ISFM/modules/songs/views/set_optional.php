@@ -32,7 +32,7 @@
                     echo $success;
                 } ?>
                 <!-- BEGIN SAMPLE FORM PORTLET-->
-                <div class="portlet box green ">
+                <div class="portlet box purple ">
                     <div class="portlet-title">
                         <div class="caption">
                             <i class="fa fa-book"></i> <?php echo lang('sub_gtsidsop'); ?> 
@@ -59,10 +59,14 @@
                                 <div id="ajaxResult"></div>
                             </div>
                             <div class="form-actions fluid">
-                                <div class="col-md-offset-3 col-md-6">
-                                    <button type="submit" name="submit" class="btn green" value="Add Song"><?php echo lang('sub_addsub_but'); ?></button>
-                                    <button type="reset" class="btn default"><?php echo lang('refresh'); ?></button>
-                                </div>
+                                                <div class="col-md-offset-3 col-md-6">
+                        <button type="submit" name="submit" class="btn green"><?php echo lang('sub_addsub_but'); ?></button>
+                        <a href="index.php/songs/Graphs" class="btn blue">
+                            <i class="fa fa-bar-chart-o"></i> <?php echo lang('add_song'); ?>
+                        </a>
+                        <button type="reset" class="btn default"><?php echo lang('refresh'); ?></button>
+                    </div>
+
                             </div>
                         <?php echo form_close(); ?>
                     </div>
@@ -106,7 +110,6 @@
         xmlhttp.open("GET", "index.php/songs/Choir_memberInfoById?q=" + str, true);
         xmlhttp.send();
     }
-    
     function optional_song(str) {
         var xmlhttp;
         if (str.length == 0) {

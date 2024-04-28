@@ -34,7 +34,7 @@
                     echo $success;
                 } ?>
                 <!-- BEGIN SAMPLE FORM PORTLET-->
-                <div class="portlet box green ">
+                <div class="portlet box purple ">
                     <div class="portlet-title">
                         <div class="caption">
                             <i class="fa fa-Resource"></i> <?php echo lang('sub_add_new_subj'); ?>

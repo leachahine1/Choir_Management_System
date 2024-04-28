@@ -7,6 +7,7 @@
 <?php
 $user = $this->ion_auth->user()->row();
 $userId = $user->id;
+
 ?>
 <!-- BEGIN CONTENT -->
 <div class="page-content-wrapper">
@@ -42,10 +43,10 @@ $userId = $user->id;
         <div class="row">
             <div class="col-md-12">
                 <!-- BEGIN REHEARSALPLE TABLE PORTLET-->
-                <div class="portlet box green">
+                <div class="portlet box purple">
                     <div class="portlet-title">
                         <div class="caption">
-                            <?php echo $ChoirTitle . ' ' . lang('par_spib'); ?>
+                            <?php echo "" . ' ' . lang('par_spib'); ?>
                         </div>
                         <div class="tools">
                         </div>
@@ -54,8 +55,9 @@ $userId = $user->id;
                         <table class="table table-striped table-bordered table-hover" id="sample_1">
                             <thead>
                                 <tr>
+                              
                                     <th>
-                                        <?php echo lang('par_stu_id'); ?>
+                                        <?php echo lang('clas_section'); ?>
                                     </th>
                                     <th>
                                         <?php echo lang('par_gar_name'); ?>
@@ -82,14 +84,15 @@ $userId = $user->id;
                             <tbody>
                                 <?php foreach ($section_trainers as $row) { ?>
                                     <tr>
+                                    
                                         <td>
-                                            <?php echo $row['Choir_member_id']; ?>
+                                            <?php echo $row['section']; ?>
                                         </td>
                                         <td>
                                             <?php echo $row['section_trainers_name']; ?>
                                         </td>
                                         <td>
-                                            <?php echo $row['relation']; ?>
+                                            <?php echo $row['level']; ?>
                                         </td>
                                         <td>
                                             <?php echo $row['email']; ?>

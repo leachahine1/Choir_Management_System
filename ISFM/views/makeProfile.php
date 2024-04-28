@@ -38,7 +38,7 @@
         <div class="row">
             <div class="col-md-12 ">
                 <!-- BEGIN SAMPLE FORM PORTLET-->
-                <div class="portlet box green ">
+                <div class="portlet box purple ">
                     <div class="portlet-title">
                         <div class="caption">
                             <i class="fa fa-bars"></i> <?php echo lang('par_gppi'); ?>
@@ -57,10 +57,16 @@
                         ?>
 
                         <div class="form-body">
-                            <div class="form-group">
-                                <label class="col-md-3 control-label"> <?php echo lang('par_stu_id'); ?> <span class="requiredStar"> * </span></label>
+                        <div class="form-group">
+                                <label class="col-md-3 control-label"> <?php echo lang('header_cor_clas'); ?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" onkeyup="Choir_memberInfo(this.value)" placeholder="" name="Choir_memberId" data-validation="required">
+                                    <input type="text" class="form-control" onkeyup="Choir_Info(this.value)" placeholder="" name="Choir_id" data-validation="required">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label"> <?php echo lang('clas_section'); ?> <span class="requiredStar"> * </span></label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control"  placeholder="" name="Choir_memberId" data-validation="required">
                                 </div>
                             </div>
                             <div id="ajaxResult">
@@ -81,7 +87,7 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label"> <?php echo lang('par_rela'); ?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="" name="guardianRelation" data-validation="required">
+                                    <input type="text" class="form-control" placeholder="" name="guardianLevel" data-validation="required">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -181,6 +187,49 @@
         xmlhttp.open("GET", "index.php/users/Choir_memberInfoById?q=" + str, true);
         xmlhttp.send();
     }
+
+  
+
+function Choir_Info(ChoirId) {
+    if (!ChoirId) {
+        console.log('Choir ID is required.');
+        return; // Stop the function if no ID is provided
+    }
+    $.ajax({
+        url: 'index.php/users/Choir_InfoById?q=', // Ensure this is the correct endpoint
+        type: 'GET',
+        data: {q: ChoirId},
+        success: function(response) {
+            $('#some_div').html(response); // Ensure this is the correct container ID
+        },
+        error: function(error) {
+            console.error('Error:', error);
+        }
+    });
+}
+
+
+    // function Choir_Info(str) {
+    //     var xmlhttp;
+    //     if (str.length === 0) {
+    //         document.getElementById("ajaxResult").innerHTML = "";
+    //         return;
+    //     }
+    //     if (window.XMLHttpRequest) {
+    //         // code for IE7+, Firefox, Chrome, Opera, Safari
+    //         xmlhttp = new XMLHttpRequest();
+    //     } else {
+    //         // code for IE6, IE5
+    //         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    //     }
+    //     xmlhttp.onreadystatechange = function () {
+    //         if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+    //             document.getElementById("ajaxResult").innerHTML = xmlhttp.responseText;
+    //         }
+    //     };
+    //     xmlhttp.open("GET", "index.php/users/Choir_InfoById?q=" + str, true);
+    //     xmlhttp.send();
+    // }
     function checkEmail(str) {
         var xmlhttp;
         if (str.length === 0) {

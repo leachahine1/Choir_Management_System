@@ -371,12 +371,12 @@ class Stock extends CI_Controller {
             //If the Choir_member's groun was selected thene work here
             $query = $this->common->getWhere('Choir_member_info', 'Choir_id', $recInfo);
             foreach ($query as $row) {
-                echo '<option value="' . $row['user_id'] . '">' . $row['Choir_member_id'] . ' - ' . $row['Choir_member_nam'] . ' </option>';
+                echo '<option value="' . $row['user_id'] . '">' . $row['section'] . ' - ' . $row['Choir_member_nam'] . ' </option>';
             }
         } elseif ($group == 'Section_trainers') {
             $query = $this->common->getWhere('section_trainers_info', 'Choir_id', $recInfo);
             foreach ($query as $row) {
-                echo '<option value="' . $row['user_id'] . '">' . $row['section_trainers_name'] . ' - Choir_memberID : ' . $row['Choir_member_id'] . ' </option>';
+                echo '<option value="' . $row['user_id'] . '">' . $row['section_trainers_name'] . ' - Choir_memberID : ' . $row['section'] . ' </option>';
             }
         }
     }

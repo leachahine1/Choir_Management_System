@@ -30,7 +30,7 @@
             <div class="col-md-12">
                 <?php foreach ($donation as $row) { ?>
 
-                    <div class="portlet box green">
+                    <div class="portlet box purple">
                         <div class="portlet-title">
                             <div class="caption">
                                 <?php echo $row['category']; ?> <?php echo lang('acc_tte'); ?>

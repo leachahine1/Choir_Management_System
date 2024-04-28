@@ -86,8 +86,12 @@ class Choir_members extends MX_Controller {
     //This function is used for filtering to get Choir_members information
     //Whene Choir and section gave in the frontend, if the Choir have section he cane select the section and get Choir_member information in the viwe.
     public function ajaxChoirSection() {
-        $ChoirTitle = $this->input->get('ChoirTitle');
+        $ChoirTitle = $this->input->get('Choir_title');
         $query = $this->common->getWhere('Choir', 'Choir_title', $ChoirTitle);
+        
+   // $ChoirID = $this->input->get('id');
+    //$query = $this->common->getWhere('Choir', 'id', $ChoirID);
+
         foreach ($query as $row) {
             $data = $row['section'];
         }
@@ -98,6 +102,7 @@ class Choir_members extends MX_Controller {
                         <div class="col-md-4">
                             <select name="section" class="form-control">
                                 <option value="all">' . lang('stu_sel_cla_velue_all') . '</option>';
+           
             foreach ($sectionArray as $sec) {
                 echo '<option value="' . $sec . '">' . $sec . '</option>';
             }

@@ -31,7 +31,7 @@
         <div class="row">
             <div class="col-md-12 ">
                 <!-- BEGIN SAMPLE FORM PORTLET-->
-                <div class="portlet box green ">
+                <div class="portlet box purple ">
                     <div class="portlet-title">
                         <div class="caption">
                             <i class="fa fa-bars"></i> <?php echo lang('clas_rout_for'); ?> <?php echo $ChoirTile; ?>
@@ -100,7 +100,7 @@
                         <?php echo form_close(); ?>
 
                         <div class="alert alert-warning">
-                            <div class="portlet box green">
+                            <div class="portlet box purple">
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <?php echo $ChoirTile;?> <?php echo lang('clas_routine'); ?>

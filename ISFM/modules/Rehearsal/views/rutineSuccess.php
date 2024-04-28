@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-md-12 ">
                 <!-- BEGIN SAMPLE FORM PORTLET-->
-                <div class="portlet box green ">
+                <div class="portlet box purple ">
                     <div class="portlet-title">
                         <div class="caption">
                             " <?php echo $rehearsalTitle; ?> " <?php echo lang('exa_rou_succ_1'); ?> " <?php echo $Choir_title; ?> "
@@ -44,7 +44,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="portlet box green">
+                                <div class="portlet box purple">
                                     <div class="portlet-title">
                                         <div class="caption">
                                             <?php echo lang('exa_erdas'); ?>

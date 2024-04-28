@@ -30,7 +30,7 @@ class Library extends CI_Controller {
             $data_insert = array(
                 'category_title' => $this->db->escape_like_str($this->input->post('category', TRUE)),
                 'description' => $this->db->escape_like_str($this->input->post('description', TRUE)),
-                'section_trainer_category' => $this->db->escape_like_str($this->input->post('section_trainer_category', TRUE)),
+                'parent_category' => $this->db->escape_like_str($this->input->post('parent_category', TRUE)),
                 'category_creator' => $this->db->escape_like_str($user->username)
             );
             $result = $this->db->insert('resources_category', $data_insert);
@@ -62,11 +62,11 @@ class Library extends CI_Controller {
         if ($this->input->post('submit', TRUE)) {
             $category = $this->input->post('category', TRUE);
             $description = $this->input->post('description', TRUE);
-            $section_trainerCategory = $this->input->post('section_trainer_category', TRUE);
+            $parentCategory = $this->input->post('parent_category', TRUE);
             $editData = array(
                 'category_title' => $this->db->escape_like_str($category),
                 'description' => $this->db->escape_like_str($description),
-                'section_trainer_category' => $this->db->escape_like_str($section_trainerCategory)
+                'parent_category' => $this->db->escape_like_str($parentCategory)
             );
             $this->db->where('id', $id);
             if ($this->db->update('resources_category', $editData)) {

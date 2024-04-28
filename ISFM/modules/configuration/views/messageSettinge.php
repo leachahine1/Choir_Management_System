@@ -33,7 +33,7 @@
                     echo $Message;
                 }
                 ?>
-                <div class="portlet box green ">
+                <div class="portlet box purple ">
                     <div class="portlet-title">
                         <div class="caption">
                             <?php echo lang('con_syms'); ?>
@@ -81,7 +81,7 @@
                 </div>
             </div>
             <div class="col-md-12 ">
-                <div class="portlet box green ">
+                <div class="portlet box purple ">
                     <div class="portlet-title">
                         <div class="caption">
                             <?php echo lang('con_smsapira'); ?>

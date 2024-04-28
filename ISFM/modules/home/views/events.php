@@ -37,7 +37,7 @@
         <div class="row">
             <div class="col-md-12">
                 <!-- BEGIN PORTLET-->
-                <div class="portlet box green">
+                <div class="portlet box purple">
                     <div class="portlet-title">
                         <div class="caption">
                             <i class="fa fa-gift"></i><?php echo lang('cal_add_new_eve'); ?>
@@ -127,7 +127,7 @@
         <div class="row">
             <div class="col-md-12">
                 <!-- BEGIN REHEARSALPLE TABLE PORTLET-->
-                <div class="portlet box green">
+                <div class="portlet box purple">
                     <div class="portlet-title">
                         <div class="caption">
                             <?php echo lang('cal_event_info'); ?>

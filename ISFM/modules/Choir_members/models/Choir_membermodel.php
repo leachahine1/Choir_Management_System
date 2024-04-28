@@ -17,6 +17,10 @@ class Choir_membermodel extends CI_Model {
     public function ChoirSection($Choir_id) {
         $data = array();
         $query = $this->db->query("SELECT section FROM Choir WHERE id=$Choir_id");
+        if (!$query) {
+            log_message('error', 'Query failed: '.$this->db->last_query());
+            return []; // or handle error appropriately
+        }
         foreach ($query->result_array() as $row) {
             $data[] = $row;
         }
@@ -26,11 +30,15 @@ class Choir_membermodel extends CI_Model {
     //This function return all Choir_member in a class.
     public function getAllChoir_member($a) {
         $query = $this->db->get_where('Choir_Choir_members', array('Choir_id' => $a, 'year' => date('Y')));
+        echo $this->db->last_query(); // Add this to see the generated query
+    
         $data = array();
         foreach ($query->result_array() as $row) {
             $data[] = $row;
-        }return $data;
+        }
+        return $data;
     }
+    
 
     public function getChoir_memberByChoirSection($a, $b) {
         if ($b == 'all') {

@@ -37,7 +37,7 @@
             <div class="col-md-12">
                 <div class="tab-content">
                     <div id="tab_0" class="tab-pane active">
-                        <div class="portlet box green">
+                        <div class="portlet box purple">
                             <div class="portlet-title">
                                 <div class="caption">
                                     <?php echo lang('stu_sel_cla_table_heading'); ?>
@@ -111,7 +111,7 @@
                 document.getElementById("ajaxResult").innerHTML = xmlhttp.responseText;
             }
         }
-        xmlhttp.open("GET", "index.php/Choir_members/ajaxChoirSection?ChoirTitle=" + str, true);
+        xmlhttp.open("GET", "index.php/sChoir/ajaxChoirInfo?q=" + str, true);
         xmlhttp.send();
     }
 </script>

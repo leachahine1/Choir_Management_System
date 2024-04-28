@@ -31,7 +31,7 @@
         <div class="row">
             <div class="col-md-12 ">
                 <!-- BEGIN SAMPLE FORM PORTLET-->
-                <div class="portlet box green ">
+                <div class="portlet box purple ">
                     <div class="portlet-title">
                         <div class="caption">
                             <?php echo lang('clas_add_tab_tit'); ?>
@@ -50,7 +50,7 @@
                             <div class="form-body">
 
                                 <div class="form-group">
-                                    <label class="col-md-3 control-label"> <?php echo lang('clas_Choir_title'); ?> <span class="requiredStar"> * </span></label>
+                                    <label class="col-md-3 control-label"> <?php echo lang('clas_Choir_title'); ?> <span class="requiredStar">  * </span></label>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" placeholder="<?php echo lang('clas_title_plash'); ?>" name="Choir_title" data-validation="required" data-validation-error-msg="<?php echo lang('clas_cls_tit_requi'); ?>">
                                     </div>

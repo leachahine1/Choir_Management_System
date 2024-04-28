@@ -32,7 +32,7 @@
         <div class="row">
             <div class="col-md-12 ">
                 <!-- BEGIN SAMPLE FORM PORTLET-->
-                <div class="portlet box green ">
+                <div class="portlet box purple ">
                     <div class="portlet-title">
                         <div class="caption">
                             <i class="fa fa-bars"></i> <?php echo lang('header_sub_result'); ?>
@@ -74,7 +74,7 @@
                             </div>
                             <input class="form-control" type="hidden" name="rehearsalRutinID" value="<?php echo $rehearsalRUtinID; ?>">
                             <input class="form-control" type="hidden" name="rehearsalId" value="<?php echo $rehearsalId; ?>">
-                            <div class="portlet box green">
+                            <div class="portlet box purple">
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <?php echo lang('exa_gtmagp'); ?>

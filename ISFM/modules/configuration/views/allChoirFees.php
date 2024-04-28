@@ -44,7 +44,7 @@
         <?php }?>
             <div class="col-md-4">
                 <!-- BEGIN REHEARSALPLE TABLE PORTLET-->
-                <div class="portlet box green">
+                <div class="portlet box purple">
                     <div class="portlet-title">
                         <div class="caption">
                             Add New Monthly Fee Item
@@ -104,7 +104,7 @@
                 <!-- END REHEARSALPLE TABLE PORTLET-->
             </div>
             <div class="col-md-8">
-                <div class="portlet box green">
+                <div class="portlet box purple">
                     <div class="portlet-title">
                         <div class="caption">
                             All Fee Items

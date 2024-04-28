@@ -37,7 +37,7 @@
         </div>
         <!-- END PAGE HEADER-->
         <!-- BEGIN PAGE CONTENT-->
-        <div class="portlet box green">
+        <div class="portlet box purple">
             <div class="portlet-title">
                 <div class="caption">
                     <i class="fa fa-cogs"></i><?php echo lang('att_aiah'); ?>

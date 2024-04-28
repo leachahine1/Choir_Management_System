@@ -28,7 +28,7 @@
         <!-- BEGIN PAGE CONTENT-->
         <div class="row">
             <div class="col-sm-12">
-                <div class="portlet box green">
+                <div class="portlet box purple">
                     <div class="portlet-title">
                         <div class="caption">
                             <i class="fa fa-gears"></i> <?php echo lang('con_yswhd'); ?>

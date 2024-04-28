@@ -434,17 +434,17 @@ class Configuration extends MX_Controller {
                 echo '<option value="' . $row1['user_id'] . '">' . $row1['fullname'] . ' </option>';
             }
         } elseif ($group == 5) {
-            //If the parent's groun was selected thene work here
-            $query = $this->db->query("SELECT user_id,parents_name FROM parents_info");
+            //If the section_trainer's groun was selected thene work here
+            $query = $this->db->query("SELECT user_id,section_trainers_name FROM section_trainers_info");
             foreach ($query->result_array() as $row) {
                 $data[] = $row;
             }
             echo '<option value="">' . lang('select') . '</option>';
             foreach ($data as $row1) {
-                echo '<option value="' . $row1['user_id'] . '">' . $row1['parents_name'] . ' </option>';
+                echo '<option value="' . $row1['user_id'] . '">' . $row1['section_trainers_name'] . ' </option>';
             }
         } elseif ($group == 6) {
-            //If the parent's groun was selected thene work here
+            //If the section_trainer's groun was selected thene work here
             $query = $this->db->query("SELECT user_id,full_name FROM userinfo WHERE group_id=6");
             foreach ($query->result_array() as $row) {
                 $data[] = $row;
@@ -454,7 +454,7 @@ class Configuration extends MX_Controller {
                 echo '<option value="' . $row5['user_id'] . '">' . $row5['full_name'] . '</option>';
             }
         } elseif ($group == 'library_man') {
-            //If the parent's groun was selected thene work here
+            //If the section_trainer's groun was selected thene work here
             $query = $this->db->query("SELECT user_id,full_name FROM userinfo WHERE group_id=7");
             foreach ($query->result_array() as $row) {
                 $data[] = $row;
@@ -464,7 +464,7 @@ class Configuration extends MX_Controller {
                 echo '<option value="' . $row6['user_id'] . '">' . $row6['full_name'] . '</option>';
             }
         } elseif ($group == 9) {
-            //If the parent's groun was selected thene work here
+            //If the section_trainer's groun was selected thene work here
             $query = $this->db->query("SELECT user_id,full_name FROM userinfo WHERE group_id=8");
             foreach ($query->result_array() as $row) {
                 $data[] = $row;
@@ -474,7 +474,7 @@ class Configuration extends MX_Controller {
                 echo '<option value="' . $row1['user_id'] . '">' . $row1['full_name'] . '</option>';
             }
         } elseif ($group == 9) {
-            //If the parent's groun was selected thene work here
+            //If the section_trainer's groun was selected thene work here
             $query = $this->db->query("SELECT user_id,full_name FROM userinfo WHERE group_id=9");
             foreach ($query->result_array() as $row) {
                 $data[] = $row;
@@ -506,10 +506,10 @@ class Configuration extends MX_Controller {
                 'add_section_leader' => $this->db->escape_like_str($this->input->post('add_section_leader', TRUE)),
                 'section_leader_details' => $this->db->escape_like_str($this->input->post('section_leader_details', TRUE)),
                 'section_leader_edit_delete' => $this->db->escape_like_str($this->input->post('section_leader_edit_delete', TRUE)),
-                'all_parents_info' => $this->db->escape_like_str($this->input->post('all_parents_info', TRUE)),
-                'own_parents_info' => $this->db->escape_like_str($this->input->post('own_parents_info', TRUE)),
-                'make_parents_id' => $this->db->escape_like_str($this->input->post('make_parents_id', TRUE)),
-                'parents_edit_dlete' => $this->db->escape_like_str($this->input->post('parents_edit_dlete', TRUE)),
+                'all_section_trainers_info' => $this->db->escape_like_str($this->input->post('all_section_trainers_info', TRUE)),
+                'own_section_trainers_info' => $this->db->escape_like_str($this->input->post('own_section_trainers_info', TRUE)),
+                'make_section_trainers_id' => $this->db->escape_like_str($this->input->post('make_section_trainers_id', TRUE)),
+                'section_trainers_edit_dlete' => $this->db->escape_like_str($this->input->post('section_trainers_edit_dlete', TRUE)),
                 'add_new_Choir' => $this->db->escape_like_str($this->input->post('add_new_Choir', TRUE)),
                 'all_Choir_info' => $this->db->escape_like_str($this->input->post('all_Choir_info', TRUE)),
                 'Choir_details' => $this->db->escape_like_str($this->input->post('Choir_details', TRUE)),
@@ -734,35 +734,35 @@ class Configuration extends MX_Controller {
                 }
             }
             // Role No 16
-            if ($key == 'all_parents_info') {
+            if ($key == 'all_section_trainers_info') {
                 if ($val == 0) {
-                    echo '<label class="roll_row"><input type="checkbox" name="all_parents_info" value="1"> ' . lang('rol_16') . '</label>';
+                    echo '<label class="roll_row"><input type="checkbox" name="all_section_trainers_info" value="1"> ' . lang('rol_16') . '</label>';
                 } else {
-                    echo '<label class="roll_row"><input type="checkbox" name="all_parents_info" value="1" checked> ' . lang('rol_16') . '</label>';
+                    echo '<label class="roll_row"><input type="checkbox" name="all_section_trainers_info" value="1" checked> ' . lang('rol_16') . '</label>';
                 }
             }
             // Role No 17
-            if ($key == 'own_parents_info') {
+            if ($key == 'own_section_trainers_info') {
                 if ($val == 0) {
-                    echo '<label class="roll_row"><input type="checkbox" name="own_parents_info" value="1"> ' . lang('rol_17') . '</label>';
+                    echo '<label class="roll_row"><input type="checkbox" name="own_section_trainers_info" value="1"> ' . lang('rol_17') . '</label>';
                 } else {
-                    echo '<label class="roll_row"><input type="checkbox" name="own_parents_info" value="1" checked> ' . lang('rol_17') . '</label>';
+                    echo '<label class="roll_row"><input type="checkbox" name="own_section_trainers_info" value="1" checked> ' . lang('rol_17') . '</label>';
                 }
             }
             // Role No 18
-            if ($key == 'make_parents_id') {
+            if ($key == 'make_section_trainers_id') {
                 if ($val == 0) {
-                    echo '<label class="roll_row"><input type="checkbox" name="make_parents_id" value="1">' . lang('rol_18') . ' </label>';
+                    echo '<label class="roll_row"><input type="checkbox" name="make_section_trainers_id" value="1">' . lang('rol_18') . ' </label>';
                 } else {
-                    echo '<label class="roll_row"><input type="checkbox" name="make_parents_id" value="1" checked>' . lang('rol_18') . ' </label>';
+                    echo '<label class="roll_row"><input type="checkbox" name="make_section_trainers_id" value="1" checked>' . lang('rol_18') . ' </label>';
                 }
             }
             // Role No 19
-            if ($key == 'parents_edit_dlete') {
+            if ($key == 'section_trainers_edit_dlete') {
                 if ($val == 0) {
-                    echo '<label class="roll_row"><input type="checkbox" name="parents_edit_dlete" value="1">' . lang('rol_19') . ' </label>';
+                    echo '<label class="roll_row"><input type="checkbox" name="section_trainers_edit_dlete" value="1">' . lang('rol_19') . ' </label>';
                 } else {
-                    echo '<label class="roll_row"><input type="checkbox" name="parents_edit_dlete" value="1" checked> ' . lang('rol_19') . '</label>';
+                    echo '<label class="roll_row"><input type="checkbox" name="section_trainers_edit_dlete" value="1" checked> ' . lang('rol_19') . '</label>';
                 }
             }
             // Role No 20
@@ -1376,10 +1376,10 @@ class Configuration extends MX_Controller {
                 'add_section_leader' => $this->db->escape_like_str($this->input->post('add_section_leader', TRUE)),
                 'section_leader_details' => $this->db->escape_like_str($this->input->post('section_leader_details', TRUE)),
                 'section_leader_edit_delete' => $this->db->escape_like_str($this->input->post('section_leader_edit_delete', TRUE)),
-                'all_parents_info' => $this->db->escape_like_str($this->input->post('all_parents_info', TRUE)),
-                'own_parents_info' => $this->db->escape_like_str($this->input->post('own_parents_info', TRUE)),
-                'make_parents_id' => $this->db->escape_like_str($this->input->post('make_parents_id', TRUE)),
-                'parents_edit_dlete' => $this->db->escape_like_str($this->input->post('parents_edit_dlete', TRUE)),
+                'all_section_trainers_info' => $this->db->escape_like_str($this->input->post('all_section_trainers_info', TRUE)),
+                'own_section_trainers_info' => $this->db->escape_like_str($this->input->post('own_section_trainers_info', TRUE)),
+                'make_section_trainers_id' => $this->db->escape_like_str($this->input->post('make_section_trainers_id', TRUE)),
+                'section_trainers_edit_dlete' => $this->db->escape_like_str($this->input->post('section_trainers_edit_dlete', TRUE)),
                 'add_new_Choir' => $this->db->escape_like_str($this->input->post('add_new_Choir', TRUE)),
                 'all_Choir_info' => $this->db->escape_like_str($this->input->post('all_Choir_info', TRUE)),
                 'Choir_details' => $this->db->escape_like_str($this->input->post('Choir_details', TRUE)),
@@ -1493,10 +1493,10 @@ class Configuration extends MX_Controller {
             <label class="roll_row"><input type="checkbox" name="add_section_leader" value="1" checked> ' . lang('rol_13') . '</label>
             <label class="roll_row"><input type="checkbox" name="section_leader_details" value="1" checked> ' . lang('rol_14') . '</label>
             <label class="roll_row"><input type="checkbox" name="section_leader_edit_delete" value="1" checked> ' . lang('rol_15') . '</label>
-            <label class="roll_row"><input type="checkbox" name="all_parents_info" value="1" checked> ' . lang('rol_16') . '</label>
-            <label class="roll_row"><input type="checkbox" name="own_parents_info" value="1"> ' . lang('rol_17') . '</label>
-            <label class="roll_row"><input type="checkbox" name="make_parents_id" value="1" checked> ' . lang('rol_18') . '</label>
-            <label class="roll_row"><input type="checkbox" name="parents_edit_dlete" value="1" checked> ' . lang('rol_19') . '</label>
+            <label class="roll_row"><input type="checkbox" name="all_section_trainers_info" value="1" checked> ' . lang('rol_16') . '</label>
+            <label class="roll_row"><input type="checkbox" name="own_section_trainers_info" value="1"> ' . lang('rol_17') . '</label>
+            <label class="roll_row"><input type="checkbox" name="make_section_trainers_id" value="1" checked> ' . lang('rol_18') . '</label>
+            <label class="roll_row"><input type="checkbox" name="section_trainers_edit_dlete" value="1" checked> ' . lang('rol_19') . '</label>
             <label class="roll_row"><input type="checkbox" name="add_new_Choir" value="1" checked> ' . lang('rol_20') . '</label>
             <label class="roll_row"><input type="checkbox" name="all_Choir_info" value="1" checked> ' . lang('rol_21') . '</label>
             <label class="roll_row"><input type="checkbox" name="Choir_details" value="1" checked> ' . lang('rol_22') . '</label>
@@ -1590,10 +1590,10 @@ class Configuration extends MX_Controller {
             <label class="roll_row"><input type="checkbox" name="add_section_leader" value="1"> ' . lang('rol_13') . '</label>
             <label class="roll_row"><input type="checkbox" name="section_leader_details" value="1"> ' . lang('rol_14') . '</label>
             <label class="roll_row"><input type="checkbox" name="section_leader_edit_delete" value="1">' . lang('rol_15') . ' </label>
-            <label class="roll_row"><input type="checkbox" name="all_parents_info" value="1"> ' . lang('rol_16') . '</label>
-            <label class="roll_row"><input type="checkbox" name="own_parents_info" value="1" checked> ' . lang('rol_17') . '</label>
-            <label class="roll_row"><input type="checkbox" name="make_parents_id" value="1"> ' . lang('rol_18') . '</label>
-            <label class="roll_row"><input type="checkbox" name="parents_edit_dlete" value="1"> ' . lang('rol_19') . '</label>
+            <label class="roll_row"><input type="checkbox" name="all_section_trainers_info" value="1"> ' . lang('rol_16') . '</label>
+            <label class="roll_row"><input type="checkbox" name="own_section_trainers_info" value="1" checked> ' . lang('rol_17') . '</label>
+            <label class="roll_row"><input type="checkbox" name="make_section_trainers_id" value="1"> ' . lang('rol_18') . '</label>
+            <label class="roll_row"><input type="checkbox" name="section_trainers_edit_dlete" value="1"> ' . lang('rol_19') . '</label>
             <label class="roll_row"><input type="checkbox" name="add_new_Choir" value="1"> ' . lang('rol_20') . '</label>
             <label class="roll_row"><input type="checkbox" name="all_Choir_info" value="1"> ' . lang('rol_21') . '</label>
             <label class="roll_row"><input type="checkbox" name="Choir_details" value="1">' . lang('rol_22') . ' </label>
@@ -1687,10 +1687,10 @@ class Configuration extends MX_Controller {
             <label class="roll_row"><input type="checkbox" name="add_section_leader" value="1"> ' . lang('rol_13') . '</label>
             <label class="roll_row"><input type="checkbox" name="section_leader_details" value="1"> ' . lang('rol_14') . '</label>
             <label class="roll_row"><input type="checkbox" name="section_leader_edit_delete" value="1"> ' . lang('rol_15') . '</label>
-            <label class="roll_row"><input type="checkbox" name="all_parents_info" value="1" checked> ' . lang('rol_16') . '</label>
-            <label class="roll_row"><input type="checkbox" name="own_parents_info" value="1"> ' . lang('rol_17') . '</label>
-            <label class="roll_row"><input type="checkbox" name="make_parents_id" value="1"> ' . lang('rol_18') . '</label>
-            <label class="roll_row"><input type="checkbox" name="parents_edit_dlete" value="1"> ' . lang('rol_19') . '</label>
+            <label class="roll_row"><input type="checkbox" name="all_section_trainers_info" value="1" checked> ' . lang('rol_16') . '</label>
+            <label class="roll_row"><input type="checkbox" name="own_section_trainers_info" value="1"> ' . lang('rol_17') . '</label>
+            <label class="roll_row"><input type="checkbox" name="make_section_trainers_id" value="1"> ' . lang('rol_18') . '</label>
+            <label class="roll_row"><input type="checkbox" name="section_trainers_edit_dlete" value="1"> ' . lang('rol_19') . '</label>
             <label class="roll_row"><input type="checkbox" name="add_new_Choir" value="1"> ' . lang('rol_20') . '</label>
             <label class="roll_row"><input type="checkbox" name="all_Choir_info" value="1" checked> ' . lang('rol_21') . '</label>
             <label class="roll_row"><input type="checkbox" name="Choir_details" value="1" checked> ' . lang('rol_22') . '</label>
@@ -1767,7 +1767,7 @@ class Configuration extends MX_Controller {
             <label class="roll_row"><input type="checkbox" name="front_setings" value="1"> ' . lang('rol_92') . '</label>
             </div></div></div><div class="clearfix"></div>';
         } elseif ($userGroupId == '5') {
-            //Parents access here
+            //Section_trainers access here
             echo '<div class="col-md-12"><div class="alert alert-info"><strong>' . lang('conc_role') . '</strong> ' . lang('conc_6') . '</div><div class="form-group"><div class="checkbox-list">
             <label class="roll_row"><input type="checkbox" name="das_top_info" value="1"> ' . lang('rol_1') . '  </label>
             <label class="roll_row"><input type="checkbox" name="das_grab_chart" value="1"> ' . lang('rol_2') . ' </label>
@@ -1784,10 +1784,10 @@ class Configuration extends MX_Controller {
             <label class="roll_row"><input type="checkbox" name="add_section_leader" value="1"> ' . lang('rol_13') . '</label>
             <label class="roll_row"><input type="checkbox" name="section_leader_details" value="1"> ' . lang('rol_14') . '</label>
             <label class="roll_row"><input type="checkbox" name="section_leader_edit_delete" value="1"> ' . lang('rol_15') . '</label>
-            <label class="roll_row"><input type="checkbox" name="all_parents_info" value="1"> ' . lang('rol_16') . '</label>
-            <label class="roll_row"><input type="checkbox" name="own_parents_info" value="1" checked> ' . lang('rol_17') . '</label>
-            <label class="roll_row"><input type="checkbox" name="make_parents_id" value="1"> ' . lang('rol_18') . '</label>
-            <label class="roll_row"><input type="checkbox" name="parents_edit_dlete" value="1"> ' . lang('rol_19') . '</label>
+            <label class="roll_row"><input type="checkbox" name="all_section_trainers_info" value="1"> ' . lang('rol_16') . '</label>
+            <label class="roll_row"><input type="checkbox" name="own_section_trainers_info" value="1" checked> ' . lang('rol_17') . '</label>
+            <label class="roll_row"><input type="checkbox" name="make_section_trainers_id" value="1"> ' . lang('rol_18') . '</label>
+            <label class="roll_row"><input type="checkbox" name="section_trainers_edit_dlete" value="1"> ' . lang('rol_19') . '</label>
             <label class="roll_row"><input type="checkbox" name="add_new_Choir" value="1"> ' . lang('rol_20') . '</label>
             <label class="roll_row"><input type="checkbox" name="all_Choir_info" value="1"> ' . lang('rol_21') . '</label>
             <label class="roll_row"><input type="checkbox" name="Choir_details" value="1"> ' . lang('rol_22') . '</label>
@@ -1881,10 +1881,10 @@ class Configuration extends MX_Controller {
             <label class="roll_row"><input type="checkbox" name="add_section_leader" value="1"> ' . lang('rol_13') . '</label>
             <label class="roll_row"><input type="checkbox" name="section_leader_details" value="1" checked> ' . lang('rol_14') . '</label>
             <label class="roll_row"><input type="checkbox" name="section_leader_edit_delete" value="1"> ' . lang('rol_15') . '</label>
-            <label class="roll_row"><input type="checkbox" name="all_parents_info" value="1" checked> ' . lang('rol_16') . '</label>
-            <label class="roll_row"><input type="checkbox" name="own_parents_info" value="1"> ' . lang('rol_17') . '</label>
-            <label class="roll_row"><input type="checkbox" name="make_parents_id" value="1">' . lang('rol_18') . ' </label>
-            <label class="roll_row"><input type="checkbox" name="parents_edit_dlete" value="1"> ' . lang('rol_19') . '</label>
+            <label class="roll_row"><input type="checkbox" name="all_section_trainers_info" value="1" checked> ' . lang('rol_16') . '</label>
+            <label class="roll_row"><input type="checkbox" name="own_section_trainers_info" value="1"> ' . lang('rol_17') . '</label>
+            <label class="roll_row"><input type="checkbox" name="make_section_trainers_id" value="1">' . lang('rol_18') . ' </label>
+            <label class="roll_row"><input type="checkbox" name="section_trainers_edit_dlete" value="1"> ' . lang('rol_19') . '</label>
             <label class="roll_row"><input type="checkbox" name="add_new_Choir" value="1"> ' . lang('rol_20') . '</label>
             <label class="roll_row"><input type="checkbox" name="all_Choir_info" value="1" checked> ' . lang('rol_21') . '</label>
             <label class="roll_row"><input type="checkbox" name="Choir_details" value="1" checked> ' . lang('rol_22') . '</label>
@@ -1978,10 +1978,10 @@ class Configuration extends MX_Controller {
             <label class="roll_row"><input type="checkbox" name="add_section_leader" value="1"> ' . lang('rol_13') . '</label>
             <label class="roll_row"><input type="checkbox" name="section_leader_details" value="1" checked> ' . lang('rol_14') . '</label>
             <label class="roll_row"><input type="checkbox" name="section_leader_edit_delete" value="1"> ' . lang('rol_15') . '</label>
-            <label class="roll_row"><input type="checkbox" name="all_parents_info" value="1" checked> ' . lang('rol_16') . '</label>
-            <label class="roll_row"><input type="checkbox" name="own_parents_info" value="1"> ' . lang('rol_17') . '</label>
-            <label class="roll_row"><input type="checkbox" name="make_parents_id" value="1"> ' . lang('rol_18') . '</label>
-            <label class="roll_row"><input type="checkbox" name="parents_edit_dlete" value="1"> ' . lang('rol_19') . '</label>
+            <label class="roll_row"><input type="checkbox" name="all_section_trainers_info" value="1" checked> ' . lang('rol_16') . '</label>
+            <label class="roll_row"><input type="checkbox" name="own_section_trainers_info" value="1"> ' . lang('rol_17') . '</label>
+            <label class="roll_row"><input type="checkbox" name="make_section_trainers_id" value="1"> ' . lang('rol_18') . '</label>
+            <label class="roll_row"><input type="checkbox" name="section_trainers_edit_dlete" value="1"> ' . lang('rol_19') . '</label>
             <label class="roll_row"><input type="checkbox" name="add_new_Choir" value="1"> ' . lang('rol_20') . '</label>
             <label class="roll_row"><input type="checkbox" name="all_Choir_info" value="1" checked> ' . lang('rol_21') . '</label>
             <label class="roll_row"><input type="checkbox" name="Choir_details" value="1" checked> ' . lang('rol_22') . '</label>
@@ -2075,10 +2075,10 @@ class Configuration extends MX_Controller {
             <label class="roll_row"><input type="checkbox" name="add_section_leader" value="1"> ' . lang('rol_13') . '</label>
             <label class="roll_row"><input type="checkbox" name="section_leader_details" value="1"> ' . lang('rol_14') . '</label>
             <label class="roll_row"><input type="checkbox" name="section_leader_edit_delete" value="1"> ' . lang('rol_15') . '</label>
-            <label class="roll_row"><input type="checkbox" name="all_parents_info" value="1"> ' . lang('rol_16') . '</label>
-            <label class="roll_row"><input type="checkbox" name="own_parents_info" value="1"> ' . lang('rol_17') . '</label>
-            <label class="roll_row"><input type="checkbox" name="make_parents_id" value="1"> ' . lang('rol_18') . '</label>
-            <label class="roll_row"><input type="checkbox" name="parents_edit_dlete" value="1"> ' . lang('rol_19') . '</label>
+            <label class="roll_row"><input type="checkbox" name="all_section_trainers_info" value="1"> ' . lang('rol_16') . '</label>
+            <label class="roll_row"><input type="checkbox" name="own_section_trainers_info" value="1"> ' . lang('rol_17') . '</label>
+            <label class="roll_row"><input type="checkbox" name="make_section_trainers_id" value="1"> ' . lang('rol_18') . '</label>
+            <label class="roll_row"><input type="checkbox" name="section_trainers_edit_dlete" value="1"> ' . lang('rol_19') . '</label>
             <label class="roll_row"><input type="checkbox" name="add_new_Choir" value="1"> ' . lang('rol_20') . '</label>
             <label class="roll_row"><input type="checkbox" name="all_Choir_info" value="1"> ' . lang('rol_21') . '</label>
             <label class="roll_row"><input type="checkbox" name="Choir_details" value="1"> ' . lang('rol_22') . '</label>
@@ -2172,10 +2172,10 @@ class Configuration extends MX_Controller {
             <label class="roll_row"><input type="checkbox" name="add_section_leader" value="1"> ' . lang('rol_13') . '</label>
             <label class="roll_row"><input type="checkbox" name="section_leader_details" value="1"> ' . lang('rol_14') . '</label>
             <label class="roll_row"><input type="checkbox" name="section_leader_edit_delete" value="1"> ' . lang('rol_15') . '</label>
-            <label class="roll_row"><input type="checkbox" name="all_parents_info" value="1"> ' . lang('rol_16') . '</label>
-            <label class="roll_row"><input type="checkbox" name="own_parents_info" value="1"> ' . lang('rol_17') . '</label>
-            <label class="roll_row"><input type="checkbox" name="make_parents_id" value="1"> ' . lang('rol_18') . '</label>
-            <label class="roll_row"><input type="checkbox" name="parents_edit_dlete" value="1"> ' . lang('rol_19') . '</label>
+            <label class="roll_row"><input type="checkbox" name="all_section_trainers_info" value="1"> ' . lang('rol_16') . '</label>
+            <label class="roll_row"><input type="checkbox" name="own_section_trainers_info" value="1"> ' . lang('rol_17') . '</label>
+            <label class="roll_row"><input type="checkbox" name="make_section_trainers_id" value="1"> ' . lang('rol_18') . '</label>
+            <label class="roll_row"><input type="checkbox" name="section_trainers_edit_dlete" value="1"> ' . lang('rol_19') . '</label>
             <label class="roll_row"><input type="checkbox" name="add_new_Choir" value="1"> ' . lang('rol_20') . '</label>
             <label class="roll_row"><input type="checkbox" name="all_Choir_info" value="1"> ' . lang('rol_21') . '</label>
             <label class="roll_row"><input type="checkbox" name="Choir_details" value="1"> ' . lang('rol_22') . '</label>
@@ -2272,10 +2272,10 @@ class Configuration extends MX_Controller {
             'add_section_leader' => $this->db->escape_like_str(1),
             'section_leader_details' => $this->db->escape_like_str(1),
             'section_leader_edit_delete' => $this->db->escape_like_str(1),
-            'all_parents_info' => $this->db->escape_like_str(1),
-            'own_parents_info' => $this->db->escape_like_str(0),
-            'make_parents_id' => $this->db->escape_like_str(1),
-            'parents_edit_dlete' => $this->db->escape_like_str(1),
+            'all_section_trainers_info' => $this->db->escape_like_str(1),
+            'own_section_trainers_info' => $this->db->escape_like_str(0),
+            'make_section_trainers_id' => $this->db->escape_like_str(1),
+            'section_trainers_edit_dlete' => $this->db->escape_like_str(1),
             'add_new_Choir' => $this->db->escape_like_str(1),
             'all_Choir_info' => $this->db->escape_like_str(1),
             'Choir_details' => $this->db->escape_like_str(1),
@@ -2369,10 +2369,10 @@ class Configuration extends MX_Controller {
             'add_section_leader' => $this->db->escape_like_str(0),
             'section_leader_details' => $this->db->escape_like_str(0),
             'section_leader_edit_delete' => $this->db->escape_like_str(0),
-            'all_parents_info' => $this->db->escape_like_str(0),
-            'own_parents_info' => $this->db->escape_like_str(1),
-            'make_parents_id' => $this->db->escape_like_str(0),
-            'parents_edit_dlete' => $this->db->escape_like_str(0),
+            'all_section_trainers_info' => $this->db->escape_like_str(0),
+            'own_section_trainers_info' => $this->db->escape_like_str(1),
+            'make_section_trainers_id' => $this->db->escape_like_str(0),
+            'section_trainers_edit_dlete' => $this->db->escape_like_str(0),
             'add_new_Choir' => $this->db->escape_like_str(0),
             'all_Choir_info' => $this->db->escape_like_str(0),
             'Choir_details' => $this->db->escape_like_str(0),
@@ -2466,10 +2466,10 @@ class Configuration extends MX_Controller {
             'add_section_leader' => $this->db->escape_like_str(0),
             'section_leader_details' => $this->db->escape_like_str(0),
             'section_leader_edit_delete' => $this->db->escape_like_str(0),
-            'all_parents_info' => $this->db->escape_like_str(1),
-            'own_parents_info' => $this->db->escape_like_str(0),
-            'make_parents_id' => $this->db->escape_like_str(0),
-            'parents_edit_dlete' => $this->db->escape_like_str(0),
+            'all_section_trainers_info' => $this->db->escape_like_str(1),
+            'own_section_trainers_info' => $this->db->escape_like_str(0),
+            'make_section_trainers_id' => $this->db->escape_like_str(0),
+            'section_trainers_edit_dlete' => $this->db->escape_like_str(0),
             'add_new_Choir' => $this->db->escape_like_str(0),
             'all_Choir_info' => $this->db->escape_like_str(1),
             'Choir_details' => $this->db->escape_like_str(1),
@@ -2549,7 +2549,7 @@ class Configuration extends MX_Controller {
         ;
         $this->db->update('role_based_access', $section_leader);
 
-        $parents = array(
+        $section_trainers = array(
             'das_top_info' => $this->db->escape_like_str(0),
             'das_grab_chart' => $this->db->escape_like_str(0),
             'das_Choir_info' => $this->db->escape_like_str(0),
@@ -2565,10 +2565,10 @@ class Configuration extends MX_Controller {
             'add_section_leader' => $this->db->escape_like_str(0),
             'section_leader_details' => $this->db->escape_like_str(0),
             'section_leader_edit_delete' => $this->db->escape_like_str(0),
-            'all_parents_info' => $this->db->escape_like_str(0),
-            'own_parents_info' => $this->db->escape_like_str(1),
-            'make_parents_id' => $this->db->escape_like_str(0),
-            'parents_edit_dlete' => $this->db->escape_like_str(0),
+            'all_section_trainers_info' => $this->db->escape_like_str(0),
+            'own_section_trainers_info' => $this->db->escape_like_str(1),
+            'make_section_trainers_id' => $this->db->escape_like_str(0),
+            'section_trainers_edit_dlete' => $this->db->escape_like_str(0),
             'add_new_Choir' => $this->db->escape_like_str(0),
             'all_Choir_info' => $this->db->escape_like_str(0),
             'Choir_details' => $this->db->escape_like_str(0),
@@ -2645,7 +2645,7 @@ class Configuration extends MX_Controller {
             'front_setings' => $this->db->escape_like_str(1),
         );
         $this->db->where('group_id', 5);
-        $this->db->update('role_based_access', $parents);
+        $this->db->update('role_based_access', $section_trainers);
 
         $accountant = array(
             'das_top_info' => $this->db->escape_like_str(1),
@@ -2663,10 +2663,10 @@ class Configuration extends MX_Controller {
             'add_section_leader' => $this->db->escape_like_str(0),
             'section_leader_details' => $this->db->escape_like_str(0),
             'section_leader_edit_delete' => $this->db->escape_like_str(0),
-            'all_parents_info' => $this->db->escape_like_str(1),
-            'own_parents_info' => $this->db->escape_like_str(0),
-            'make_parents_id' => $this->db->escape_like_str(0),
-            'parents_edit_dlete' => $this->db->escape_like_str(0),
+            'all_section_trainers_info' => $this->db->escape_like_str(1),
+            'own_section_trainers_info' => $this->db->escape_like_str(0),
+            'make_section_trainers_id' => $this->db->escape_like_str(0),
+            'section_trainers_edit_dlete' => $this->db->escape_like_str(0),
             'add_new_Choir' => $this->db->escape_like_str(0),
             'all_Choir_info' => $this->db->escape_like_str(1),
             'Choir_details' => $this->db->escape_like_str(1),
@@ -2761,10 +2761,10 @@ class Configuration extends MX_Controller {
             'add_section_leader' => $this->db->escape_like_str(0),
             'section_leader_details' => $this->db->escape_like_str(0),
             'section_leader_edit_delete' => $this->db->escape_like_str(0),
-            'all_parents_info' => $this->db->escape_like_str(1),
-            'own_parents_info' => $this->db->escape_like_str(0),
-            'make_parents_id' => $this->db->escape_like_str(0),
-            'parents_edit_dlete' => $this->db->escape_like_str(0),
+            'all_section_trainers_info' => $this->db->escape_like_str(1),
+            'own_section_trainers_info' => $this->db->escape_like_str(0),
+            'make_section_trainers_id' => $this->db->escape_like_str(0),
+            'section_trainers_edit_dlete' => $this->db->escape_like_str(0),
             'add_new_Choir' => $this->db->escape_like_str(0),
             'all_Choir_info' => $this->db->escape_like_str(1),
             'Choir_details' => $this->db->escape_like_str(1),
@@ -2860,10 +2860,10 @@ class Configuration extends MX_Controller {
             'add_section_leader' => $this->db->escape_like_str(0),
             'section_leader_details' => $this->db->escape_like_str(0),
             'section_leader_edit_delete' => $this->db->escape_like_str(0),
-            'all_parents_info' => $this->db->escape_like_str(1),
-            'own_parents_info' => $this->db->escape_like_str(0),
-            'make_parents_id' => $this->db->escape_like_str(0),
-            'parents_edit_dlete' => $this->db->escape_like_str(0),
+            'all_section_trainers_info' => $this->db->escape_like_str(1),
+            'own_section_trainers_info' => $this->db->escape_like_str(0),
+            'make_section_trainers_id' => $this->db->escape_like_str(0),
+            'section_trainers_edit_dlete' => $this->db->escape_like_str(0),
             'add_new_Choir' => $this->db->escape_like_str(0),
             'all_Choir_info' => $this->db->escape_like_str(0),
             'Choir_details' => $this->db->escape_like_str(0),

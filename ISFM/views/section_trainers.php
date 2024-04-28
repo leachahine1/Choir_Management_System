@@ -33,7 +33,7 @@
             <div class="col-md-12">
                 <div class="tab-content">
                     <div id="tab_0" class="tab-pane active">
-                        <div class="portlet box green">
+                        <div class="portlet box purple">
                             <div class="portlet-title">
                                 <div class="caption">
                                     <?php echo lang('par_scap'); ?>
@@ -90,27 +90,28 @@
 </div>
 <!-- END CONTENT -->
 <script>
-    function ChoirSection(str) {
-        var xmlhttp;
-        if (str.length == 0) {
-            document.getElementById("ajaxResult").innerHTML = "";
-            return;
-        }
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("ajaxResult").innerHTML = xmlhttp.responseText;
-            }
-        }
-        xmlhttp.open("GET", "index.php/section_trainers/ajaxChoirSection?q=" + str, true);
-        xmlhttp.send();
+   function ChoirSection(str) {
+    var xmlhttp;
+    if (str.length == 0) {
+        document.getElementById("ajaxResult").innerHTML = "";
+        return;
     }
+    if (window.XMLHttpRequest) {
+        // code for modern browsers
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // code for older IE versions
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            document.getElementById("ajaxResult").innerHTML = xmlhttp.responseText;
+        }
+    }
+    xmlhttp.open("GET", "index.php/section_trainers/ajaxChoirSection?q=" + encodeURIComponent(str), true);
+    xmlhttp.send();
+}
+
     jQuery(document).ready(function () {
         //here is auto reload after 1 second for time and date in the top
         jQuery(setInterval(function () {

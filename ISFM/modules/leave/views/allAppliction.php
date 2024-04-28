@@ -40,7 +40,7 @@ $userId = $user->id; ?>
             <div class="col-md-12">
                 <!-- BEGIN REHEARSALPLE TABLE PORTLET-->
                 <?php if(!empty($message)){echo $message;} ?>
-                <div class="portlet box green">
+                <div class="portlet box purple">
                     <div class="portlet-title">
                         <div class="caption">
                             <?php echo lang('app_aplilist'); ?>

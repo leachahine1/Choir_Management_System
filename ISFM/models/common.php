@@ -123,6 +123,11 @@ class Common extends CI_Model {
         $query = $this->db->query("SELECT Choir_title FROM Choir WHERE id=$Choir_id")->row();
             return $query->Choir_title;
     }
+
+    public function ChoirIdInfo($a){
+        $query = $this->db->query("SELECT id FROM Choir WHERE id=$a")->row();
+        return $query;
+    }
     
     //This function will show Choir_member title by Choir_member id
     public function Choir_member_title($Choir_member_id){
@@ -163,6 +168,7 @@ class Common extends CI_Model {
         $data = array();
         $query = $this->db->get($a);
         foreach ($query->result_array() as $row) {
+            log_message('debug', 'Row data: ' . print_r($row, TRUE));
             $data[] = $row;
         }return $data;
     }

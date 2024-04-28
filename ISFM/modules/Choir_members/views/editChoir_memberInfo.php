@@ -39,7 +39,7 @@
         <div class="row">
             <div class="col-md-12 ">
                 <!-- BEGIN SAMPLE FORM PORTLET-->
-                <div class="portlet box green ">
+                <div class="portlet box purple ">
                     <div class="portlet-title">
                         <div class="caption">
                             <i class="fa fa-bars"></i> <?php echo lang('stu_esib'); ?>
@@ -376,4 +376,6 @@
         xmlhttp.open("GET", "index.php/commonController/checkEmail?val=" + str, true);
         xmlhttp.send();
     }
+    var data = <?php echo $jsonData; ?>;
+    console.log('Data from PHP:', data);
 </script>

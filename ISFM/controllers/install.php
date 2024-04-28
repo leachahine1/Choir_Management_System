@@ -811,10 +811,10 @@ $route[\'404_override\'] = \'\';
         $this->db->query('CREATE TABLE IF NOT EXISTS `section_trainers_info` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `Choir_member_id` int(11) NOT NULL,
+  `section` int(11) NOT NULL,
   `Choir_member_Choir` varchar(50) NOT NULL,
   `section_trainers_name` varchar(100) NOT NULL,
-  `relation` varchar(100) NOT NULL,
+  `level` varchar(100) NOT NULL,
   `email` varchar(50) NOT NULL,
   `phone` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)

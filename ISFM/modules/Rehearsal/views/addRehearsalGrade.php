@@ -32,7 +32,7 @@
         <!-- BEGIN PAGE CONTENT-->
         <div class="row">
             <div class="col-md-12">
-                <div class="portlet box green">
+                <div class="portlet box purple">
                     <div class="portlet-title">
                         <div class="caption">
                             <i class="fa fa-gift"></i><?php echo lang('exa_gtgi'); ?>

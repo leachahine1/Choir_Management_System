@@ -1303,9 +1303,9 @@ CREATE TABLE IF NOT EXISTS `section_trainers_info` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `Choir_id` int(11) NOT NULL,
-  `Choir_member_id` int(11) NOT NULL,
+  `section` varchar(100) NOT NULL,
   `section_trainers_name` varchar(100) NOT NULL,
-  `relation` varchar(100) NOT NULL,
+  `level` varchar(100) NOT NULL,
   `email` varchar(50) NOT NULL,
   `phone` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
@@ -1315,7 +1315,7 @@ CREATE TABLE IF NOT EXISTS `section_trainers_info` (
 -- Dumping data for table `section_trainers_info`
 --
 
-INSERT INTO `section_trainers_info` (`id`, `user_id`, `Choir_id`, `Choir_member_id`, `section_trainers_name`, `relation`, `email`, `phone`) VALUES
+INSERT INTO `section_trainers_info` (`id`, `user_id`, `Choir_id`, `section`, `section_trainers_name`, `level`, `email`, `phone`) VALUES
 (1, 14, 1, 201601001, 'John E. Williams  Deidra D. Shaw ', 'Section_trainers', 'section_trainers@section_trainers.com', '+8801245852315'),
 (2, 15, 1, 201601002, 'Jafor Uddin Julakha Begum', 'Section_trainers', 'Jafor@Jafor.com', '+8801245852315');
 

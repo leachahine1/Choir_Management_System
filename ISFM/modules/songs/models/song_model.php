@@ -21,4 +21,15 @@ class Song_model extends CI_Model {
         }
         return $data;
     }
+
+    // Add this method inside the Song_model class
+
+public function getSongCountsPerChoir() {
+    $this->db->select('Choir_id, COUNT(*) as song_count');
+    $this->db->from('Choir_song');
+    $this->db->group_by('Choir_id');
+    $query = $this->db->get();
+    return $query->result_array();
+}
+
 }
