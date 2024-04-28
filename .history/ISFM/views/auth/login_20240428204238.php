@@ -30,28 +30,6 @@
         <link href="assets/admin/layout/css/formValidation.css" rel="stylesheet" type="text/css"/>
         <!-- END THEME STYLES -->
         <link rel="shortcut icon" href="favicon.ico"/>
-        <style>
-  /* It’s recommended to use an external CSS file for styles */
-  .header {
-    background-color: #1a1442; /* Vibrant red background */
-    text-align: center;
-    padding: 50px 0;
-    box-shadow: inset 0 -8px 9px -6px rgba(0, 0, 0, 0.3); /* Inner shadow for depth */
-  }
-  .header h1 {
-    display: inline-block;
-    font-family: 'Arial Black', Gadget, sans-serif;
-    color: #FFFFFF; /* White text */
-    text-transform: uppercase;
-    font-size: 72px; /* Big, bold font size */
-    line-height: 1;
-    text-shadow: 
-      1px 1px 0 #000, /* Multi-layered shadows for 3D text effect */
-      2px 2px 0 #000,
-      3px 3px 0 #000,
-      4px 4px 0 #000;
-  }
-</style>
     </head>
     <!-- BEGIN BODY -->
     <body class="login">
@@ -99,7 +77,7 @@
                 <label class="checkbox">
                     <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"'); ?>
                     <?php echo lang('login_remember_label'); ?></label>
-                <button id="submit" type="submit" name="submit" class="btn purple pull-right">
+                <button id="submit" type="submit" name="submit" class="btn green pull-right">
                     <?php echo lang('login_submit_btn'); ?> <i class="m-icon-swapright m-icon-white"></i>
                 </button>
             </div>

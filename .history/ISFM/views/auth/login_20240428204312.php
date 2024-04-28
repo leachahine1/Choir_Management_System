@@ -33,7 +33,7 @@
         <style>
   /* It’s recommended to use an external CSS file for styles */
   .header {
-    background-color: #1a1442; /* Vibrant red background */
+    background-color: #D52B2B; /* Vibrant red background */
     text-align: center;
     padding: 50px 0;
     box-shadow: inset 0 -8px 9px -6px rgba(0, 0, 0, 0.3); /* Inner shadow for depth */
@@ -99,7 +99,7 @@
                 <label class="checkbox">
                     <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"'); ?>
                     <?php echo lang('login_remember_label'); ?></label>
-                <button id="submit" type="submit" name="submit" class="btn purple pull-right">
+                <button id="submit" type="submit" name="submit" class="btn green pull-right">
                     <?php echo lang('login_submit_btn'); ?> <i class="m-icon-swapright m-icon-white"></i>
                 </button>
             </div>

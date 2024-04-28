@@ -30,37 +30,18 @@
         <link href="assets/admin/layout/css/formValidation.css" rel="stylesheet" type="text/css"/>
         <!-- END THEME STYLES -->
         <link rel="shortcut icon" href="favicon.ico"/>
-        <style>
-  /* It’s recommended to use an external CSS file for styles */
-  .header {
-    background-color: #1a1442; /* Vibrant red background */
-    text-align: center;
-    padding: 50px 0;
-    box-shadow: inset 0 -8px 9px -6px rgba(0, 0, 0, 0.3); /* Inner shadow for depth */
-  }
-  .header h1 {
-    display: inline-block;
-    font-family: 'Arial Black', Gadget, sans-serif;
-    color: #FFFFFF; /* White text */
-    text-transform: uppercase;
-    font-size: 72px; /* Big, bold font size */
-    line-height: 1;
-    text-shadow: 
-      1px 1px 0 #000, /* Multi-layered shadows for 3D text effect */
-      2px 2px 0 #000,
-      3px 3px 0 #000,
-      4px 4px 0 #000;
-  }
-</style>
     </head>
     <!-- BEGIN BODY -->
     <body class="login">
         <!-- BEGIN LOGO -->
         <div class="logo">
-        <div class="header">
-  <h1>The Voice<br>but COE Edition</h1>
-</div>
-
+            <a href="index.html">
+            <div style="background-color: #C00; padding: 20px;">
+    <h1 style="font-family: 'Impact', sans-serif; color: white; text-shadow: 3px 3px 0px #000, 5px 5px 0px rgba(0,0,0,0.5); text-align: center; letter-spacing: 3px; text-transform: uppercase; font-size: 60px; line-height: 70px;">
+      The Voice but COE edition
+    </h1>
+  </div>
+            </a>
         </div>
         <!-- END LOGO -->
         <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
@@ -82,7 +63,7 @@
             </div>
             <div class="form-group">
                 <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-                <label class="control-label visible-ie8 visible-ie9">Username</label>
+                <label class="control-label  visible-ie8 visible-ie9">Username</label>
                 <div class="input-icon">
                     <i class="fa fa-user"></i>
                     <input class="form-control placeholder-no-fix" type="text" autocomplete="off" data-validation="email" data-validation-error-msg="Email/Username field is required." placeholder="<?php echo lang('login_identity_label'); ?>" name="identity"/>
@@ -99,7 +80,7 @@
                 <label class="checkbox">
                     <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"'); ?>
                     <?php echo lang('login_remember_label'); ?></label>
-                <button id="submit" type="submit" name="submit" class="btn purple pull-right">
+                <button id="submit" type="submit" name="submit" class="btn red pull-right">
                     <?php echo lang('login_submit_btn'); ?> <i class="m-icon-swapright m-icon-white"></i>
                 </button>
             </div>

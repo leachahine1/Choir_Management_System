@@ -21,7 +21,7 @@
 $lang['error_csrf'] = 'This form post did not pass our security checks.';
 
 //Software title
-$lang['system_title'] = 'Welcome To Advanced Choir Management Software';
+$lang['system_title'] = 'Welcome To Advanced School Management Software';
 
 // Login
 $lang['login_heading']         = 'Login to your account';

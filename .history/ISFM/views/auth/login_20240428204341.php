@@ -99,7 +99,7 @@
                 <label class="checkbox">
                     <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"'); ?>
                     <?php echo lang('login_remember_label'); ?></label>
-                <button id="submit" type="submit" name="submit" class="btn purple pull-right">
+                <button id="submit" type="submit" name="submit" class="btn green pull-right">
                     <?php echo lang('login_submit_btn'); ?> <i class="m-icon-swapright m-icon-white"></i>
                 </button>
             </div>
