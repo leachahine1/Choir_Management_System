@@ -13,7 +13,7 @@
                     <?php echo lang('des_title'); ?> <small></small>
                 </h3>
                 <ul class="page-breadcrumb breadcrumb">
-                    <li>
+                <li style="color: #511F52;">
                         <i class="fa fa-home"></i>
                         <?php echo lang('des_home'); ?>
                     </li>
@@ -39,12 +39,10 @@
                             <div class="number">
                                 <?php echo $totalChoir_member; ?>
                             </div>
-                            <div class="desc">
-                                <?php echo lang('des_to_stu'); ?>
-                            </div>
+                            
                         </div>
                         <div class="more dasTotalChoir_memberTest">
-                            <?php echo lang('des_th_sys'); ?>
+                            <?php echo lang('des_to_stu'); ?>
                         </div>
                     </div>
                 </div>
@@ -57,12 +55,10 @@
                             <div class="number">
                                 <?php echo $totalSection_leader; ?>
                             </div>
-                            <div class="desc">
-                                <?php echo lang('des_to_tea'); ?>
-                            </div>
+                           
                         </div>
                         <div class="more dbilcss3">
-                            <?php echo lang('des_th_sys'); ?>
+                            <?php echo lang('des_to_tea'); ?>
                         </div>
                     </div>
                 </div>
@@ -75,12 +71,10 @@
                             <div class="number">
                                 <?php echo $totalSection_trainers; ?>
                             </div>
-                            <div class="desc">
-                                <?php echo lang('des_to_pa'); ?>
-                            </div>
+                           
                         </div>
                         <div class="more dbilcss3"> 
-                            <?php echo lang('des_th_sys'); ?>
+                            <?php echo lang('des_to_pa'); ?>
                         </div>
                     </div>
                 </div>
@@ -93,9 +87,7 @@
                             <div class="number">
                                 <?php echo $totalAttendChoir_member; ?>
                             </div>
-                            <div class="desc">
-                                <?php echo lang('des_att_stu'); ?>
-                            </div>
+                            
                         </div>
                         <div class="more dbilcss3">
                             <?php echo lang('des_to_att_stu'); ?>
@@ -202,7 +194,7 @@
                     <div class="portlet purple box">
                         <div class="portlet-title">
                             <div class="caption">
-                                <i class="fa fa-cogs"></i><?php echo lang('des_Choir_info'); ?>
+                                <i class="fa fa-cogs"></i><?php echo lang('des_info'); ?>
                             </div>
                             <div class="tools">
                                 <a class="collapse" href="javascript:;">
@@ -216,20 +208,20 @@
                                 <div class="table-scrollable">
                                     <table class="table table-striped table-hover">
                                         <thead>
-                                            <tr>
+                                        <tr style="color: #511F52;">
                                                 <th>
                                                     #
                                                 </th>
-                                                <th>
+                                                <th style="color: #511F52;">
                                                     <?php echo lang('des_t_clas_name'); ?>
                                                 </th>
-                                                <th>
+                                                <th style="color: #511F52;">
                                                     <?php echo lang('des_t_stu_amou'); ?>
                                                 </th>
-                                                <th>
+                                                <th style="color: #511F52;">
                                                     <?php echo lang('des_daily_atten'); ?>%
                                                 </th>
-                                                <th>
+                                                <th style="color: #511F52;">
                                                     <?php echo lang('des_yearly_atten'); ?>%
                                                 </th>
                                             </tr>
@@ -239,7 +231,7 @@
                                             $i = 1;
                                             foreach ($ChoirInfo as $row) {
                                                 ?>
-                                                <tr>
+                                               <tr style="color: #511F52;">
                                                     <td>
                                                         <?php echo $i; ?>
                                                     </td>
@@ -265,10 +257,11 @@
                                 </div>
                             </div>
                             <div class="scroller-footer">
-                                <div class="btn-arrow-link pull-right">
-                                    <a href="index.php/sChoir/allChoir"><?php echo lang('des_see_f_info'); ?></a>
-                                    <i class="icon-arrow-right"></i>
-                                </div>
+                                                <div class="btn-arrow-link pull-right">
+                        <a href="index.php/sChoir/allChoir" style="color: #511F52;"><?php echo lang('des_see_f_info'); ?></a>
+                        <i class="icon-arrow-right" ></i>
+                    </div>
+
                             </div>
                         </div>
                     </div>
@@ -292,7 +285,7 @@
                                 <div class="scroller dbilcss10" data-always-visible="1" data-rail-visible1="1">
                                     <ul class="feeds">
                                         <?php
-                                        foreach ($massage as $row) {
+                                        foreach ($message as $row) {
                                             $senderId = $row['sender_id'];
                                             $query = $this->common->getWhere('users', 'id', $senderId);
                                             foreach ($query as $row1) {
@@ -301,10 +294,10 @@
                                             ?>
                                             <li class="<?php
                                             if ($row['read_unread'] == 0) {
-                                                echo 'unreadMassage';
+                                                echo 'unreadMessage';
                                             }
                                             ?>">
-                                                <a href="index.php/message/readMassage?id=<?php echo $row['id']; ?>">
+                                                <a href="index.php/message/readMessage?id=<?php echo $row['id']; ?>">
                                                     <div class="col1">
                                                         <div class="cont">
                                                             <div class="cont-col1">
@@ -332,7 +325,8 @@
                             </div>
                             <div class="task-footer">
                                 <div class="btn-arrow-link pull-right">
-                                    <a href="index.php/message/inbox"><?php echo lang('des_s_all_mess'); ?></a>
+                                    
+                                    <a href="index.php/message/inbox" style="color: #511F52;"><?php echo lang('des_s_all_mess'); ?></a>
                                     <i class="icon-arrow-right"></i>
                                 </div>
                             </div>
@@ -371,7 +365,7 @@
                                 <div class="table-scrollable">
                                     <table class="table table-striped table-hover">
                                         <thead>
-                                            <tr>
+                                            <tr style="color: #511F52;">
                                                 <th>
                                                     #
                                                 </th>
@@ -391,7 +385,7 @@
                                             $i = 1;
                                             foreach ($section_leaderAttendance as $row) {
                                                 ?>
-                                                <tr>
+                                        <tr style="color: #511F52;">
                                                     <td>
                                                         <?php echo $i; ?>
                                                     </td>
@@ -450,7 +444,7 @@
                                 <div class="scroller dbilcss11" data-always-visible="1" data-rail-visible1="1">
                                     <table class="table table-striped table-bordered table-hover" id="sample_1">
                                         <thead>
-                                            <tr>
+                                        <tr style="color: #511F52;">
                                                 <th>
                                                     <?php echo lang('date'); ?>
                                                 </th>
@@ -458,7 +452,7 @@
                                                     <?php echo lang('des_subject'); ?>
                                                 </th>
     <!--                                                <th>
-                                                    Massage
+                                                    Message
                                                 </th>-->
                                                 <th>
                                                     <?php echo lang('des_notic_follower'); ?>
@@ -470,14 +464,14 @@
                                         </thead>
                                         <tbody>
                                             <?php foreach ($notice as $row) { ?>
-                                                <tr class="odd gradeX">
+                                                <tr class="odd gradeX" style="color: #511F52;">
                                                     <td>
                                                         <?php echo $row['date']; ?>
                                                     </td>
                                                     <td class="nsubwid">
                                                         <div id="ellipsis">
                                                             <p>
-                                                                <?php echo $row['song']; ?>
+                                                                <?php echo $row['subject']; ?>
                                                             </p>
                                                         </div>
                                                     </td>
@@ -485,21 +479,21 @@
                                                     <?php echo $row['notice']; ?>
                                                     </td>-->
                                                     <td>
-                                                        <span class="label label-sm label-success dbilcss2"> <?php echo $row['receiver']; ?> </span>
+                                                        <span class="label label-sm label-success dbilcss2 purple"> <?php echo $row['receiver']; ?> </span>
                                                     </td>
                                                     <td>
-                                                        <a href="index.php/notice/noticeDetails?dfgdfg_hid=<?php echo $row['id']; ?>" class="btn btn-xs green"> <i class="fa fa-paper-plane-o"></i> View Details </a>
+                                                        <a href="index.php/notice/noticeDetails?dfgdfg_hid=<?php echo $row['id']; ?>" class="btn btn-xs purple"> <i class="fa fa-paper-plane-o"></i> View Details </a>
                                                     </td>
                                                 </tr>
                                             <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="task-footer">
-                                    <div class="btn-arrow-link pull-right">
-                                        <a href="index.php/notice/allNotice"><?php echo lang('des_s_all_no'); ?></a>
-                                        <i class="icon-arrow-right"></i>
-                                    </div>
+                                                    <div class="btn-arrow-link pull-right">
+                            <a href="index.php/notice/allNotice" style="color: #511F52;"><?php echo lang('des_s_all_no'); ?></a>
+                            <i class="icon-arrow-right"></i>
+                        </div>
+
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -616,17 +610,17 @@ foreach ($ChoirAttendance as $cap) {
                                 fill: 0.4,
                                 lineWidth: 0
                             },
-                            color: ['#BAD9F5']
+                            color: ['#ECD4EA']
                         }, {
                             data: data1,
                             points: {
                                 show: true,
                                 fill: true,
                                 radius: 4,
-                                fillColor: "#9ACAE6",
+                                fillColor: "#A987A8",
                                 lineWidth: 2
                             },
-                            color: '#9ACAE6',
+                            color: '#A987A8',
                             shadowSize: 1
                         }, {
                             data: data1,
@@ -635,7 +629,7 @@ foreach ($ChoirAttendance as $cap) {
                                 fill: false,
                                 lineWidth: 3
                             },
-                            color: '#9ACAE6',
+                            color: '#A987A8',
                             shadowSize: 0
                         }],
                     {
@@ -721,7 +715,7 @@ foreach ($ChoirAttendance as $cap) {
                 // assign it the date that was reported
                 copiedEventObject.start = date;
                 copiedEventObject.allDay = allDay;
-                copiedEventObject.ChoirName = $(this).attr("data-class");
+                copiedEventObject.className = $(this).attr("data-class");
 
                 // render the event on the calendar
                 // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
@@ -733,27 +727,24 @@ foreach ($ChoirAttendance as $cap) {
                     $(this).remove();
                 }
             },
-            events: [
-<?php
-foreach ($event as $eve) {
-    $title = $eve['title'];
-    $star_date = explode("-", $eve['start_date']);
-    $s_d = $star_date[0];
-    $s_m = $star_date[1] - 1;
-    $s_y = $star_date[2];
-    $end_date = explode("-", $eve['end_date']);
-    $e_d = $end_date[0];
-    $e_m = $end_date[1] - 1;
-    $e_y = $end_date[2];
-    $color = $eve['color'];
-    $url = $eve['url'];
-    echo '{title: "' . $eve['title'] . '",
-                        start: new Date(' . $s_y . ',' . $s_m . ',' . $s_d . '),
-                        end: new Date(' . $e_y . ',' . $e_m . ',' . $e_d . '),
-                        backgroundColor: Metronic.getBrandColor("' . $color . '"),
-                        url: "' . $url . '",},';
-}
-?>
+                            events: [<?php
+                $first = true;
+                $purpleShades = ['#800080', '#b19cd9', '#6a0dad']; // Array of purple shades
+                foreach ($event as $eve) {
+                    if (!$first) {
+                        echo ",";
+                    }
+                    $first = false;
+                    $start_date = explode("-", $eve['start_date']);
+                    $end_date = explode("-", $eve['end_date']);
+                    $colorIndex = $eve['id'] % count($purpleShades); // Example: Use event ID to vary color
+                    echo '{title: "' . $eve['title'] . '",
+                        start: new Date(' . $start_date[2] . ', ' . ($start_date[1]-1) . ', ' . $start_date[0] . '),
+                        end: new Date(' . $end_date[2] . ', ' . ($end_date[1]-1) . ', ' . $end_date[0] . '),
+                        backgroundColor: "' . $purpleShades[$colorIndex] . '", // Directly use a purple shade
+                        url: "' . $eve['url'] . '"}';
+                }
+                ?>
             ]
         });
     });

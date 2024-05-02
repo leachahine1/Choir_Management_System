@@ -97,12 +97,12 @@
                                         <input type="text" class="form-control" placeholder="" value="<?php echo $last_name; ?>"  name="last_name">
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label class="col-md-3 control-label"><?php echo lang('par_rela'); ?> <span class="requiredStar">  </span></label>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" placeholder="" value="<?php echo $row['level']; ?>"  name="guardianLevel">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label class="col-md-3 control-label"><?php echo lang('par_email'); ?><span class="requiredStar">  </span></label>
                                     <div class="col-md-6">

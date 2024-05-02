@@ -70,11 +70,11 @@
                                 <span class="badge badge-default">
                                     <?php
                                     $data = array();
-                                    $query = $this->db->get_where('massage', array('receiver_id' => $userId, 'read_unread' => 0));
+                                    $query = $this->db->get_where('message', array('receiver_id' => $userId, 'read_unread' => 0));
                                     foreach ($query->result_array() as $row) {
                                         $data[] = $row;
-                                    }$unreadMassage = $data;
-                                    $urmAmount = count($unreadMassage);
+                                    }$unreadMessage = $data;
+                                    $urmAmount = count($unreadMessage);
                                     echo $urmAmount;
                                     ?> 
                                 </span>
@@ -86,9 +86,9 @@
                                     </p>
                                 </li>
                                 <li>
-                                    <ul class="dropdown-menu-list scroller headerMassageDiveHeight">
+                                    <ul class="dropdown-menu-list scroller headerMessageDiveHeight">
                                         <?php
-                                        foreach ($unreadMassage as $urm) {
+                                        foreach ($unreadMessage as $urm) {
                                             $senderId = $urm['sender_id'];
                                             $query = $this->common->getWhere('users', 'id', $senderId);
                                             foreach ($query as $row1) {
@@ -97,7 +97,7 @@
                                             }
                                             ?>
                                             <li>
-                                                <a href="index.php/message/readMassage?id=<?php echo $urm['id']; ?>">
+                                                <a href="index.php/message/readMessage?id=<?php echo $urm['id']; ?>">
                                                     <span class="photo">
                                                         <img src="assets/uploads/<?php echo $senderImage; ?>" alt=""/>
                                                     </span>
@@ -115,7 +115,7 @@
                                     </ul>
                                 </li>
                                 <li class="external">
-                                    <a href="inbox.html">
+                                    <a href="index.php/message/inbox">
                                         <?php echo lang('top_nav_message_text_3'); ?> <i class="m-icon-swapright"></i>
                                     </a>
                                 </li>
@@ -1054,90 +1054,7 @@
                                     <?php } ?>
                                 </ul>
                             </li>
-                        <?php } if ($this->common->user_access('add_employee', $userId) || $this->common->user_access('employee_list', $userId) || $this->common->user_access('employ_attendance', $userId) || $this->common->user_access('empl_atte_view', $userId) || $this->common->user_access('check_leav_appli', $userId)) { ?>
-                            <li class="nav-item <?php echo $hrm; ?>">
-                                <a href="javascript:;" class="nav-link nav-toggle">
-                                    <i class="fa fa-eye"></i>
-                                    <span class="title bold-black"><?php echo lang('header_hrm'); ?></span>
-                                    <span class="arrow bold-black"></span>
-                                </a>
-                                <ul class="sub-menu">
-                                    <?php if ($this->common->user_access('add_employee', $userId) || $this->common->user_access('employee_list', $userId)) { ?>
-                                        <li class="nav-item <?php echo $employee; ?>">
-                                            <a href="javascript:;" class="nav-link nav-toggle">
-                                                <span class="title bold-black"><?php echo lang('header_employ_manage'); ?></span>
-                                                <span class="arrow bold-black"></span>
-                                            </a>
-                                            <ul class="sub-menu">
-                                                <?php if ($this->common->user_access('add_employee', $userId)) { ?>
-                                                    <li class="nav-item <?php echo $addNewUsers; ?>">
-                                                        <a href="index.php/users/addNewUsers" class="nav-link ">
-                                                            <span class="title bold-black"><?php echo lang('header_add_employe'); ?></span>
-                                                        </a>
-                                                    </li>
-                                                <?php } if ($this->common->user_access('employee_list', $userId)) { ?>
-                                                    <li class="nav-item <?php echo $allUserInafo; ?>">
-                                                        <a href="index.php/users/allUserInafo" class="nav-link ">
-                                                            <span class="title bold-black"><?php echo lang('header_employ_list'); ?></span>
-                                                        </a>
-                                                    </li>
-                                                <?php } ?>
-                                            </ul>
-                                        </li>
-                                    <?php } if ($this->common->user_access('employ_attendance', $userId) || $this->common->user_access('empl_atte_view', $userId)) { ?>
-                                        <li class="nav-item <?php echo $employatt; ?>">
-                                            <a href="javascript:;" class="nav-link nav-toggle">
-                                                <span class="title bold-black"><?php echo lang('header_employ_atten'); ?></span>
-                                                <span class="arrow bold-black"></span>
-                                            </a>
-                                            <ul class="sub-menu">
-                                                <?php if ($this->common->user_access('employ_attendance', $userId)) { ?>
-                                                    <li class="nav-item <?php echo $section_leaderAtten; ?>">
-                                                        <a href="index.php/dailyAttendance/t_a_s_p" class="nav-link ">
-                                                            <span class="title bold-black"><?php echo lang('header_tak_emplo_atte'); ?></span>
-                                                        </a>
-                                                    </li>
-                                                <?php } if ($this->common->user_access('empl_atte_view', $userId)) { ?>
-                                                    <li class="nav-item <?php echo $empl_att; ?>">
-                                                        <a href="index.php/dailyAttendance/employe_atten_view" class="nav-link ">
-                                                            <span class="title bold-black"><?php echo lang('header_emp_atte_view'); ?></span>
-                                                        </a>
-                                                    </li>
-                                                <?php } ?>
-                                            </ul>
-                                        </li>
-                                    <?php } ?>
-                                    <li class="nav-item <?php echo $leave; ?>">
-                                        <a href="javascript:;" class="nav-link nav-toggle">
-                                            <span class="title bold-black"><?php echo lang('header_leave_mana'); ?></span>
-                                            <span class="arrow bold-black"></span>
-                                        </a>
-                                        <ul class="sub-menu">
-                                            <li class="nav-item <?php echo $applicationForLeave; ?>">
-                                                <a href="index.php/leave/applicationForLeave" class="nav-link ">
-                                                    <span class="title bold-black"><?php echo lang('header_leav_appli'); ?></span>
-                                                </a>
-                                            </li>
-                                            <?php if ($this->common->user_access('check_leav_appli', $userId)) { ?>
-                                                <li class="nav-item <?php echo $allLeaveApplication; ?>">
-                                                    <a href="index.php/leave/allAppliction" class="nav-link ">
-                                                        <span class="badge badge-info">
-                                                            <?php
-                                                            $query = $this->db->get_where('leave_application', array('cheack_statuse' => 'Not Checked'));
-                                                            foreach ($query->result_array() as $row) {
-                                                                $data[] = $row;
-                                                            }$unreadApp = $data;
-                                                            $urAppAmount = count($unreadApp);
-                                                            echo $urAppAmount;
-                                                            ?>
-                                                        </span><?php echo lang('header_all_leav_app'); ?>
-                                                    </a>
-                                                </li>
-                                            <?php } ?>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
+                           
                         <?php } if ($this->common->user_access('add_account_title', $userId) || $this->common->user_access('fee_collection', $userId) || $this->common->user_access('all_slips', $userId) || $this->common->user_access('trensection', $userId) || $this->common->user_access('pay_salary', $userId) || $this->common->user_access('own_slip', $userId)) { ?>
                             <li class="nav-item <?php echo $account; ?>">
                                 <a href="javascript:;" class="nav-link nav-toggle">
@@ -1164,12 +1081,7 @@
                                                 <span class="title bold-black"><?php echo lang('header_teansec'); ?></span>
                                             </a>
                                         </li>
-                                    <?php } if ($this->common->user_access('pay_salary', $userId)) { ?>
-                                        <li class="nav-item <?php echo $paySalary; ?>">
-                                            <a href="index.php/account/paySalary" class="nav-link ">
-                                                <span class="title bold-black"><?php echo lang('header_pay_sala'); ?></span>
-                                            </a>
-                                        </li>
+                                  
                                     <?php } if ($this->common->user_access('own_slip', $userId)) { ?>
                                         <li class="nav-item  ">
                                             <a href="index.php/account/due_pay" class="nav-link ">
@@ -1212,25 +1124,10 @@
                                                 <span class="title bold-black"><?php echo lang('header_resource_list'); ?></span>
                                             </a>
                                         </li>
-                                    <?php } if ($this->common->user_access('add_library_mem', $userId)) { ?>
-                                        <li class="nav-item <?php echo $add_library_member; ?>">
-                                            <a href="index.php/library/add_library_member" class="nav-link ">
-                                                <span class="title bold-black"><?php echo lang('header_add_libr_mem'); ?></span>
-                                            </a>
-                                        </li>
-                                    <?php } if ($this->common->user_access('memb_list', $userId)) { ?>
-                                        <li class="nav-item <?php echo $member_list; ?>">
-                                            <a href="index.php/library/member_list" class="nav-link ">
-                                                <span class="title bold-black"><?php echo lang('header_membelist'); ?></span>
-                                            </a>
-                                        </li>
-                                    <?php } if ($this->common->user_access('issu_return', $userId)) { ?>
-                                        <li class="nav-item  <?php echo $issue_return; ?>">
-                                            <a href="index.php/library/issue_return" class="nav-link ">
-                                                <span class="title bold-black"><?php echo lang('header_iss_return'); ?></span>
-                                            </a>
-                                        </li>
-                                    <?php } ?>
+                                  
+                                   
+                                    <?php }
+                                     ?> 
                                 </ul>
                             </li>
                         <?php } if ($this->common->user_access('add_concerts', $userId) || $this->common->user_access('add_set_dormi', $userId) || $this->common->user_access('set_member_seat', $userId) || $this->common->user_access('dormi_report', $userId)) { ?>
@@ -1268,30 +1165,8 @@
                                     <?php } ?>
                                 </ul>
                             </li>
-                        <!-- <?php } if ($this->common->user_access('add_transport', $userId) || $this->common->user_access('all_transport', $userId)) { ?>
-                            <li class="nav-item <?php echo $transport; ?>">
-                                <a href="javascript:;" class="nav-link nav-toggle">
-                                    <i class="fa fa-bus"></i>
-                                    <span class="title"><?php echo lang('header_transpo'); ?></span>
-                                    <span class="arrow"></span>
-                                </a>
-                                <ul class="sub-menu">
-                                    <?php if ($this->common->user_access('add_transport', $userId)) { ?>
-                                        <li class="nav-item <?php echo $addTransport; ?>">
-                                            <a href="index.php/transport/addTransport" class="nav-link ">
-                                                <span class="title"><?php echo lang('header_add_trnspo'); ?></span>
-                                            </a>
-                                        </li>
-                                    <?php } if ($this->common->user_access('all_transport', $userId)) { ?>
-                                        <li class="nav-item <?php echo $allTransport; ?>">
-                                            <a href="index.php/transport/allTransport" class="nav-link ">
-                                                <span class="title"><?php echo lang('header_all_transpo'); ?></span>
-                                            </a>
-                                        </li>
-                                    <?php } ?>
-                                </ul>
-                            </li>
-                        <?php } ?> -->
+                       
+                        <?php } ?> 
                         <li class="nav-item <?php echo $message; ?>">
                             <a href="javascript:;" class="nav-link nav-toggle">
                                 <i class="icon-envelope-open"></i>
@@ -1300,12 +1175,12 @@
                             </a>
                             <ul class="sub-menu">
                                 <?php if ($this->common->user_access('send_message', $userId)) { ?>
-                                    <li class="nav-item <?php echo $sendMessage; ?>">
-                                        <a href="index.php/message/sendMessage" class="nav-link"><?php echo lang('header_sent_message'); ?></a>
+                                    <li class="nav-item bold-black<?php echo $sendMessage; ?>">
+                                        <a href="index.php/message/sendMessage" class="nav-link bold-black"> <span class="title bold-black"><?php echo lang('header_sent_message'); ?></span></a>
                                     </li>
                                 <?php } ?>
-                                <li class="nav-item <?php echo $inbox; ?>">
-                                    <a href="index.php/message/inbox" class="nav-link"><?php echo lang('header_inbox'); ?></a>
+                                <li class="nav-item bold-black<?php echo $inbox; ?>">
+                                    <a href="index.php/message/inbox" class="nav-link bold-black"><span class="title bold-black"><?php echo lang('header_inbox'); ?></span></a>
                                 </li>
                             </ul>
                         </li>
@@ -1317,23 +1192,16 @@
                                     <span class="arrow bold-black"></span>
                                 </a>
                                 <ul class="sub-menu">
-                                    <?php if ($this->common->user_access('vendor', $userId)) { ?>
-                                        <li class="nav-item <?php echo $vendors; ?>">
-                                            <a href="index.php/stock/vendors" class="nav-link"><?php echo lang('header_vendor'); ?></a>
-                                        </li>
+                                    
                                     <?php } if ($this->common->user_access('add_inv_cat', $userId)) { ?>
-                                        <li class="nav-item  <?php echo $inv_cate; ?>">
-                                            <a href="index.php/stock/inven_category" class="nav-link"><?php echo lang('header_inven_cate'); ?></a>
+                                        <li class="nav-item bold-black <?php echo $inv_cate; ?>">
+                                            <a href="index.php/stock/inven_category" class="nav-link bold-black"><span class="title bold-black"><?php echo lang('header_inven_cate'); ?></span></a>
                                         </li>
                                     <?php } if ($this->common->user_access('inve_item', $userId)) { ?>
-                                        <li class="nav-item <?php echo $inv_item; ?>">
-                                            <a href="index.php/stock/inv_item" class="nav-link"><?php echo lang('header_inve_item'); ?></a>
+                                        <li class="nav-item bold-black <?php echo $inv_item; ?>">
+                                            <a href="index.php/stock/inv_item" class="nav-link bold-black"><span class="title bold-black"><?php echo lang('header_inve_item'); ?></span></a>
                                         </li>
-                                    <?php } if ($this->common->user_access('inve_issu', $userId)) { ?>
-                                        <li class="nav-item <?php echo $issu_item; ?>">
-                                            <a href="index.php/stock/issu_item" class="nav-link"><?php echo lang('header_inve_issue'); ?></a>
-                                        </li>
-                                    <?php } ?>                                
+                                                         
                                 </ul>
                             </li>
                         <?php } ?>
@@ -1346,7 +1214,7 @@
                             <ul class="sub-menu">
                                 <li class="nav-item <?php echo $add_events; ?>">
                                     <a href="index.php/home/addEvent" class="nav-link ">                                      
-                                        <span class="title"><?php echo lang('header_set_event'); ?></span>
+                                        <span class="title bold-black"><?php echo lang('header_set_event'); ?></span>
                                     </a>
                                 </li>
                                 <li class="nav-item <?php echo $calenderEvents; ?>">
@@ -1359,60 +1227,21 @@
                         <li class="nav-item <?php echo $profileview; ?>">
                             <a href="index.php/home/profileView" class="nav-link nav-toggle">
                                 <i class="fa fa-newspaper-o"></i>
-                                <span class="title"><?php echo lang('header_profile'); ?></span>
+                                <span class="title bold-black"><?php echo lang('header_profile'); ?></span>
                             </a>                            
                         </li>
                         <?php if ($this->common->user_access('setting_manage_user', $userId) || $this->common->user_access('setting_accounts', $userId) || $this->common->user_access('other_setting', $userId)) { ?>
                             <li class="nav-item <?php echo $configuration; ?>">
                                 <a href="javascript:;" class="nav-link nav-toggle">
                                     <i class="fa fa-cogs"></i>
-                                    <span class="title"><?php echo lang('header_setting'); ?></span>
+                                    <span class="title bold-black"><?php echo lang('header_setting'); ?></span>
                                     <span class="arrow "></span>
                                 </a>
                                 <ul class="sub-menu">
                                     <?php if ($this->common->user_access('setting_manage_user', $userId)) { ?>
-                                        <li class="nav-item <?php echo $systemUsers; ?>">
-                                            <a href="javascript:;" class="nav-link nav-toggle">
-                                                <span class="title bold-black"><?php echo lang('header_set_user_role'); ?></span>
-                                                <span class="arrow bold-black"></span>
-                                            </a>
-                                            <ul class="sub-menu">
-                                                <li class="nav-item <?php echo $individualUser; ?>">
-                                                    <a href="index.php/configuration/individualUser" class="nav-link ">
-                                                        <span class="title bold-black"><?php echo lang('header_set_indiv_role'); ?></span>
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item <?php echo $groupRole; ?>">
-                                                    <a href="index.php/configuration/groupRole" class="nav-link ">
-                                                        <span class="title bold-black"><?php echo lang('header_set_grou_role'); ?></span>
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item <?php echo $userAccess; ?>">
-                                                    <a href="index.php/configuration/userAccessSettings" class="nav-link ">
-                                                        <span class="title bold-black"><?php echo lang('header_reset_all_role'); ?></span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
+                                        
                                     <?php } if ($this->common->user_access('setting_accounts', $userId)) { ?>
-                                        <li class="nav-item <?php echo $accountSetting; ?>">
-                                            <a href="javascript:;" class="nav-link nav-toggle">
-                                                <span class="title bold-black"><?php echo lang('header_accou_settin'); ?></span>
-                                                <span class="arrow bold-black"></span>
-                                            </a>
-                                            <ul class="sub-menu">
-                                                <li class="nav-item <?php echo $setStuFee; ?>">
-                                                    <a href="index.php/configuration/setStuFee" class="nav-link ">
-                                                        <span class="title bold-black"><?php echo lang('header_set_stu_fee'); ?></span>
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item <?php echo $employSalary; ?>">
-                                                    <a href="index.php/configuration/employSalary" class="nav-link ">
-                                                        <span class="title bold-black"><?php echo lang('header_set_emplo_sala'); ?></span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
+                                        
                                     <?php } if ($this->common->user_access('other_setting', $userId)) { ?>
                                         <li class="nav-item <?php echo $generalSettings; ?>">
                                             <a href="index.php/configuration/generalSetting" class="nav-link">
@@ -1429,23 +1258,13 @@
                                                                 <span class="title"><?php echo lang('header_langu_settin'); ?></span>
                                                             </a>
                                                         </li>-->
-                                        <li class="nav-item <?php echo $eas; ?>">
-                                            <a href="index.php/configuration/att_pass" class="nav-link">
-                                                <span class="title bold-black"><?php echo lang('header_eas'); ?></span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item <?php echo $messageSettings; ?>">
-                                            <a href="index.php/configuration/messageSettings" class="nav-link">
-                                                <span class="title bold-black"><?php echo lang('header_set_sms_api'); ?></span>
-                                            </a>
-                                        </li>
+                                        
+                                        
                                     <?php } ?>
                                 </ul>
                             </li>
                         <?php } ?>
-                        <li class="heading">
-                            <h3 class="uppercase"><?php echo lang('top_nav_log_out'); ?></h3>
-                        </li>
+                       
                         <li class="nav-item">
                             <a href="index.php/auth/logout" class="nav-link">
                                 <i class="fa fa-power-off"></i>

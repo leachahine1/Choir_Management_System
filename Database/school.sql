@@ -1235,10 +1235,10 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `massage`
+-- Table structure for table `message`
 --
 
-CREATE TABLE IF NOT EXISTS `massage` (
+CREATE TABLE IF NOT EXISTS `message` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sender_id` int(11) NOT NULL,
   `receiver_id` varchar(50) NOT NULL,
@@ -1253,10 +1253,10 @@ CREATE TABLE IF NOT EXISTS `massage` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
--- Dumping data for table `massage`
+-- Dumping data for table `message`
 --
 
-INSERT INTO `massage` (`id`, `sender_id`, `receiver_id`, `message`, `subject`, `read_unread`, `date`, `sender_delete`, `receiver_delete`, `Choir`) VALUES
+INSERT INTO `message` (`id`, `sender_id`, `receiver_id`, `message`, `subject`, `read_unread`, `date`, `sender_delete`, `receiver_delete`, `Choir`) VALUES
 (1, 1, '4', '<p>This is test Message for all Choir_members in Choir 1. This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.</p>\\r\\n', 'This is test Message.', 0, 1465806801, 1, 1, ''),
 (2, 1, '12', '<p>This is test Message for all Choir_members in Choir 1. This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.</p>\\r\\n', 'This is test Message.', 0, 1465806801, 1, 1, ''),
 (3, 1, '13', '<p>This is test Message for all Choir_members in Choir 1. This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.This is test Message for all Choir_members in Choir 1.</p>\\r\\n', 'This is test Message.', 0, 1465806801, 1, 1, ''),

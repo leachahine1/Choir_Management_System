@@ -53,7 +53,7 @@
                                     <input  class="form-control" type="text" name="category" placeholder="" data-validation="required" data-validation-error-msg="">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label class="col-md-3 control-label"><?php echo lang('lib_mc'); ?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-6">
 
@@ -64,7 +64,7 @@
                                         <?php } ?>
                                     </select>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label class="col-md-3 control-label"><?php echo lang('lib_description'); ?> <span class="requiredStar">  </span></label>
                                 <div class="col-md-6">

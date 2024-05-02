@@ -5196,7 +5196,7 @@ Green Default
   color: white;
 }
 .portlet.box.defalt {
-  border: 1px solid #400080;
+  border: 1px solid #693B69;
   border-top: 0;
 }
 .portlet.box.defalt > .portlet-title {
@@ -7839,7 +7839,7 @@ Purple Default
 /* Button */
 .purple.btn {
   color: white;
-  background-color: #8e44ad;
+  background-color: #511f52;
   border-color: "";
 }
 .purple.btn:hover, .purple.btn:focus, .purple.btn:active, .purple.btn.active {
@@ -7857,22 +7857,22 @@ Purple Default
   background-image: none;
 }
 .purple.btn.disabled, .purple.btn.disabled:hover, .purple.btn.disabled:focus, .purple.btn.disabled:active, .purple.btn.disabled.active, .purple.btn[disabled], .purple.btn[disabled]:hover, .purple.btn[disabled]:focus, .purple.btn[disabled]:active, .purple.btn[disabled].active, fieldset[disabled] .purple.btn, fieldset[disabled] .purple.btn:hover, fieldset[disabled] .purple.btn:focus, fieldset[disabled] .purple.btn:active, fieldset[disabled] .purple.btn.active {
-  background-color: #8e44ad;
+  background-color: #511f52;
 }
 .purple.btn .badge {
-  color: #8e44ad;
+  color: #511f52;
   background-color: white;
 }
 
 /* Button Strip */
 .btn.purple-stripe {
-  border-left: 3px solid #8e44ad;
+  border-left: 3px solid #511f52;
 }
 
 /* Portlet */
 .portlet > .portlet-body.purple,
 .portlet.purple {
-  background-color: #8e44ad;
+  background-color: #511f52;
 }
 
 .portlet.solid.purple > .portlet-title,
@@ -7889,7 +7889,7 @@ Purple Default
   border-top: 0;
 }
 .portlet.box.purple > .portlet-title {
-  background-color: #8e44ad;
+  background-color: #511f52;
 }
 .portlet.box.purple > .portlet-title > .caption {
   color: white;
@@ -7910,7 +7910,7 @@ Purple Default
 
 /* Statistic Block */
 .dashboard-stat.purple {
-  background-color: #8e44ad;
+  background-color: #511f52;
 }
 .dashboard-stat.purple .visual > i {
   color: white;
@@ -7932,15 +7932,15 @@ Purple Default
 
 /* General Element */
 .bg-purple {
-  border-color: #8e44ad !important;
+  border-color: #511f52 !important;
   background-image: none !important;
-  background-color: #8e44ad !important;
+  background-color: #511f52 !important;
   color: white !important;
 }
 
 /* General Text & Icon Font Colors */
 .font-purple {
-  color: #8e44ad !important;
+  color: #511f52 !important;
 }
 
 /***
@@ -7949,16 +7949,16 @@ Purple Plum
 /* Button */
 .purple-plum.btn {
   color: white;
-  background-color: #400080;
+  background-color: #693B69;
   border-color: "";
 }
 .purple-plum.btn:hover, .purple-plum.btn:focus, .purple-plum.btn:active, .purple-plum.btn.active {
   color: white;
-  background-color: #400080;
+  background-color: #693B69;
 }
 .open .purple-plum.btn.dropdown-toggle {
   color: white;
-  background-color: #400080;
+  background-color: #693B69;
 }
 .purple-plum.btn:active, .purple-plum.btn.active {
   background-image: none;
@@ -7967,22 +7967,22 @@ Purple Plum
   background-image: none;
 }
 .purple-plum.btn.disabled, .purple-plum.btn.disabled:hover, .purple-plum.btn.disabled:focus, .purple-plum.btn.disabled:active, .purple-plum.btn.disabled.active, .purple-plum.btn[disabled], .purple-plum.btn[disabled]:hover, .purple-plum.btn[disabled]:focus, .purple-plum.btn[disabled]:active, .purple-plum.btn[disabled].active, fieldset[disabled] .purple-plum.btn, fieldset[disabled] .purple-plum.btn:hover, fieldset[disabled] .purple-plum.btn:focus, fieldset[disabled] .purple-plum.btn:active, fieldset[disabled] .purple-plum.btn.active {
-  background-color: #400080;
+  background-color: #693B69;
 }
 .purple-plum.btn .badge {
-  color: #400080;
+  color: #693B69;
   background-color: white;
 }
 
 /* Button Strip */
 .btn.purple-plum-stripe {
-  border-left: 3px solid #400080;
+  border-left: 3px solid #693B69;
 }
 
 /* Portlet */
 .portlet > .portlet-body.purple-plum,
 .portlet.purple-plum {
-  background-color: #400080;
+  background-color: #693B69;
 }
 
 .portlet.solid.purple-plum > .portlet-title,
@@ -7995,11 +7995,11 @@ Purple Plum
 }
 
 .portlet.box.purple-plum {
-  border: 1px solid #400080;
+  border: 1px solid #693B69;
   border-top: 0;
 }
 .portlet.box.purple-plum > .portlet-title {
-  background-color: #400080;
+  background-color: #693B69;
 }
 .portlet.box.purple-plum > .portlet-title > .caption {
   color: white;
@@ -8020,7 +8020,7 @@ Purple Plum
 
 /* Statistic Block */
 .dashboard-stat.purple-plum {
-  background-color: #400080;
+  background-color: #693B69;
 }
 .dashboard-stat.purple-plum .visual > i {
   color: white;
@@ -8038,20 +8038,20 @@ Purple Plum
 }
 .dashboard-stat.purple-plum .more {
   color: white;
-  background-color: #400080;
+  background-color: #693B69;
 }
 
 /* General Element */
 .bg-purple-plum {
-  border-color: #400080 !important;
+  border-color: #693B69 !important;
   background-image: none !important;
-  background-color: #400080 !important;
+  background-color: #693B69 !important;
   color: white !important;
 }
 
 /* General Text & Icon Font Colors */
 .font-purple-plum {
-  color: #400080 !important;
+  color: #693B69 !important;
 }
 
 /***
@@ -8170,7 +8170,7 @@ Purple Studio
 /* Button */
 .purple-studio.btn {
   color: white;
-  background-color: #8e44ad;
+  background-color: #511f52;
   border-color: "";
 }
 .purple-studio.btn:hover, .purple-studio.btn:focus, .purple-studio.btn:active, .purple-studio.btn.active {
@@ -8188,22 +8188,22 @@ Purple Studio
   background-image: none;
 }
 .purple-studio.btn.disabled, .purple-studio.btn.disabled:hover, .purple-studio.btn.disabled:focus, .purple-studio.btn.disabled:active, .purple-studio.btn.disabled.active, .purple-studio.btn[disabled], .purple-studio.btn[disabled]:hover, .purple-studio.btn[disabled]:focus, .purple-studio.btn[disabled]:active, .purple-studio.btn[disabled].active, fieldset[disabled] .purple-studio.btn, fieldset[disabled] .purple-studio.btn:hover, fieldset[disabled] .purple-studio.btn:focus, fieldset[disabled] .purple-studio.btn:active, fieldset[disabled] .purple-studio.btn.active {
-  background-color: #8e44ad;
+  background-color: #511f52;
 }
 .purple-studio.btn .badge {
-  color: #8e44ad;
+  color: #511f52;
   background-color: white;
 }
 
 /* Button Strip */
 .btn.purple-studio-stripe {
-  border-left: 3px solid #8e44ad;
+  border-left: 3px solid #511f52;
 }
 
 /* Portlet */
 .portlet > .portlet-body.purple-studio,
 .portlet.purple-studio {
-  background-color: #8e44ad;
+  background-color: #511f52;
 }
 
 .portlet.solid.purple-studio > .portlet-title,
@@ -8220,7 +8220,7 @@ Purple Studio
   border-top: 0;
 }
 .portlet.box.purple-studio > .portlet-title {
-  background-color: #8e44ad;
+  background-color: #511f52;
 }
 .portlet.box.purple-studio > .portlet-title > .caption {
   color: white;
@@ -8241,7 +8241,7 @@ Purple Studio
 
 /* Statistic Block */
 .dashboard-stat.purple-studio {
-  background-color: #8e44ad;
+  background-color: #511f52;
 }
 .dashboard-stat.purple-studio .visual > i {
   color: white;
@@ -8263,15 +8263,15 @@ Purple Studio
 
 /* General Element */
 .bg-purple-studio {
-  border-color: #8e44ad !important;
+  border-color: #511f52 !important;
   background-image: none !important;
-  background-color: #8e44ad !important;
+  background-color: #511f52 !important;
   color: white !important;
 }
 
 /* General Text & Icon Font Colors */
 .font-purple-studio {
-  color: #8e44ad !important;
+  color: #511f52 !important;
 }
 
 /***

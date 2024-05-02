@@ -986,7 +986,7 @@ class Rehearsal extends MX_Controller {
         );
         $this->db->where('id', $rehearsalActionId);
         if ($this->db->update('result_action', $rehearsalActionArray)) {
-            $data['massage'] = '<br><div class="alert alert-success">
+            $data['message'] = '<br><div class="alert alert-success">
                                                 <button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
                                                 <strong>' . lang('success') . '</strong> ' . lang('exac_12') . ' "' . $rehearsalTitle . '" ' . lang('exac_13') . ' "' . $this->common->Choir_title($Choir_id) . '"' . lang('exac_14') . '<br>
                                                 <strong>' . lang('exac_info') . ' </strong>' . lang('exac_15') . '   

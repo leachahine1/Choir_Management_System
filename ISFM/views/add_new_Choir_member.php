@@ -105,12 +105,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label class="col-md-3 control-label"> <?php echo lang('admi_PresentAddress'); ?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-6">
                                     <textarea class="form-control" name="present_address" rows="3" data-validation="required" data-validation-error-msg="<?php echo lang('admi_PresentAddress_error_msg'); ?>"> </textarea>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label class="col-md-3 control-label"> <?php echo lang('admi_PermanentAddress'); ?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-6">
@@ -149,7 +149,7 @@
                                     <input type="password" class="form-control" name="password_confirm" placeholder="" data-validation="required" data-validation-error-msg="<?php echo lang('admi_ConfirmPassword_error_msg'); ?>">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label class="col-md-3 control-label"><?php echo lang('admi_blood'); ?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-6">
                                     <select name="blood" class="form-control" data-validation="required" data-validation-error-msg="<?php echo lang('admi_blood_err_mess'); ?>">
@@ -164,8 +164,8 @@
                                         <option value="AB-">AB-</option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="form-group">
+                            </div> -->
+                            <!-- <div class="form-group">
                                 <label class="col-md-3 control-label"><?php echo lang('admi_FatherOccupation'); ?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-6">
                                     <select name="father_occupation" class="form-control" data-validation="required" data-validation-error-msg="<?php echo lang('admi_FatherOccupation_error_msg'); ?>">
@@ -202,7 +202,7 @@
                                         <option value="Other"><?php echo lang('admi_Mother_occup_valu_9'); ?></option>
                                     </select>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label class="col-md-3 control-label"><?php echo lang('admi_Choir'); ?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-6">
@@ -218,7 +218,7 @@
 
                             </div>
 
-                            <div class="form-group last">
+                            <!-- <div class="form-group last">
                                 <label class="control-label col-md-3"><?php echo lang('admi_Choir_members_photo');?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-9">
                                     <div class="fileinput fileinput-new" data-provides="fileinput">
@@ -239,13 +239,13 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
 
                             <div class="alert alert-success">
                                 <?php echo lang('admi_submit_doc');?>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label class="col-md-3 control-label"> </label>
                                 <div class="col-md-9">
                                     <div class="checkbox-list">
@@ -261,13 +261,13 @@
                                             <input type="checkbox" name="testmonial" value="submited"> <?php echo lang('admi_Testimonial'); ?>  </label>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
+                            </div> -->
+                            <!-- <div class="form-group">
                                 <label class="col-md-3 control-label"><?php echo lang('admi_Submitted_File_Informations'); ?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-6">
                                     <input type="text" name="submit_file_information" class="form-control" placeholder="<?php echo lang('admi_Submitted_File_Informations_placeholder'); ?>" data-validation="required" data-validation-error-msg="<?php echo lang('admi_Submitted_File_Info_error_msg'); ?>">
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="form-actions fluid">
                             <div class="col-md-offset-3 col-md-6">

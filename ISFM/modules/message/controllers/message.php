@@ -41,7 +41,7 @@ class Message extends MX_Controller {
                             'sender_delete' => 1,
                             'receiver_delete' => 1
                         );
-                        $this->db->insert('massage', $message);
+                        $this->db->insert('message', $message);
                     }
                     $data['message'] = lang('mesc_1');
                     $this->load->view('temp/header');
@@ -62,7 +62,7 @@ class Message extends MX_Controller {
                                 'sender_delete' => 1,
                                 'receiver_delete' => 1
                             );
-                            $this->db->insert('massage', $message);
+                            $this->db->insert('message', $message);
                         }
                         $data['message'] = lang('mesc_1');
                         $this->load->view('temp/header');
@@ -79,7 +79,7 @@ class Message extends MX_Controller {
                             'sender_delete' => 1,
                             'receiver_delete' => 1
                         );
-                        if ($this->db->insert('massage', $message)) {
+                        if ($this->db->insert('message', $message)) {
                             $data['message'] = lang('mesc_1');
                             $this->load->view('temp/header');
                             $this->load->view('message', $data);
@@ -102,7 +102,7 @@ class Message extends MX_Controller {
                             'sender_delete' => 1,
                             'receiver_delete' => 1
                         );
-                        $this->db->insert('massage', $message);
+                        $this->db->insert('message', $message);
                     }
                     $data['message'] = lang('mesc_1');
                     $this->load->view('temp/header');
@@ -119,7 +119,7 @@ class Message extends MX_Controller {
                         'sender_delete' => 1,
                         'receiver_delete' => 1
                     );
-                    if ($this->db->insert('massage', $message)) {
+                    if ($this->db->insert('message', $message)) {
                         $data['message'] = lang('mesc_1');
                         $this->load->view('temp/header');
                         $this->load->view('message', $data);
@@ -141,7 +141,7 @@ class Message extends MX_Controller {
                             'sender_delete' => 1,
                             'receiver_delete' => 1
                         );
-                        $this->db->insert('massage', $message);
+                        $this->db->insert('message', $message);
                     }
                     $data['message'] = lang('mesc_1');
                     $this->load->view('temp/header');
@@ -162,7 +162,7 @@ class Message extends MX_Controller {
                                 'sender_delete' => 1,
                                 'receiver_delete' => 1
                             );
-                            $this->db->insert('massage', $message);
+                            $this->db->insert('message', $message);
                         }
                         $data['message'] = lang('mesc_1');
                         $this->load->view('temp/header');
@@ -179,7 +179,7 @@ class Message extends MX_Controller {
                             'sender_delete' => 1,
                             'receiver_delete' => 1
                         );
-                        if ($this->db->insert('massage', $message)) {
+                        if ($this->db->insert('message', $message)) {
                             $data['message'] = lang('mesc_1');
                             $this->load->view('temp/header');
                             $this->load->view('message', $data);
@@ -254,9 +254,9 @@ class Message extends MX_Controller {
                                 'read_unread' => $this->db->escape_like_str('0'),
                                 'date' => $this->db->escape_like_str($date),
                                 'sender_delete' => 1,
-                                'receiver_delete' => 1
+                                'receiver_delete' => 0
                             );
-                            $this->db->insert('massage', $message);
+                            $this->db->insert('message', $message);
                         }
                         $data['message'] = lang('mesc_1');
                         $this->load->view('temp/header');
@@ -275,32 +275,46 @@ class Message extends MX_Controller {
                                     'read_unread' => $this->db->escape_like_str('0'),
                                     'date' => $this->db->escape_like_str($date),
                                     'sender_delete' => 1,
-                                    'receiver_delete' => 1
+                                    'receiver_delete' => 0
                                 );
-                                $this->db->insert('massage', $message);
+                                $this->db->insert('message', $message);
                             }
                             $data['message'] = lang('mesc_1');
                             $this->load->view('temp/header');
                             $this->load->view('message', $data);
                             $this->load->view('temp/footer');
                         } else {
-                            $message = array(
-                                'sender_id' => $this->db->escape_like_str($this->input->post('senderId', TRUE)),
-                                'receiver_id' => $this->db->escape_like_str($receiver_2),
-                                'subject' => $this->db->escape_like_str($this->input->post('subject', TRUE)),
-                                'message' => $this->db->escape_like_str($this->input->post('message', TRUE)),
-                                'read_unread' => $this->db->escape_like_str('0'),
-                                'date' => $this->db->escape_like_str($date),
-                                'sender_delete' => 1,
-                                'receiver_delete' => 1
-                            );
-                            if ($this->db->insert('massage', $message)) {
-                                $data['message'] = lang('mesc_1');
-                                $this->load->view('temp/header');
-                                $this->load->view('message', $data);
-                                $this->load->view('temp/footer');
+                            // Assuming receiver_2 is some form of identifier that needs to be converted to user_id
+                            $user_info = $this->db->select('user_id')
+                                                  ->where('Choir_member_id', $receiver_2)
+                                                  ->get('Choir_member_info')
+                                                  ->row();
+                        
+                            // Check if user_info was successfully retrieved and has user_id
+                            if ($user_info && !empty($user_info->user_id)) {
+                                $message = array(
+                                    'sender_id' => $this->db->escape_like_str($this->input->post('senderId', TRUE)),
+                                    'receiver_id' => $this->db->escape_like_str($user_info->user_id),  // Use the fetched user_id
+                                    'subject' => $this->db->escape_like_str($this->input->post('subject', TRUE)),
+                                    'message' => $this->db->escape_like_str($this->input->post('message', TRUE)),
+                                    'read_unread' => $this->db->escape_like_str('0'),
+                                    'date' => $this->db->escape_like_str($date),
+                                    'sender_delete' => 1,
+                                    'receiver_delete' => 1
+                                );
+                              
+                                if ($this->db->insert('message', $message)) {
+                                    $data['message'] = lang('mesc_1');
+                                    $this->load->view('temp/header');
+                                    $this->load->view('message', $data);
+                                    $this->load->view('temp/footer');
+                                }
+                            } else {
+                                // Handle the case where no valid user_id could be found
+                                log_message('error', 'Invalid choir member ID or no corresponding user ID found: ' . $receiver_2);
                             }
                         }
+                        
                     }
                 } elseif ($group == 'Section_leader') {
                     //if this message's receipent will Section_leader then work here
@@ -317,7 +331,7 @@ class Message extends MX_Controller {
                                 'sender_delete' => 1,
                                 'receiver_delete' => 1
                             );
-                            $this->db->insert('massage', $message);
+                            $this->db->insert('message', $message);
                         }
                         $data['message'] = lang('mesc_1');
                         $this->load->view('temp/header');
@@ -334,7 +348,7 @@ class Message extends MX_Controller {
                             'sender_delete' => 1,
                             'receiver_delete' => 1
                         );
-                        if ($this->db->insert('massage', $message)) {
+                        if ($this->db->insert('message', $message)) {
                             $data['message'] = lang('mesc_1');
                             $this->load->view('temp/header');
                             $this->load->view('message', $data);
@@ -356,12 +370,9 @@ class Message extends MX_Controller {
                                 'sender_delete' => 1,
                                 'receiver_delete' => 1
                             );
-                            $this->db->insert('massage', $message);
+                            $this->db->insert('message', $message);
                         }
-                        $data['message'] = lang('mesc_1');
-                        $this->load->view('temp/header');
-                        $this->load->view('message', $data);
-                        $this->load->view('temp/footer');
+                       
                     } else {
                         $receiver_2 = $this->input->post('receiver_2', TRUE);
                         if ($receiver_2 == 'AllSection_trainersChoir') {
@@ -377,7 +388,7 @@ class Message extends MX_Controller {
                                     'sender_delete' => 1,
                                     'receiver_delete' => 1
                                 );
-                                $this->db->insert('massage', $message);
+                                $this->db->insert('message', $message);
                             }
                             $data['message'] = lang('mesc_1');
                             $this->load->view('temp/header');
@@ -394,7 +405,7 @@ class Message extends MX_Controller {
                                 'sender_delete' => 1,
                                 'receiver_delete' => 1
                             );
-                            if ($this->db->insert('massage', $message)) {
+                            if ($this->db->insert('message', $message)) {
                                 $data['message'] = lang('mesc_1');
                                 $this->load->view('temp/header');
                                 $this->load->view('message', $data);
@@ -405,7 +416,7 @@ class Message extends MX_Controller {
                 }
             }
         } else {
-            //If the massage is not set oe not submit it will load at first view for sending massage
+            //If the message is not set oe not submit it will load at first view for sending message
             $data['message'] = lang('mesc_1');
             $this->load->view('temp/header');
             $this->load->view('message', $data);
@@ -460,43 +471,50 @@ class Message extends MX_Controller {
         }
     }
 
-    //This function will return all inbox read and unread massage
+    //This function will return all inbox read and unread message
     public function inbox() {
+        error_log('Checking inbox for user: ');
         $user = $this->ion_auth->user()->row();
         $id = $user->id;
-        $data['massage'] = $this->common->getWhere22('massage', 'receiver_id', $id, 'receiver_delete', 1);
+        error_log('Checking inbox for user: ' . $id);
+        $data['message'] = $this->common->getWhere22('message', 'receiver_id', $id, 'receiver_delete', 1);
+        error_log('Inbox messages: ' . var_export($data['message'], true));
+    
+        
         $this->load->view('temp/header');
         $this->load->view('inbox', $data);
         $this->load->view('temp/footer');
     }
+    
+    
 
-    //This function will return all inbox read and unread massage
+    //This function will return all inbox read and unread message
     public function sentMessage() {
         $user = $this->ion_auth->user()->row();
         $id = $user->id;
-        $data['massage'] = $this->common->getWhere22('massage', 'sender_id', $id, 'sender_delete', 1);
+        $data['message'] = $this->common->getWhere22('message', 'sender_id', $id, 'sender_delete', 1);
         $this->load->view('temp/header');
         $this->load->view('sent', $data);
         $this->load->view('temp/footer');
     }
 
-    //This function can return unread massage in the inbox. 
-    public function unreadMassage() {
+    //This function can return unread message in the inbox. 
+    public function unreadMessage() {
         $user = $this->ion_auth->user()->row();
         $id = $user->id;
-        $data['unreadMassage'] = $this->messagemodel->unReadMassage($id);
+        $data['unreadMessage'] = $this->messagemodel->unReadMessage($id);
     }
 
     //user can read the message by this function
-    public function readMassage() {
+    public function readMessage() {
         $id = $this->input->get('id');
-        $data['massage'] = $this->common->getWhere('massage', 'id', $id);
+        $data['message'] = $this->common->getWhere('message', 'id', $id);
         $update = array(
             'read_unread' => $this->db->escape_like_str(1)
         );
-        if ($this->db->update('massage', $update, array('id' => $this->db->escape_like_str($id)))) {
+        if ($this->db->update('message', $update, array('id' => $this->db->escape_like_str($id)))) {
             $this->load->view('temp/header');
-            $this->load->view('readmassage', $data);
+            $this->load->view('readmessage', $data);
             $this->load->view('temp/footer');
         }
     }
@@ -504,20 +522,20 @@ class Message extends MX_Controller {
     //This function can check at first thet is the sender want to delete it.
     //If the sender delete the message befor the receiver delte then this function can delete this message from databae.
     //Or remove this message only from the inbox item.
-    public function deleteInboxMassage() {
+    public function deleteInboxMessage() {
         $id = $this->input->get('id');
-        $query = $this->common->getWhere('massage', 'id', $id);
+        $query = $this->common->getWhere('message', 'id', $id);
         foreach ($query as $row) {
             $senderDelete = $row['sender_delete'];
         }
         if ($senderDelete == '0') {
-            if ($this->db->delete('massage', array('id' => $id))) {
+            if ($this->db->delete('message', array('id' => $id))) {
                 redirect('message/inbox', 'refresh');
             }
         } else {
             $this->db->where('id', $id);
             $data = array('receiver_delete' => 0);
-            if ($this->db->update('massage', $data)) {
+            if ($this->db->update('message', $data)) {
                 redirect('message/inbox', 'refresh');
             }
         }
@@ -526,20 +544,20 @@ class Message extends MX_Controller {
     //This function can check at first thet is the receiver want to delete it.
     //If the receiver delete the message befor the sender delte then this function can delete this message from databae.
     //Or remove this message only from the sent message item.
-    public function deleteSentMassage() {
+    public function deleteSentMessage() {
         $id = $this->input->get('id');
-        $query = $this->common->getWhere('massage', 'id', $id);
+        $query = $this->common->getWhere('message', 'id', $id);
         foreach ($query as $row) {
             $receiverDelete = $row['receiver_delete'];
         }
         if ($receiverDelete == '0') {
-            if ($this->db->delete('massage', array('id' => $id))) {
+            if ($this->db->delete('message', array('id' => $id))) {
                 redirect('message/inbox', 'refresh');
             }
         } else {
             $this->db->where('id', $id);
             $data = array('sender_delete' => 0);
-            if ($this->db->update('massage', $data)) {
+            if ($this->db->update('message', $data)) {
                 redirect('message/sentMessage', 'refresh');
             }
         }

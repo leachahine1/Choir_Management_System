@@ -129,8 +129,8 @@
                 <!-- END SAMPLE FORM PORTLET-->
             </div>
         </div>
-        <?php if (!empty($massage)) {
-            echo $massage;
+        <?php if (!empty($message)) {
+            echo $message;
         } ?>
         <br>
         <div class="row">

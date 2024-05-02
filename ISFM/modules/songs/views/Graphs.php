@@ -1,15 +1,52 @@
 <?php
-
 // Define the sequence array
-$sequence = [
-    ['No Match', 'Sliding', ['Pitch Match', 'Duration Mismatch'], 'Match', 'Match'],
-    ['Pitch Match', 'Duration Mismatch'], 'Match', 'No Match',
-    ['Pitch Match', 'Duration Mismatch'], 'Sliding',
-    ['Pitch Match', 'Duration Mismatch'], 'Match', 'No Match',
-    ['Pitch Match', 'Duration Mismatch'], 'Match', 'Match', 'Match'
+$sequenceScores = [
+    'sequence1' => [
+        'data' => [
+            ['Pitch Match', 'Duration Mismatch'], 'No Match', 'Match',
+            ['Pitch Match', 'Duration Mismatch'], ['Pitch Match', 'Duration Mismatch'],
+            ['Pitch Match', 'Duration Mismatch'], ['Pitch Match', 'Duration Mismatch'],
+            ['Pitch Match', 'Duration Mismatch'], ['Pitch Match', 'Duration Mismatch'],
+            ['Pitch Match', 'Duration Mismatch'], ['Pitch Match', 'Duration Mismatch'], ['Pitch Match', 'Duration Mismatch']
+        ],
+        'score' => 80
+    ],
+    'sequence2' => [
+        'data' => [
+            ['Pitch Match'], 'No Match', 'Sliding',
+            ['Pitch Match', 'Duration Mismatch'], ['Duration Mismatch'],
+            ['Pitch Match', 'Duration Mismatch'], ['Pitch Match', 'Duration Mismatch'],
+            ['Pitch Match', 'Duration Mismatch'], ['Pitch Match', 'Duration Mismatch'],
+            ['Pitch Match', 'Duration Mismatch'], ['Pitch Match', 'Duration Mismatch']
+        ],
+        'score' => 81
+    ],
+    'sequence3' => [
+        'data' => [
+            'Match', 'Match', 'No Match', 'Sliding', 'Match',
+            'Match', 'No Match', 'Match', ['Pitch Match', 'Duration Mismatch'],
+            'Match', 'No Match', 'Match', ['Pitch Match', 'Duration Mismatch'],
+            'Match', 'No Match', 'Match', 'Sliding', 'No Match',
+            ['Pitch Match', 'Duration Mismatch'], 'Match'
+        ],
+        'score' => 85
+    ]
 ];
 
-// Initialize counters
+
+// Preparing matches and durations for the Scatter Plot
+$matches = [];
+$durations = [];
+foreach ($sequenceScores as $sequence) {
+    $duration = rand(1, 100);  // Simulate a duration for the sequence
+    foreach ($sequence['data'] as $index => $item) {
+        if ($item === 'Match' || (is_array($item) && in_array('Pitch Match', $item))) {
+            $matches[] = $index;  // Index as x-coordinate
+            $durations[] = $duration;  // Simulated duration as y-coordinate
+        }
+    }
+}
+
 $counts = [
     'Match' => 0,
     'No Match' => 0,
@@ -17,67 +54,46 @@ $counts = [
     'Duration Mismatch' => 0
 ];
 
-// Dummy durations and match counts
-$durations = [];
-$matches = [];
-foreach ($sequence as $index => $item) {
-    $durations[] = rand(1, 100);  // Random duration between 1 and 100
-    if ($item === 'Match' || (is_array($item) && in_array('Pitch Match', $item))) {
-        $matches[] = ['x' => $index, 'y' => $durations[$index]];
+// Process data for visualization and update counts
+foreach ($sequenceScores as $sequence) {
+    foreach ($sequence['data'] as $item) {
+        if (is_array($item)) {
+            if (in_array('Pitch Match', $item)) {
+                $counts['Match']++;
+            }
+            if (in_array('Duration Mismatch', $item)) {
+                $counts['Duration Mismatch']++;
+            }
+        } else {
+            $counts[$item]++;
+        }
     }
 }
 
-// Calculate counts
-foreach ($sequence as $item) {
-    if (is_array($item)) {
-        $counts['Duration Mismatch']++;
-    } elseif ($item === 'Match') {
-        $counts['Match']++;
-    } elseif ($item === 'No Match') {
-        $counts['No Match']++;
-    } elseif ($item === 'Sliding') {
-        $counts['Sliding']++;
-    }
-}
-
-// Prepare data points for Flot
+// Prepare data points for line chart showing cumulative matches over time
 $dataPoints = [];
-$currentMatches = 0;
-foreach ($sequence as $index => $item) {
-    if ($item === 'Match') {
-        $currentMatches++;
-    }
-    $dataPoints[] = [$index, $currentMatches];
-}
-
-// Initialize counters
-$matchCount = 0;
-$mismatchCount = 0;
-
-// Calculate counts
-foreach ($sequence as $item) {
-    if (is_array($item)) {
-        // Assuming 'Pitch Match', 'Duration Mismatch' is a type of match for simplicity
-        $matchCount++;
-    } elseif ($item === 'Match') {
-        $matchCount++;
-    } elseif ($item === 'No Match') {
-        $mismatchCount++;
+$sumMatches = 0;
+foreach ($sequenceScores as $sequence) {
+    foreach ($sequence['data'] as $item) {
+        if ($item === 'Match' || (is_array($item) && in_array('Pitch Match', $item))) {
+            $sumMatches++;
+        }
+        $dataPoints[] = $sumMatches;
     }
 }
-$matchCount = count(array_filter($sequence, function($item) {
-    return $item === 'Match' || (is_array($item) && in_array('Pitch Match', $item));
-}));
 
-// Data for Flot
-$flotData = [
-    ["label" => "Matches", "data" => $matchCount, "color" => "#00FF00"],
-    ["label" => "Mismatches", "data" => $mismatchCount, "color" => "#FF0000"]
-];
+// Calculate Histogram data for durations
+$bins = array_fill(0, 10, 0);  // 10 bins for example
+foreach ($durations as $duration) {
+    $index = floor($duration / 10);  // Determine the bin index
+    if ($index < 10) {
+        $bins[$index]++;
+    }
+    // echo "Duration: $duration, Bin Index: $index\n";
 
-$matches = array_map(function ($match) {
-    return [$match['x'], $match['y']];
-}, $matches);
+}
+// var_export($durations);
+// var_export($bins);
 
 ?>
 <!-- BEGIN CONTENT -->
@@ -171,33 +187,7 @@ $matches = array_map(function ($match) {
                 </div>
 
 
-            <!-- Scatter Plot Placeholder -->
-            <div class="col-md-12">
-                <div class="portlet box blue">
-                    <div class="portlet-title">
-                        <div class="caption">
-                            <i class="fa fa-scatter-plot"></i> Scatter Plot for Matches vs. Duration
-                        </div>
-                    </div>
-                    <div class="portlet-body">
-                        <div id="scatter_plot" style="width:100%; height:400px;"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-12">
-                <div class="portlet box blue">
-                    <div class="portlet-title">
-                        <div class="caption">
-                            <i class="fa fa-scatter-plot"></i> Histogram Plot for Sequence Duration
-                        </div>
-                    </div>
-                    <div class="portlet-body">
-                    <div id="histogram" style="width:600px;height:300px;"></div>
-
-                    </div>
-                </div>
-            </div>
+           
 
 
         </div>
@@ -205,414 +195,191 @@ $matches = array_map(function ($match) {
     </div>
 </div>
 <!-- END CONTENT -->
-
 <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery.flot"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flot/4.2.6/jquery.flot.categories.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<canvas id="pie_chart"></canvas>
-
+<script src="/choir/node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js"></script>
 
 
 
 <script>  
- function updateBarChart() {
+jQuery(document).ready(function() {
+function updateBarChart() {
     var barData = [
-    {
-        label: "Match",
-        data: [ [1, <?php echo $counts['Match']; ?>] ],
-        color: "#8A2BE2"  // A shade of purple
-    },
-    {
-        label: "No Match",
-        data: [ [2, <?php echo $counts['No Match']; ?>] ],
-        color: "#DA70D6"  // Another shade of purple
-    },
-    {
-        label: "Sliding",
-        data: [ [3, <?php echo $counts['Sliding']; ?>] ],
-        color: "#9370DB"  // Another shade of purple
-    },
-    {
-        label: "Duration Mismatch",
-        data: [ [4, <?php echo $counts['Duration Mismatch']; ?>] ],
-        color: "#D8BFD8"  // Another shade of purple
-    }
-];
+        { label: "Match", data: [[1, <?php echo $counts['Match']; ?>]], color: "#8A2BE2" },
+        { label: "No Match", data: [[2, <?php echo $counts['No Match']; ?>]], color: "#DA70D6" },
+        { label: "Sliding", data: [[3, <?php echo $counts['Sliding']; ?>]], color: "#9370DB" },
+        { label: "Duration Mismatch", data: [[4, <?php echo $counts['Duration Mismatch']; ?>]], color: "#D8BFD8" }
+    ];
 
-var options = {
-    series: {
-        bars: {
-            show: true,
-            barWidth: 0.5,
-            align: 'center'
-        }
-    },
-    xaxis: {
-        mode: 'categories',
-        tickLength: 0,
-        label: "Types" // Label for the x-axis
-    },
-    yaxis: {
-        label: "Count" // Label for the y-axis
-    },
-    grid: {
-        hoverable: true,
-        clickable: true,
-        borderWidth: 1,
-        borderColor: '#ccc'
-    },
-    legend: {
-        show: true,
-        position: "ne" // Legend at the top right corner
-    }
-};
+    var options = {
+        series: {
+            bars: { show: true, barWidth: 0.5, align: 'center' }
+        },
+        xaxis: { mode: 'categories', tickLength: 0 },
+        yaxis: {},
+        grid: { hoverable: true, clickable: true, borderWidth: 1, borderColor: '#ccc' },
+        legend: { show: true, position: "ne" }
+    };
 
-$.plot('#bar_chart', barData, options);
-
+    $.plot('#bar_chart', barData, options);
 }
 
-$(document).ready(function() {
-    updateBarChart(); // This calls the function after the document is ready
+    updateBarChart();
 });
 
 </script>
+
 <script>
 jQuery(document).ready(function() {
     function updatePieChart() {
         var data = {
-    labels: ['Match', 'No Match', 'Sliding', 'Duration Mismatch'],
-    datasets: [{
-        data: [<?php echo $counts['Match']; ?>, <?php echo $counts['No Match']; ?>, <?php echo $counts['Sliding']; ?>, <?php echo $counts['Duration Mismatch']; ?>],
-        backgroundColor: ['#8D83BF', '#B9ADD5','#dcd4e9', '#1a1442'], // Shades of purple
-        borderColor:['#8D83BF', '#B9ADD5','#dcd4e9','#1a1442'],
-        borderWidth: 1
-    }]
-};
+            labels: ['Match', 'No Match', 'Sliding', 'Duration Mismatch'],
+            datasets: [{
+                data: [<?php echo $counts['Match']; ?>, <?php echo $counts['No Match']; ?>, <?php echo $counts['Sliding']; ?>, <?php echo $counts['Duration Mismatch']; ?>],
+                backgroundColor: ['#8D83BF', '#B9ADD5', '#dcd4e9', '#693b69'],
+                borderColor: ['#8D83BF', '#B9ADD5', '#dcd4e9', '#693b69'],
+                borderWidth: 1
+            }]
+        };
 
         var ctx = document.getElementById('pie_chart').getContext('2d');
         var pieChart = new Chart(ctx, {
-    type: 'pie',
-    data: data,
-    options: {
-        responsive: true,
-        legend: {
-            position: 'top',
-        },
-        title: {
-            display: true,
-            text: 'Match Distribution'
-        },
-        tooltips: { // Enabling tooltips
-            enabled: true
-        },
-        animation: {
-            animateScale: true,
-            animateRotate: true
-        }
-    }
-});
+            type: 'pie',
+            data: data,
+            options: {
+                responsive: false,
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Match Distribution'
+                },
+                plugins: {
+                    datalabels: {
+                        display: true,
+                        formatter: function(value) {
+                            return value + '%';
+                        }
+                    }
+                }
+            }
+        });
     }
     updatePieChart();
 });
 </script>
 
-<script type="text/javascript">
-jQuery(document).ready(function() {
-    function updateGraph() {
-        // Fetch new data periodically (simulation here; replace with AJAX call in production)
-        var data = [
-    {
-        label: "Match Count Over Time",
-        data: <?php echo json_encode($dataPoints); ?>,
-        lines: { show: true, fill: false },
-        color: "#8A2BE2"  // Purple color
-    }
-];
-
-
-     // Inside your existing updateGraph function
-var options = {
-    series: {
-        lines: {
-            show: true,
-            fill: true
-        },
-        points: {
-            show: true
-        }
-    },
-    grid: {
-        hoverable: true,
-        clickable: true,
-        borderWidth: 1,
-        borderColor: '#ccc'
-    },
-    xaxis: {
-        tickDecimals: 0,
-        tickSize: 1,
-        label: "Time" // Label for the x-axis
-    },
-    yaxis: {
-        min: 0,
-        tickSize: 1,
-        label: "Matches" // Label for the y-axis
-    },
-    legend: {
-        show: true
-    }
-};
-$.plot("#line_chart", data, options);
-
-
-        // Tooltips setup
-        $('<div id="tooltip"></div>').css({
-            position: "absolute",
-            display: "none",
-            border: "1px solid #fdd",
-            padding: "2px",
-            "background-color": "#fee",
-            opacity: 0.80
-        }).appendTo("body");
-
-        $("#matchTimeGraph").bind("plothover", function (event, pos, item) {
-            if (item) {
-                var x = item.datapoint[0].toFixed(2),
-                    y = item.datapoint[1].toFixed(2);
-
-                $("#tooltip").html("Match at " + x + ": " + y)
-                    .css({top: item.pageY+5, left: item.pageX+5})
-                    .fadeIn(200);
-            } else {
-                $("#tooltip").hide();
-            }
-        });
-    }
-
-    // Initial graph load
-    updateGraph();
-
-    // Optional: Update graph data periodically
-    setInterval(function() {
-        updateGraph(); // Redraw the graph with potentially new data
-    }, 10000); // Update every 10 seconds
-});
-</script>
-<?php
-
-// Parse sequences and count types for each sequence
-$typeCounts = [];
-$scores = [];
-
-
-// Convert PHP arrays to JavaScript arrays
-$typeCountsJS = json_encode($typeCounts);
-$scoresJS = json_encode($scores);
-?>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-
-<script type="text/javascript">
-jQuery(document).ready(function() {
-    function updateScatterPlot() {
-        
-        // Simulated data; replace with AJAX call in production to fetch real-time data
-        var scatterData = [
-    {
-        label: "Matches vs Duration",
-        data: <?php echo json_encode($matches); ?>,
-        points: { show: true },
-        color: "#9370DB"  // Purple color
-    }
-];
-
-
-
-        // Initialize the scatter plot
-        $.plot("#scatter_plot", scatterData, {
-            series: {
-                lines: { show: false },
-                points: { show: true, radius: 3 }
-            },
-            grid: {
-                hoverable: true,
-                clickable: true,
-                borderWidth: 1,
-                borderColor: '#ccc'
-            },
-            xaxis: {
-                tickDecimals: 0,
-                tickSize: 1
-            },
-            yaxis: {
-                min: 0
-            }
-        });
-
-        // Tooltips setup
-        $('<div id="tooltip"></div>').css({
-            position: "absolute",
-            display: "none",
-            border: "1px solid #fdd",
-            padding: "2px",
-            "background-color": "#fee",
-            opacity: 0.80
-        }).appendTo("body");
-
-        $("#scatter_plot").bind("plothover", function(event, pos, item) {
-            if (item) {
-                var x = item.datapoint[0].toFixed(2),
-                    y = item.datapoint[1].toFixed(2);
-
-                $("#tooltip").html(item.series.label + " at " + x + ": " + y)
-                    .css({top: item.pageY+5, left: item.pageX+5})
-                    .fadeIn(200);
-            } else {
-                $("#tooltip").hide();
-            }
-        });
-    }
-
-    // Initial chart load
-    updateScatterPlot();
-
-    // Optional: Update chart data periodically
-    setInterval(function() {
-        updateScatterPlot(); // Redraw the graph with potentially new data
-    }, 10000); // Update every 10 seconds, adjust timing as needed
-});
-</script>
-<script type="text/javascript">
-jQuery(document).ready(function() {
-    function updateHistogram(sequenceDurations) {
-        var histogramData = [];
-        var binSize = 10; // Adjust bin size as needed
-        var maxDuration = Math.max.apply(null, sequenceDurations);
-        var numBins = Math.ceil(maxDuration / binSize);
-        var bins = new Array(numBins).fill(0);
-
-        // Populate bins based on sequence durations
-        sequenceDurations.forEach(function(duration) {
-            var binIndex = Math.floor(duration / binSize);
-            bins[binIndex]++;
-        });
-
-        // Create data for histogram
-        bins.forEach(function(count, index) {
-            if (count > 0) {
-                histogramData.push([index * binSize + binSize / 2, count]); // Center the bar
-            }
-        });
-
-        // Plotting options for histogram
-        var options = {
-            series: {
-                bars: {
-                    show: true,
-                    align: 'center',
-                    fillColor: "#9370DB"  // A  color
+<script>
+    jQuery(document).ready(function() {
+        function updateLineChart() {
+            // Data points for the line chart
+            var dataPoints = <?php echo json_encode($dataPoints); ?>;
+            // Prepare the data in the format required by Flot
+            var data = [{
+                label: "Match Count Over Time",
+                data: dataPoints.map(function(value, index) {
+                    return [index + 1, value]; // Assuming time starts from 1
+                }),
+                color: "#8A2BE2"
+            }];
+            // Options for the line chart
+            var options = {
+                series: {
+                    lines: { show: true, fill: true },
+                    points: { show: true }
+                },
+                grid: {
+                    hoverable: true,
+                    clickable: true,
+                    borderWidth: 1,
+                    borderColor: '#ccc'
+                },
+                xaxis: {
+                    tickDecimals: 0,
+                    tickSize: 1,
+                    label: "Time"
+                },
+                yaxis: {
+                    min: 0,
+                    tickSize: 1,
+                    label: "Matches"
+                },
+                legend: {
+                    show: true
                 }
-            },
-            grid: {
-                hoverable: true,
-                borderWidth: 1,
-                borderColor: '#9370DB'  // Purple border color for consistency
-            },
-            xaxis: {
-                tickSize: binSize,
-                min: 0,
-                max: maxDuration + binSize,
-                label: "Duration (units)"
-            },
-            yaxis: {
-                min: 0,
-                label: "Frequency"
-            },
-            legend: {
-                show: true
-            }
-        };
-
-        // Render histogram
-        $.plot('#histogram', [{ data: histogramData, bars: { show: true, barWidth: binSize * 0.8 } }], options);
-    }
-
-    // Example data for sequence durations
-    var sequenceDurations = [5, 20, 15, 10, 35, 25, 30, 40, 45, 10, 20, 25, 30, 50, 55, 60, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
-    updateHistogram(sequenceDurations); // Call function to display the histogram
-});
+            };
+            // Plot the line chart
+            $.plot("#line_chart", data, options);
+        }
+        // Call the function to update the line chart
+        updateLineChart();
+    });
 </script>
 
-<?php
-// Assuming you have your scores in an associative array format
-$sequenceScores = [
-    'Sequence 1' => 87,
-    'Sequence 2' => 92,
-    'Sequence 3' => 75
-];
 
-// Convert PHP array to JSON
-$scoresJson = json_encode($sequenceScores);
-?>
 
+
+
+<!-- JavaScript code to generate the bar chart using Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-var scoresData = <?php echo $scoresJson; ?>;
-</script>
+    // Retrieve data for scores across sequences
+    var sequenceScores = <?php echo json_encode($sequenceScores); ?>;
+    
+    // Extract sequence names and scores
+    var sequenceNames = Object.keys(sequenceScores);
+    var scores = sequenceNames.map(function(sequenceName) {
+        return sequenceScores[sequenceName].score;
+    });
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var ctx = document.getElementById('scoresChart').getContext('2d');
-    var scoresChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: Object.keys(scoresData), // Sequence names
-            datasets: [{
-                label: 'Scores',
-                data: Object.values(scoresData), // Actual scores
-                backgroundColor: [
-            'rgba(148, 0, 211, 0.2)',  // A shade of purple
-            'rgba(153, 50, 204, 0.2)', // Another shade of purple
-            'rgba(186, 85, 211, 0.2)'  // Another shade of purple
-        ],
-        borderColor: [
-            'rgba(148, 0, 211, 1)',  // Darker purple
-            'rgba(153, 50, 204, 1)', // Darker purple
-            'rgba(186, 85, 211, 1)'  // Darker purple
-        ],
-                borderWidth: 1
+    // Set up the bar chart data
+    var barChartData = {
+        labels: sequenceNames, // Sequence names as labels
+        datasets: [{
+            label: 'Scores',
+            backgroundColor: '#693b69', // Blue color with opacity
+            borderColor: '#693b69',
+            borderWidth: 1,
+            data: scores // Scores as data points
+        }]
+    };
+
+    // Set up options for the bar chart
+    var barChartOptions = {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true // Start y-axis from 0
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Score' // Y-axis label
+                }
+            }],
+            xAxes: [{
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Sequence' // X-axis label
+                }
             }]
         },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            },
-            plugins: {
-                legend: {
-                    labels: {
-                        // This more specific font property overrides the global property
-                        font: {
-                            size: 14
-                        }
-                    }
-                }
-            },
-            // Set the background color here
-            layout: {
-                padding: {
-                    left: 0,
-                    right: 0,
-                    top: 0,
-                    bottom: 0
-                }
-            },
-            backgroundColor: 'white' // Here's the key to setting the background color
+        legend: {
+            display: false // Hide legend
         }
+    };
+
+    // Get the canvas element
+    var ctx = document.getElementById('scoresChart').getContext('2d');
+
+    // Create the bar chart
+    var scoresChart = new Chart(ctx, {
+        type: 'bar', // Bar chart type
+        data: barChartData,
+        options: barChartOptions
     });
-});
 </script>
+
+

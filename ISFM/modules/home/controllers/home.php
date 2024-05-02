@@ -28,7 +28,7 @@ class Home extends MX_Controller {
     public function index() {
         $user = $this->ion_auth->user()->row();
         $id = $user->id;
-        $data['massage'] = $this->common->getWhere('massage', 'receiver_id', $id);
+        $data['message'] = $this->common->getWhere('message', 'receiver_id', $id);
         $data['totalChoir_member'] = $this->common->totalChoir_member();
         $data['totalSection_leader'] = $this->common->totalSection_leader();
         $data['totalSection_trainers'] = $this->common->totalSection_trainers();
@@ -56,48 +56,7 @@ class Home extends MX_Controller {
         $this->load->view('dashboard', $data);
         $this->load->view('temp/footer');
     }
-
-//    public function index() {
-//        $user = $this->ion_auth->user()->row();
-//        $id = $user->id;
-//        $data['massage'] = $this->common->getWhere('massage', 'receiver_id', $id);
-//        $data['totalChoir_member'] = $this->common->totalChoir_member();
-//        $data['totalSection_leader'] = $this->common->totalSection_leader();
-//        $data['totalSection_trainers'] = $this->common->totalSection_trainers();
-//        $data['totalAttendChoir_member'] = $this->common->totalAttendChoir_member();
-//        $data['section_leaderAttendance'] = $this->common->section_leaderAttendance();
-//        $data['presentEmploy'] = $this->homeModel->presentEmploy();
-//        $data['absentEmploy'] = $this->homeModel->absentEmploy();
-//        $data['leaveEmploy'] = $this->homeModel->leaveEmploy();
-//        $data['event'] = $this->homeModel->all_event($id);
-//        if ($this->ion_auth->is_admin()) {
-//            $data['notice'] = $this->common->getAllData('notice_board');
-//            $data['ChoirAttendance'] = $this->homeModel->atten_chart();
-//            $data['ChoirInfo'] = $this->common->classInfo();
-//        } elseif ($this->ion_auth->is_section_leader()) {
-//            //If this user have section_leader's previlize, he can view only that notice whice notice is created for only section_leader.
-//            $data['notice'] = $this->common->getSection_leaderNotice();
-//            $data['ChoirInfo'] = $this->common->classInfo();
-//        } elseif ($this->ion_auth->is_Choir_member()) {
-//            //Whice notice is created for Choir_member these notice can see both Choir_members and section_trainers.
-//            $data['notice'] = $this->common->getChoir_memberNotice();
-//            $query = $this->common->getWhere('Choir_member_info', 'user_id', $id);
-//            foreach ($query as $row) {
-//                $Choir_id = $row['Choir_id'];
-//            }
-//            $data['Choir_id'] = $Choir_id;
-//            $data['day'] = $this->common->getAllData('config_week_day');
-//            $data['subject'] = $this->common->getWhere('Choir_subject', 'Choir_id', $Choir_id);
-//            $data['section_leader'] = $this->common->getAllData('section_leaders_info');
-//        } elseif ($this->ion_auth->is_section_trainers()) {
-//            //Whice notice is created for Choir_member these notice can see both Choir_members and section_trainers.
-//            $data['notice'] = $this->common->getChoir_memberNotice();
-//        }
-//        $this->load->view('temp/header', $data);
-//        $this->load->view('dashboard', $data);
-//        $this->load->view('temp/footer');
-//    }
-//    
+ 
     public function profileView() {
         $user = $this->ion_auth->user()->row();
         $data['userprofile'] = $this->common->getWhere('users', 'id', $user->id);
@@ -413,7 +372,7 @@ class Home extends MX_Controller {
         $id = $this->input->get('eve_id');
         
         if ($this->db->delete('calender_events', array('id' => $id))) {
-            $data['event'] = $this->homeModel->all_event($userId);
+            $data['event'] = $this->homeModel->all_event($id);
             $data['message'] = '<div class="alert alert-success alert-dismissable">
 								<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
 								<strong>Success!</strong> The event was deleted successfully.

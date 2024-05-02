@@ -57,7 +57,7 @@
                         echo form_open("stock/inv_item", $form_attributs);
                         ?>
                         <div class="form-body">
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label class="control-label col-md-3"><?php echo lang('sto_vendor'); ?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-6">
                                     <div class="input-group">
@@ -72,7 +72,7 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div>
                                 <div class="form-group">
                                     <label class="control-label col-md-3"><?php echo lang('sto_category'); ?> <span class="requiredStar"> * </span></label>
@@ -150,9 +150,7 @@
                                     <th>
                                         <?php echo lang('srno'); ?>
                                     </th>
-                                    <th>
-                                        <?php echo lang('sto_vendorName'); ?>
-                                    </th>
+                                  
                                     <th>
                                         <?php echo lang('sto_category'); ?>
                                     </th>
@@ -187,9 +185,7 @@
                                         <td>
                                             <?php echo $i; ?>
                                         </td>
-                                        <td>
-                                            <?php echo $this->stockmodel->vendoe_title($vendor_id); ?>
-                                        </td>
+                                        
                                         <td>
                                             <?php echo $this->stockmodel->category_title($category_id); ?>
                                         </td>

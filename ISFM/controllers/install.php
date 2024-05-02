@@ -787,7 +787,7 @@ $route[\'404_override\'] = \'\';
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;');
 
-        $this->db->query('CREATE TABLE IF NOT EXISTS `massage` (
+        $this->db->query('CREATE TABLE IF NOT EXISTS `message` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sender_id` int(11) NOT NULL,
   `receiver_id` int(11) NOT NULL,

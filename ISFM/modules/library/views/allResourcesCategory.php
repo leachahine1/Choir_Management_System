@@ -50,9 +50,7 @@
                                     <th>
                                         <?php echo lang('lib_cattit'); ?>
                                     </th>
-                                    <th>
-                                        <?php echo lang('lib_mothcate'); ?>
-                                    </th>
+                                   
                                     <th>
                                         <?php echo lang('lib_detailse'); ?>
                                     </th>

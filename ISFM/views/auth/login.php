@@ -31,9 +31,12 @@
         <!-- END THEME STYLES -->
         <link rel="shortcut icon" href="favicon.ico"/>
         <style>
+             .body {
+        background-color: #FFFFFF; /* White background */
+    }
   /* It’s recommended to use an external CSS file for styles */
   .header {
-    background-color: #1a1442; /* Vibrant red background */
+    background-color: #693b69; /* Vibrant red background */
     text-align: center;
     padding: 50px 0;
     box-shadow: inset 0 -8px 9px -6px rgba(0, 0, 0, 0.3); /* Inner shadow for depth */

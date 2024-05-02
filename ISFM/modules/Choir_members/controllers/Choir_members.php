@@ -37,7 +37,7 @@ class Choir_members extends MX_Controller {
                         $this->load->view('Choir_memberChoir', $data);
                         $this->load->view('temp/footer');
                     } else {
-                        //If the Choir have no any Choir_member then print the massage in the view.
+                        //If the Choir have no any Choir_member then print the message in the view.
                         $data['message'] = 'This Choir is no Choir_member.';
                         $this->load->view('temp/header');
                         $this->load->view('Choir_memberChoir', $data);
@@ -51,7 +51,7 @@ class Choir_members extends MX_Controller {
                         $this->load->view('Choir_memberChoir', $data);
                         $this->load->view('temp/footer');
                     } else {
-                        //If the Choir have no any Choir_member then print the massage in the view.
+                        //If the Choir have no any Choir_member then print the message in the view.
                         $data['message'] = lang('stuc_1');
                         $this->load->view('temp/header');
                         $this->load->view('Choir_memberChoir', $data);
@@ -68,7 +68,7 @@ class Choir_members extends MX_Controller {
                     $this->load->view('Choir_memberChoir', $data);
                     $this->load->view('temp/footer');
                 } else {
-                    //If the Choir have no any Choir_member then print the massage in the view.
+                    //If the Choir have no any Choir_member then print the message in the view.
                     $data['message'] = lang('stuc_1');
                     $this->load->view('temp/header');
                     $this->load->view('Choir_memberChoir', $data);

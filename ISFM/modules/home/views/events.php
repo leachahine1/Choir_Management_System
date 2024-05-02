@@ -151,9 +151,9 @@
                                     <th>
                                         <?php echo lang('cal_end_date'); ?>
                                     </th>
-                                    <th>
+                                    <!-- <th>
                                         <?php echo lang('cal_url'); ?>
-                                    </th>
+                                    </th> -->
                                     <th>
                                         &nbsp;
                                     </th>
@@ -174,9 +174,9 @@
                                         <td>
                                             <?php echo $row['end_date']; ?>
                                         </td>
-                                        <td>
+                                        <!-- <td>
                                             <a href="<?php echo $row['url']; ?>" target="_blank"><?php echo $row['url']; ?></a>
-                                        </td>
+                                        </td> -->
                                         <td>
                                             <a class="btn btn-xs default" href="index.php/home/edit_event?eve_id=<?php echo $row['id']; ?>"> <i class="fa fa-pencil-square-o"></i> <?php echo lang('edit'); ?> </a>
                                             <a class="btn btn-xs red" href="index.php/home/delete_event?eve_id=<?php echo $row['id']; ?>" onclick="javascript:return confirm('<?php echo lang('cal_conf_dele_eve'); ?>')"> <i class="fa fa-trash-o"></i> Delete </a>

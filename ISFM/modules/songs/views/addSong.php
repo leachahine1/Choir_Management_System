@@ -81,7 +81,7 @@
                                         <input type="text" name="writer_name" class="form-control" placeholder="Song Authore Name here">
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                         <label class="col-md-3 control-label"> <?php echo lang('sub_opt_subj'); ?> </label>
                                         <div class="radio-list">
                                                 <label class="radio-inline">
@@ -89,7 +89,7 @@
                                                 <label class="radio-inline">
                                                 <input type="radio" name="optionalSong" id="optionsRadios5" value="0" checked> No </label>
                                         </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="form-actions fluid">
                                 <div class="col-md-offset-3 col-md-6">

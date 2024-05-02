@@ -202,7 +202,7 @@ License: You must have a valid license purchased only from themeforest(the above
 						<li>
 							<ul class="dropdown-menu-list scroller" style="height: 250px;">
 								<li>
-									<a href="inbox.html?a=view">
+									<a href="index.php/message/inbox?a=view">
 									<span class="photo">
 									<img src="assets/admin/layout/img/avatar2.jpg" alt=""/>
 									</span>
@@ -217,7 +217,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									</a>
 								</li>
 								<li>
-									<a href="inbox.html?a=view">
+									<a href="index.php/message/inbox?a=view">
 									<span class="photo">
 									<img src="assets/admin/layout/img/avatar3.jpg" alt=""/>
 									</span>
@@ -232,7 +232,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									</a>
 								</li>
 								<li>
-									<a href="inbox.html?a=view">
+									<a href="index.php/message/inbox?a=view">
 									<span class="photo">
 									<img src="assets/admin/layout/img/avatar1.jpg" alt=""/>
 									</span>
@@ -247,7 +247,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									</a>
 								</li>
 								<li>
-									<a href="inbox.html?a=view">
+									<a href="index.php/message/inbox?a=view">
 									<span class="photo">
 									<img src="assets/admin/layout/img/avatar2.jpg" alt=""/>
 									</span>
@@ -262,7 +262,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									</a>
 								</li>
 								<li>
-									<a href="inbox.html?a=view">
+									<a href="index.php/message/inbox?a=view">
 									<span class="photo">
 									<img src="assets/admin/layout/img/avatar3.jpg" alt=""/>
 									</span>
@@ -279,7 +279,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							</ul>
 						</li>
 						<li class="external">
-							<a href="inbox.html">
+							<a href="index.php/message/inbox">
 							See all messages <i class="m-icon-swapright"></i>
 							</a>
 						</li>

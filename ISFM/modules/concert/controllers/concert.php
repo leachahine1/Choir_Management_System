@@ -157,7 +157,7 @@ class Concert extends MX_Controller {
             }
         } else {
             $this->load->view('temp/header');
-            $this->load->view('seatResource');
+            $this->load->view('seatBook');
             $this->load->view('temp/footer');
         }
     }

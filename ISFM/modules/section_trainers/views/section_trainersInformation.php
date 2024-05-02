@@ -62,18 +62,14 @@ $userId = $user->id;
                                     <th>
                                         <?php echo lang('par_gar_name'); ?>
                                     </th>
-                                    <th>
-                                        <?php echo lang('par_rela'); ?>
-                                    </th>
+                                   
                                     <th>
                                         <?php echo lang('par_email'); ?>
                                     </th>
                                     <th>
                                         <?php echo lang('par_pho_num'); ?>
                                     </th>
-                                    <th>
-                                        <?php echo lang('par_gur_pho'); ?>
-                                    </th>
+                                    
                                     <?php if ($this->common->user_access('section_trainers_edit_dlete', $userId)) { ?>
                                     <th>
                                         <?php echo lang('par_action'); ?>

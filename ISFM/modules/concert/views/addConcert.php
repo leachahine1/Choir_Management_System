@@ -59,11 +59,9 @@
                                 <div class="col-md-6">
                                     <select name="concertFor" class="form-control" data-validation="required" data-validation-error-msg="">
                                         <option value=""><?php echo lang('select'); ?></option>
-                                        <option value="Only for male"><?php echo lang('dor_ofm'); ?></option>
-                                        <option value="Only for female"><?php echo lang('dor_off'); ?></option>
-                                        <option value="Only for section_leaders (Male Section_leader)"><?php echo lang('dor_oft'); ?></option>
-                                        <option value="Only for madams (Female Section_leader)"><?php echo lang('dor_ofm'); ?></option>
-                                        <option value="None teaching staff"><?php echo lang('dor_nts'); ?></option>
+                                       
+                                        <option value="Only for section leaders"><?php echo lang('dor_oft'); ?></option>
+                                        <option value="Only for section trainers"><?php echo lang('dor_ofm'); ?></option>
                                         <option value="Open for all"><?php echo lang('dor_ofa'); ?></option>
                                     </select>
                                 </div>

@@ -106,12 +106,12 @@
                                     <textarea class="form-control" name="present_address" rows="3"  data-validation="required" data-validation-error-msg=""></textarea>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label class="col-md-3 control-label"><?php echo lang('tea_per_add'); ?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-6">
                                     <textarea class="form-control" name="permanent_address" rows="3"  data-validation="required" data-validation-error-msg=""></textarea>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label class="col-md-3 control-label"><?php echo lang('tea_pn'); ?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-1">
@@ -164,12 +164,12 @@
                                     <input type="text" class="form-control" name="indexNo" placeholder="" data-validation="required" data-validation-error-msg="">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label class="col-md-3 control-label"><?php echo lang('tea_fs'); ?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="facultiesSong" placeholder="" data-validation="required" data-validation-error-msg="" >
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label class="col-md-3 control-label"><?php echo lang('tea_wh'); ?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-6">
@@ -180,7 +180,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label class="col-md-3 control-label"><?php echo lang('tea_eq'); ?><span class="requiredStar"> * </span></label>
                                 <div class="col-md-2">
                                     <H4 class="eduFormTitle"><?php echo lang('tea_dd'); ?></H4>
@@ -214,8 +214,8 @@
                                     <input class="form-control eduForm" name="paYear_4" type="text" placeholder="YYYY" >
                                     <input class="form-control eduForm" name="paYear_5" type="text" placeholder="YYYY" >
                                 </div>
-                            </div>
-                            <div class="form-group last">
+                            </div> -->
+                            <!-- <div class="form-group last">
                                 <label class="control-label col-md-3"><?php echo lang('tea_photo'); ?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-9">
                                     <div class="fileinput fileinput-new" data-provides="fileinput">
@@ -234,11 +234,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="alert alert-success">
                                 <strong><?php echo lang('tea_note'); ?> :</strong> <?php echo lang('tea_sadi'); ?>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label class="col-md-3 control-label"> </label>
                                 <div class="col-md-9">
                                     <div class="checkbox-list">
@@ -250,13 +250,13 @@
                                             <input name="exc" value="submited" type="checkbox"> <?php echo lang('tea_exc'); ?></label>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
+                            </div> -->
+                            <!-- <div class="form-group">
                                 <label class="col-md-3 control-label"><?php echo lang('tea_sfi'); ?> <span class="requiredStar">  </span></label>
                                 <div class="col-md-6">
                                     <input type="text" name="submited_info" class="form-control" placeholder="<?php echo lang('tea_fntaoi'); ?>" data-validation="required" data-validation-error-msg="">
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="form-actions fluid">
                             <div class="col-md-offset-3 col-md-6">

@@ -68,7 +68,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($massage as $row) {
+                                foreach ($message as $row) {
                                     $userId = $row['sender_id'];
                                     $query = $this->common->getWhere('users', 'id', $userId);
                                     foreach ($query as $row1) {
@@ -78,39 +78,39 @@
                                     <tr>
                                         <td class="<?php
                                         if ($row['read_unread'] == 0) {
-                                            echo 'unreadMassage';
+                                            echo 'unreadMessage';
                                         }
                                         ?>">
                                                 <?php echo $senderName; ?>
                                         </td>
                                         <td class="<?php
                                         if ($row['read_unread'] == 0) {
-                                            echo 'unreadMassage';
+                                            echo 'unreadMessage';
                                         }
                                         ?>">
                                                 <?php echo $row['subject']; ?>
                                         </td>
                                         <td class="<?php
                                         if ($row['read_unread'] == 0) {
-                                            echo 'unreadMassage';
+                                            echo 'unreadMessage';
                                         }
                                         ?>">
                                                 <?php echo $row['message']; ?>
                                         </td>
                                         <td class="<?php
                                         if ($row['read_unread'] == 0) {
-                                            echo 'unreadMassage';
+                                            echo 'unreadMessage';
                                         }
                                         ?>">
                                                 <?php echo date('h.mA - d/m/Y', $row['date']); ?>
                                         </td>
                                         <td class="<?php
                                         if ($row['read_unread'] == 0) {
-                                            echo 'unreadMassage';
+                                            echo 'unreadMessage';
                                         }
                                         ?>">
-                                            <a class="btn btn-xs green" href="index.php/message/readMassage?id=<?php echo $row['id']; ?>"> <i class="fa fa-paper-plane-o"></i> <?php echo lang('mes_vd'); ?> </a>
-                                            <a class="btn btn-xs red" href="index.php/message/deleteSentMassage?id=<?php echo $row['id']; ?>" onclick="javascript:return confirm('<?php echo lang('mes_dsmc'); ?>')"> <i class="fa fa-trash-o"></i> <?php echo lang(''); ?>Delete </a>
+                                            <a class="btn btn-xs green" href="index.php/message/readMessage?id=<?php echo $row['id']; ?>"> <i class="fa fa-paper-plane-o"></i> <?php echo lang('mes_vd'); ?> </a>
+                                            <a class="btn btn-xs red" href="index.php/message/deleteSentMessage?id=<?php echo $row['id']; ?>" onclick="javascript:return confirm('<?php echo lang('mes_dsmc'); ?>')"> <i class="fa fa-trash-o"></i> <?php echo lang(''); ?>Delete </a>
                                         </td>
                                     </tr>
                                 <?php } ?>

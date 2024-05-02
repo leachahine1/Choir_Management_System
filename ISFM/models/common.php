@@ -184,6 +184,7 @@ class Common extends CI_Model {
     public function getWhere22($a, $b, $c, $d, $e) {
         $data = array();
         $query = $this->db->get_where($a, array($b => $c, $d => $e));
+        error_log($this->db->last_query());
         foreach ($query->result_array() as $row) {
             $data[] = $row;
         }return $data;

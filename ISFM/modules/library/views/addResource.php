@@ -96,7 +96,7 @@
                                         <input  class="form-control" type="text" name="pages" placeholder="" data-validation="required" data-validation-error-msg="">
                                     </div>
                                 </div>
-                                <div class="form-group last">
+                                <!-- <div class="form-group last">
                                     <label class="control-label col-md-3"><?php echo lang('lib_bcp'); ?> <span class="requiredStar"> * </span></label>
                                     <div class="col-md-9">
                                         <div class="fileinput fileinput-new" data-provides="fileinput">
@@ -118,7 +118,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
 
                             </div>
                             <div class="form-actions fluid">

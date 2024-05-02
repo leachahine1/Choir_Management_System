@@ -55,9 +55,7 @@ $userId = $user->id;
                                     <th>
                                         <?php echo lang('lib_ad'); ?>  
                                     </th>
-                                    <th>
-                                        <?php echo lang('lib_cp'); ?>  
-                                    </th>
+                                    
                                     <th>
                                         <?php echo lang('lib_bt'); ?>
                                     </th>
@@ -98,11 +96,7 @@ $userId = $user->id;
                                         <td>
                                             <?php echo date("d/m/Y", $resource['date']) ?> 
                                         </td>
-                                        <td>
-                                            <div class="tableImage">
-                                                <img src="assets/uploads/cover_photo/<?php echo $resource['cover_photo']; ?>" alt="">
-                                            </div>
-                                        </td>
+                                        
                                         <td>
                                             <?php echo $resource['resources_title']; ?> 
                                         </td>

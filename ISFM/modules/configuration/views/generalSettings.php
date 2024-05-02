@@ -470,26 +470,8 @@
                                         <option value="UM5"> (UTC - 5:00) Eastern Time, Bogota, Lima, Quito</option>
                                         <option value="UM4"> (UTC - 4:00) Atlantic Time, Caracas, La Paz</option>
                                         <option value="UM25"> (UTC - 3:30) Newfoundland</option>
-                                        <option value="UM3"> (UTC - 3:00) Brazil, Buenos Aires, Georgetown, Falkland Is.</option>
-                                        <option value="UM2"> (UTC - 2:00) Mid-Atlantic, Ascention Is., St Helena</option>
-                                        <option value="UM1"> (UTC - 1:00) Azores, Cape Verde Islands</option>
-                                        <option value="UTC"> (UTC) Casablanca, Dublin, Edinburgh, London, Lisbon, Monrovia</option>
-                                        <option value="UP1"> (UTC + 1:00) Berlin, Brussels, Copenhagen, Madrid, Paris, Rome</option>
-                                        <option value="UP2"> (UTC + 2:00) Kaliningrad, South Africa, Warsaw</option>
-                                        <option value="UP3"> (UTC + 3:00) Baghdad, Riyadh, Moscow, Nairobi</option>
-                                        <option value="UP25"> (UTC + 3:30) Tehran</option>
-                                        <option value="UP4"> (UTC + 4:00) Adu Dhabi, Baku, Muscat, Tbilisi</option>
-                                        <option value="UP35"> (UTC + 4:30) Kabul</option>
-                                        <option value="UP5"> (UTC + 5:00) Islamabad, Karachi, Tashkent</option>
-                                        <option value="UP45"> (UTC + 5:30) Bombay, Calcutta, Madras, New Delhi</option>
-                                        <option value="UP6"> (UTC + 6:00) Almaty, Colomba, Dhaka</option>
-                                        <option value="UP7"> (UTC + 7:00) Bangkok, Hanoi, Jakarta</option>
-                                        <option value="UP8"> (UTC + 8:00) Beijing, Hong Kong, Perth, Singapore, Taipei</option>
-                                        <option value="UP9"> (UTC + 9:00) Osaka, Sapporo, Seoul, Tokyo, Yakutsk</option>
-                                        <option value="UP85"> (UTC + 9:30) Adelaide, Darwin</option>
-                                        <option value="UP10"> (UTC + 10:00) Melbourne, Papua New Guinea, Sydney, Vladivostok</option>
-                                        <option value="UP11"> (UTC + 11:00) Magadan, New Caledonia, Solomon Islands</option>
-                                        <option value="UP12"> (UTC + 12:00) Auckland, Wellington, Fiji, Marshall Island</option>
+                                        <option value="UP1"> (UTC + 1:00) Kaliningrad, South Africa, Warsaw, Beirut</option>
+
                                     </select>
                                 </div>
                             </div>
