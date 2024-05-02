@@ -1,28 +1,22 @@
 <?php
-if (!defined('BASEPATH')) {
-    exit('No direct script access allowed');
-}
+defined('BASEPATH') OR exit('No direct script access allowed');
+
 class Section_trainers extends CI_Controller {
-    /**
-     * This controller is using for 
-     *
-     * Maps to the following URL
-     * 		http://rehearsalple.com/index.php/section_trainers
-     * 	- or -  
-     * 		http://rehearsalple.com/index.php/section_trainers/<method_name>
-     */
+
     function __construct() {
         parent::__construct();
         if (!$this->ion_auth->logged_in()) {
             redirect('auth/login');
         }
     }
-    //This function lode a view where is select Choir for know about section_trainers infomation
+
     public function section_trainersInformation() {
         if ($this->input->post('submit', TRUE)) {
             $Choir_id = $this->input->post('Choir_id', TRUE);
+            $selected_section = $this->input->post('section', TRUE); // Get selected section name
             $data['Choir_title'] = $this->common->Choir_title($Choir_id);
-            $data['section_trainers'] = $this->common->getWhere('section_trainers_info', 'Choir_id', $Choir_id);
+            $data['selected_section'] = $selected_section; // Pass selected section name to the view
+            $data['section_trainers'] = $this->common->getWhere22('section_trainers_info', 'Choir_id', $Choir_id, 'section', $selected_section); // Fetch trainers for the selected section
             $this->load->view('temp/header');
             $this->load->view('section_trainersInformation', $data);
             $this->load->view('temp/footer');
@@ -33,8 +27,7 @@ class Section_trainers extends CI_Controller {
             $this->load->view('temp/footer');
         }
     }
-    //This function is used for filtering to get Choir_members information(which Choir and which section if the section in that Choir)
-    //If any one want to select Choir section for get that section's section_trainers thene he can call this ajax function from view file.
+
     public function ajaxChoirSection() {
         $Choir_id = $this->input->get('q');
         $query = $this->common->getWhere('Choir', 'id', $Choir_id);
@@ -64,11 +57,7 @@ class Section_trainers extends CI_Controller {
                         </div></div></div>';
         }
     }
-    
-      
-        
-    
-    //This function will update the section_trainers information.
+
     public function editSection_trainersInfo() {
         $userID = $this->input->get('puid');
         $section_trainersInfoId = $this->input->get('painid');
@@ -106,7 +95,7 @@ class Section_trainers extends CI_Controller {
             $this->load->view('temp/footer');
         }
     }
-    //This function is using for delete any section_trainers profile.
+
     public function deleteSection_trainers() {
         $userID = $this->input->get('UcsHeRnHdtfgrfGshId');
         $section_trainersInfoId = $this->input->get('pdfdsfAjhgdfrRdfeNdsfdtSjdcfgdInfOdfgdfhIdnfd');

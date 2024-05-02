@@ -87,25 +87,14 @@ $userId = $user->id;
                                         <td>
                                             <?php echo $row['section_trainers_name']; ?>
                                         </td>
-                                        <td>
-                                            <?php echo $row['level']; ?>
-                                        </td>
+                                       
                                         <td>
                                             <?php echo $row['email']; ?>
                                         </td>
                                         <td>
                                             <?php echo $row['phone']; ?>
                                         </td>
-                                        <td>
-                                            <div class="tableImage">
-                                                <?php
-                                                $puserid = $row['user_id'];
-                                                $query = $this->db->get_where('users', array('id' => $puserid));
-                                                foreach ($query->result_array() as $row1) { ?>
-                                                    <img src="assets/uploads/<?php echo $row1['profile_image']; ?>" alt="">
-                                                <?php } ?>
-                                            </div>
-                                        </td>
+                                        
                                         <?php if ($this->common->user_access('section_trainers_edit_dlete', $userId)) { ?>
                                         <td>
                                                 <a class="btn btn-xs default" href="index.php/section_trainers/editSection_trainersInfo?painid=<?php echo $row['id']; ?>&puid=<?php echo $userId; ?>"> <i class="fa fa-pencil-square"></i> <?php echo lang('edit'); ?> </a>
