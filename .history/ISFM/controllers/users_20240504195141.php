@@ -226,25 +226,17 @@ class Users extends CI_Controller {
 
     //This function add section_leader in this function
     function addSection_leader() {
+       
+
         if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin()) {
             redirect('auth', 'refresh');
         }
+        
         if ($this->input->post('submit', TRUE)) {
-                    $Choir_id = $this->db->escape_like_str($this->input->post('Choir', TRUE));
-                    $Choir_title = $this->common->Choir_title($Choir_id);
-
-                    $section = $this->db->escape_like_str($this->input->post('section', TRUE));
-
-                    // Include these in your data array for database insertion
-                    $additional_data['Choir_id'] = $Choir_id;
-                    $additional_data['section'] = $section;
-
-                    $section_leadersInfo['Choir_id'] = $Choir_id;
-                    $section_leadersInfo['section'] = $section;
-                    $section_leadersInfo['Choir_title'] = $Choir_title;
             $this->load->database();
             $tables = $this->config->item('tables', 'ion_auth');
             $edu_1 = '';
+           
             $edu_2 = '';
             $edu_3 = '';
             $edu_4 = '';
@@ -309,20 +301,22 @@ class Users extends CI_Controller {
             //This array information's are sending to "user" table as a core information as a user this system.
             $additional_data = array(
                 'first_name' => $this->db->escape_like_str($this->input->post('first_name', TRUE)),
-                'Choir_title' => $this->db->escape_like_str($Choir_title),
-                'Choir_id' => $this->db->escape_like_str($Choir_id),
-                'section' => $this->db->escape_like_str($this->input->post('section', TRUE)),
                 'last_name' => $this->db->escape_like_str($this->input->post('last_name', TRUE)),
                 'phone' => $this->db->escape_like_str($phone),
                 'profile_image' => $this->db->escape_like_str($uploadFileInfo['file_name']),
                 'leave_status' => $this->db->escape_like_str('Available'),
-                'user_status' => $this->db->escape_like_str('Employee')
+                'user_status' => $this->db->escape_like_str('Employee'),
+                'section' => $this->db->escape_like_str($this->input->post('section', TRUE)),
+                    'Choir_id' => $this->db->escape_like_str($this->input->post('Choir_id', TRUE)),
+
             );
 
             $group_ids = array(
                 'group_id' => $this->db->escape_like_str(4)
             );
             if ($this->ion_auth->register($username, $password, $email, $additional_data, $group_ids)) {
+
+                
                 //This the next user id in users table. If we " -1 " from it we can get current user id 
                 $userid = $this->common->usersId();
                 //This array information's are sending to "section_leaders_info" table.
@@ -331,9 +325,9 @@ class Users extends CI_Controller {
                     'fullname' => $this->db->escape_like_str($username),
                     'farther_name' => $this->db->escape_like_str($this->input->post('father_name', TRUE)),
                     'mother_name' => $this->db->escape_like_str($this->input->post('mother_name', TRUE)),
-                    'Choir_title' => $this->db->escape_like_str($Choir_title),
-                    'Choir_id' => $this->db->escape_like_str($Choir_id),
+                    'Choir_id' => $this->db->escape_like_str($this->input->post('Choir_id', TRUE)),
                     'section' => $this->db->escape_like_str($this->input->post('section', TRUE)),
+
                     'birth_date' => $this->db->escape_like_str($this->input->post('birthdate', TRUE)),
                     'sex' => $this->db->escape_like_str($this->input->post('sex', TRUE)),
                     'present_address' => $this->db->escape_like_str($this->input->post('present_address', TRUE)),
@@ -357,9 +351,6 @@ class Users extends CI_Controller {
                 $section_leader_access = array(
                     'user_id' => $this->db->escape_like_str($userid),
                     'group_id' => $this->db->escape_like_str(4),
-                    'Choir_title' => $this->db->escape_like_str($Choir_title),
-                    'Choir_id' => $this->db->escape_like_str($Choir_id),
-                    'section' => $this->db->escape_like_str($this->input->post('section', TRUE)),
                     'das_top_info' => $this->db->escape_like_str(1),
                     'das_grab_chart' => $this->db->escape_like_str(0),
                     'das_Choir_info' => $this->db->escape_like_str(1),
@@ -455,30 +446,15 @@ class Users extends CI_Controller {
                     'front_setings' => $this->db->escape_like_str(0),
                 );
 
-
-              
-
                 $this->db->insert('section_leaders_info', $section_leadersInfo);
                 if ($this->db->insert('role_based_access', $section_leader_access)) {
                     //Load the Section_leaders Information's page after Add New Section_leader.
-                    $this->session->set_flashdata('message', $this->ion_auth->messages());
-
-                    //redirect("section_trainers/section_trainersInformation", 'refresh');
-
-                    $data['s_Choir'] = $this->common->getAllData('Choir');
-                    $data['success'] = '<div class="col-md-12"><div class="alert alert-info alert-dismissable admisionSucceassMessageFont">
-                                                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
-                                                        <strong>Success!</strong> The section_trainers profile made successfully.
-                                                </div></div>';
-                    $this->load->view('temp/header');
-                    $this->load->view('add_new_section_leader', $data);
-                    $this->load->view('temp/footer');
+                    redirect('section_leaders/section_leadersInfomration', 'refresh');
                 }
             } else {
                 $query = $this->common->countryPhoneCode();
                 $data['countryPhoneCode'] = $query->countryPhonCode;
                 //display the create user form
-                $data['s_Choir'] = $this->common->getAllData('Choir');
                 $this->load->view('temp/header');
                 $this->load->view('add_new_section_leader', $data);
                 $this->load->view('temp/footer');
@@ -486,7 +462,6 @@ class Users extends CI_Controller {
         } else {
             $query = $this->common->countryPhoneCode();
             $data['countryPhoneCode'] = $query->countryPhonCode;
-            $data['s_Choir'] = $this->common->getAllData('Choir');
             //display the create user form
             $this->load->view('temp/header');
             $this->load->view('add_new_section_leader', $data);

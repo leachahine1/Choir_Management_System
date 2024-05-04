@@ -1,7 +1,28 @@
 <!-- BEGIN PAGE LEVEL STYLES -->
 <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
 <!-- END PAGE LEVEL STYLES -->
-
+<script> function ChoirInfo(str) {
+        var xmlhttp;
+        if (str.length === 0) {
+            document.getElementById("txtHint").innerHTML = "";
+            return;
+        }
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+            }
+        };
+        xmlhttp.open("GET", "index.php/users/addSection_leader?q=" + str, true);
+        xmlhttp.send();
+    }</script>
 <!-- BEGIN CONTENT -->
 <div class="page-content-wrapper">
     <div class="page-content">
@@ -9,7 +30,7 @@
         <div class="row">
             <div class="col-md-12">
                 <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-                <h3 class="page-title">
+                <h3 class="page-title">AAASASA
                     <?php echo lang('tea_ant'); ?> <small></small>
                 </h3>
                 <ul class="page-breadcrumb breadcrumb">
@@ -58,7 +79,7 @@
                             ?>
                                
                             <div class="form-group">
-                                <label class="col-md-3 control-label"><?php echo lang('tea_fn1'); ?> <span class="requiredStar"> * </span></label>
+                                <label class="col-md-3 control-label"><?php echo lang('tea_fn'); ?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" placeholder="First Name" name="first_name" data-validation="required" data-validation-error-msg="">
                                 </div>
@@ -174,12 +195,11 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label"><?php echo lang('admi_Choir'); ?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-6">
-                                    <select name="Choir" onchange="ChoirInfo(this.value)" class="form-control"
-                                     data-validation="required" data-validation-error-msg="<?php echo lang('admi_Choir_error_msg');?>">
+                                    <select name="Choir" onchange="ChoirInfo(this.value)" class="form-control" data-validation="required" data-validation-error-msg="<?php echo lang('admi_Choir_error_msg');?>">
                                         <option value=""><?php echo lang('admi_select_Choir');?></option>
-                                     <?php foreach ($s_Choir as $row) { ?>
+                            <?php foreach ($s_Choir as $row) { ?>
                                  <option value="<?php echo $row['id']; ?>"><?php echo $row['Choir_title']; ?></option>
-                                             <?php } ?>
+                            <?php } ?>
                                     </select>
                                 </div>
                             </div>
@@ -247,7 +267,7 @@
                 document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
             }
         };
-        xmlhttp.open("GET", "index.php/users/Section_trainer_leader_info?q=" + str, true);
+        xmlhttp.open("GET", "index.php/users/Section_trainer_info?q=" + str, true);
         xmlhttp.send();
     }
     function checkEmail(str) {

@@ -738,16 +738,6 @@ $lang['tea_fn'] = 'First Name';
 $lang['tea_ln'] = 'Last Name';
 $lang['tea_fn'] = 'Father Name';
 $lang['tea_mn'] = 'Mother Name';
-
-$lang['header_stu_lead'] = 'Section_leaders Information';
-$lang['header_stu_lead1'] = 'Choir member & Section leaders ';
-$lang['header_stu_lead2'] = 'Section_leaders Information';
-$lang['header_stu_lead3'] = 'Section_leaders Information';
-
-$lang['tea_gtifnt'] = 'Give The Information For New Section_leader';
-$lang['tea_fn1'] = 'First Name';
-$lang['tea_ln'] = 'Last Name';
-$lang['par_scfpi1'] = 'Select Choir For leaders Information';
 $lang['tea_dob'] = 'Date Of Birth';
 $lang['tea_dformet'] = 'Date Type  DD/MM/YYYY';
 $lang['tea_sex'] = 'Sex';

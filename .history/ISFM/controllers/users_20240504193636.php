@@ -226,25 +226,17 @@ class Users extends CI_Controller {
 
     //This function add section_leader in this function
     function addSection_leader() {
+       
+
         if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin()) {
             redirect('auth', 'refresh');
         }
+        
         if ($this->input->post('submit', TRUE)) {
-                    $Choir_id = $this->db->escape_like_str($this->input->post('Choir', TRUE));
-                    $Choir_title = $this->common->Choir_title($Choir_id);
-
-                    $section = $this->db->escape_like_str($this->input->post('section', TRUE));
-
-                    // Include these in your data array for database insertion
-                    $additional_data['Choir_id'] = $Choir_id;
-                    $additional_data['section'] = $section;
-
-                    $section_leadersInfo['Choir_id'] = $Choir_id;
-                    $section_leadersInfo['section'] = $section;
-                    $section_leadersInfo['Choir_title'] = $Choir_title;
             $this->load->database();
             $tables = $this->config->item('tables', 'ion_auth');
             $edu_1 = '';
+           
             $edu_2 = '';
             $edu_3 = '';
             $edu_4 = '';
@@ -309,20 +301,22 @@ class Users extends CI_Controller {
             //This array information's are sending to "user" table as a core information as a user this system.
             $additional_data = array(
                 'first_name' => $this->db->escape_like_str($this->input->post('first_name', TRUE)),
-                'Choir_title' => $this->db->escape_like_str($Choir_title),
-                'Choir_id' => $this->db->escape_like_str($Choir_id),
-                'section' => $this->db->escape_like_str($this->input->post('section', TRUE)),
                 'last_name' => $this->db->escape_like_str($this->input->post('last_name', TRUE)),
                 'phone' => $this->db->escape_like_str($phone),
                 'profile_image' => $this->db->escape_like_str($uploadFileInfo['file_name']),
                 'leave_status' => $this->db->escape_like_str('Available'),
-                'user_status' => $this->db->escape_like_str('Employee')
+                'user_status' => $this->db->escape_like_str('Employee'),
+                'section' => $this->db->escape_like_str($this->input->post('section', TRUE)),
+                    'Choir_id' => $this->db->escape_like_str($this->input->post('Choir_id', TRUE)),
+
             );
 
             $group_ids = array(
                 'group_id' => $this->db->escape_like_str(4)
             );
             if ($this->ion_auth->register($username, $password, $email, $additional_data, $group_ids)) {
+
+                
                 //This the next user id in users table. If we " -1 " from it we can get current user id 
                 $userid = $this->common->usersId();
                 //This array information's are sending to "section_leaders_info" table.
@@ -331,9 +325,9 @@ class Users extends CI_Controller {
                     'fullname' => $this->db->escape_like_str($username),
                     'farther_name' => $this->db->escape_like_str($this->input->post('father_name', TRUE)),
                     'mother_name' => $this->db->escape_like_str($this->input->post('mother_name', TRUE)),
-                    'Choir_title' => $this->db->escape_like_str($Choir_title),
-                    'Choir_id' => $this->db->escape_like_str($Choir_id),
+                    'Choir_id' => $this->db->escape_like_str($this->input->post('Choir_id', TRUE)),
                     'section' => $this->db->escape_like_str($this->input->post('section', TRUE)),
+
                     'birth_date' => $this->db->escape_like_str($this->input->post('birthdate', TRUE)),
                     'sex' => $this->db->escape_like_str($this->input->post('sex', TRUE)),
                     'present_address' => $this->db->escape_like_str($this->input->post('present_address', TRUE)),
@@ -357,9 +351,6 @@ class Users extends CI_Controller {
                 $section_leader_access = array(
                     'user_id' => $this->db->escape_like_str($userid),
                     'group_id' => $this->db->escape_like_str(4),
-                    'Choir_title' => $this->db->escape_like_str($Choir_title),
-                    'Choir_id' => $this->db->escape_like_str($Choir_id),
-                    'section' => $this->db->escape_like_str($this->input->post('section', TRUE)),
                     'das_top_info' => $this->db->escape_like_str(1),
                     'das_grab_chart' => $this->db->escape_like_str(0),
                     'das_Choir_info' => $this->db->escape_like_str(1),
@@ -455,30 +446,15 @@ class Users extends CI_Controller {
                     'front_setings' => $this->db->escape_like_str(0),
                 );
 
-
-              
-
                 $this->db->insert('section_leaders_info', $section_leadersInfo);
                 if ($this->db->insert('role_based_access', $section_leader_access)) {
                     //Load the Section_leaders Information's page after Add New Section_leader.
-                    $this->session->set_flashdata('message', $this->ion_auth->messages());
-
-                    //redirect("section_trainers/section_trainersInformation", 'refresh');
-
-                    $data['s_Choir'] = $this->common->getAllData('Choir');
-                    $data['success'] = '<div class="col-md-12"><div class="alert alert-info alert-dismissable admisionSucceassMessageFont">
-                                                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
-                                                        <strong>Success!</strong> The section_trainers profile made successfully.
-                                                </div></div>';
-                    $this->load->view('temp/header');
-                    $this->load->view('add_new_section_leader', $data);
-                    $this->load->view('temp/footer');
+                    redirect('section_leaders/section_leadersInfomration', 'refresh');
                 }
             } else {
                 $query = $this->common->countryPhoneCode();
                 $data['countryPhoneCode'] = $query->countryPhonCode;
                 //display the create user form
-                $data['s_Choir'] = $this->common->getAllData('Choir');
                 $this->load->view('temp/header');
                 $this->load->view('add_new_section_leader', $data);
                 $this->load->view('temp/footer');
@@ -486,7 +462,6 @@ class Users extends CI_Controller {
         } else {
             $query = $this->common->countryPhoneCode();
             $data['countryPhoneCode'] = $query->countryPhonCode;
-            $data['s_Choir'] = $this->common->getAllData('Choir');
             //display the create user form
             $this->load->view('temp/header');
             $this->load->view('add_new_section_leader', $data);
@@ -559,20 +534,19 @@ class Users extends CI_Controller {
                 </div>';
     }
 
-    public function Section_trainer_leader_info(){
+    public function Section_trainer_info() {
         $Choir_id = $this->input->get('q', TRUE);
         $query = $this->common->getWhere('Choir', 'id', $Choir_id);
+        error_log("Choir ID: " . $Choir_id);
+
         foreach ($query as $row) {
             $data = $row;
-
         }
         $Choir_code = $data['ChoirCode'];
-
         //making here Choir Section fild.
         if (!empty($data['section'])) {
             $section = $data['section'];
             $sectionArray = explode(",", $section);
-
             echo '<div class="form-group">
                         <label class="col-md-3 control-label">section <span class="requiredStar"> * </span></label>
                         <div class="col-md-6">
@@ -592,191 +566,194 @@ class Users extends CI_Controller {
                                 <strong>Info!</strong> ' . $section . '
                         </div></div></div>';
         }
+
+       
+       
     }
 
     //This function is using for add new section_trainers
-                            function addSection_trainers() {
-                                if ($this->input->post('submit', TRUE)) {
-                                    // Fetch Choir ID and Section
-                                $Choir_id = $this->db->escape_like_str($this->input->post('Choir', TRUE));
-                                $Choir_title = $this->common->Choir_title($Choir_id);
+    function addSection_trainers() {
+        if ($this->input->post('submit', TRUE)) {
+            // Fetch Choir ID and Section
+        $Choir_id = $this->db->escape_like_str($this->input->post('Choir', TRUE));
+         $Choir_title = $this->common->Choir_title($Choir_id);
 
-                        $section = $this->db->escape_like_str($this->input->post('section', TRUE));
+$section = $this->db->escape_like_str($this->input->post('section', TRUE));
 
-                        // Include these in your data array for database insertion
-                        $additional_data['Choir_id'] = $Choir_id;
-                        $additional_data['section'] = $section;
+// Include these in your data array for database insertion
+$additional_data['Choir_id'] = $Choir_id;
+$additional_data['section'] = $section;
 
-                        $section_leadersInfo['Choir_id'] = $Choir_id;
-                        $section_leadersInfo['section'] = $section;
-                        $section_leadersInfo['Choir_title'] = $Choir_title;
+$section_leadersInfo['Choir_id'] = $Choir_id;
+$section_leadersInfo['section'] = $section;
+$section_leadersInfo['Choir_title'] = $Choir_title;
 
-                        $username = $this->input->post('first_name') . ' ' . $this->input->post('last_name');
-                        $email = strtolower($this->input->post('email', TRUE));
-                        $password = $this->input->post('password', TRUE);
-                        //Here is uploading the Choir_member's photo.
-                        $config['upload_path'] = './assets/uploads/';
-                        $config['allowed_types'] = 'gif|jpg|png';
-                        $config['max_size'] = '10000';
-                        $config['max_width'] = '10240';
-                        $config['max_height'] = '7680';
-                        $config['encrypt_name'] = TRUE;
-                        $this->load->library('upload', $config);
-                        $this->upload->do_upload();
-                        $uploadFileInfo = $this->upload->data();
-                        $this->upload->display_errors('<p>', '</p>');
+$username = $this->input->post('first_name') . ' ' . $this->input->post('last_name');
+$email = strtolower($this->input->post('email', TRUE));
+$password = $this->input->post('password', TRUE);
+//Here is uploading the Choir_member's photo.
+$config['upload_path'] = './assets/uploads/';
+$config['allowed_types'] = 'gif|jpg|png';
+$config['max_size'] = '10000';
+$config['max_width'] = '10240';
+$config['max_height'] = '7680';
+$config['encrypt_name'] = TRUE;
+$this->load->library('upload', $config);
+$this->upload->do_upload();
+$uploadFileInfo = $this->upload->data();
+$this->upload->display_errors('<p>', '</p>');
 
-                        $phone = $this->input->post('phoneCode', TRUE) . '' . $this->input->post('phone', TRUE);
-                        $additional_data = array(
-                        'first_name' => $this->db->escape_like_str($this->input->post('first_name', TRUE)),
-                        'last_name' => $this->db->escape_like_str($this->input->post('last_name', TRUE)),
-                        'phone' => $this->db->escape_like_str($phone),
-                        'profile_image' => $this->db->escape_like_str($uploadFileInfo['file_name'])
-                        );
-                        $group_ids = array(
-                        'group_id' => $this->db->escape_like_str(5)
-                        );
-                        if ($this->ion_auth->register($username, $password, $email, $additional_data, $group_ids)) {
-                        //This the next user id in users table. If we " -1 " from it we can get current user id 
-                        $userid = $this->common->usersId();
-                        $additionalData1 = array(
-                            'user_id' => $this->db->escape_like_str($userid),
-                            'Choir_title' => $this->db->escape_like_str($Choir_title),
-                            'Choir_id' => $this->db->escape_like_str($Choir_id),
-                            'section' => $this->db->escape_like_str($this->input->post('section', TRUE)),
-                            'section_trainers_name' => $this->db->escape_like_str($username),
-                            'level' => $this->db->escape_like_str($this->input->post('guardianLevel', TRUE)),
-                            'email' => $this->db->escape_like_str($this->input->post('email', TRUE)),
-                            'phone' => $this->db->escape_like_str($phone),
-                            
-                        );
-                        $this->db->insert('section_trainers_info', $additionalData1);
-                        $section_trainers_access = array(
-                            'user_id' => $this->db->escape_like_str($userid),
-                            'group_id' => $this->db->escape_like_str(5),
-                            'das_top_info' => $this->db->escape_like_str(0),
-                            'Choir_title' => $this->db->escape_like_str($Choir_title),
-                            'Choir_id' => $this->db->escape_like_str($Choir_id),
-                            'section' => $this->db->escape_like_str($this->input->post('section', TRUE)),
-                            'das_grab_chart' => $this->db->escape_like_str(0),
-                            'das_Choir_info' => $this->db->escape_like_str(0),
-                            'das_message' => $this->db->escape_like_str(1),
-                            'das_employ_attend' => $this->db->escape_like_str(0),
-                            'das_notice' => $this->db->escape_like_str(1),
-                            'das_calender' => $this->db->escape_like_str(1),
-                            'admission' => $this->db->escape_like_str(0),
-                            'all_Choir_member_info' => $this->db->escape_like_str(0),
-                            'stud_edit_delete' => $this->db->escape_like_str(0),
-                            'stu_own_info' => $this->db->escape_like_str(1),
-                            'section_leader_info' => $this->db->escape_like_str(1),
-                            'add_section_leader' => $this->db->escape_like_str(0),
-                            'section_leader_details' => $this->db->escape_like_str(0),
-                            'section_leader_edit_delete' => $this->db->escape_like_str(0),
-                            'all_section_trainers_info' => $this->db->escape_like_str(0),
-                            'own_section_trainers_info' => $this->db->escape_like_str(1),
-                            'make_section_trainers_id' => $this->db->escape_like_str(0),
-                            'section_trainers_edit_dlete' => $this->db->escape_like_str(0),
-                            'add_new_Choir' => $this->db->escape_like_str(0),
-                            'all_Choir_info' => $this->db->escape_like_str(0),
-                            'Choir_details' => $this->db->escape_like_str(0),
-                            'Choir_delete' => $this->db->escape_like_str(0),
-                            'Choir_promotion' => $this->db->escape_like_str(0),
-                            'assin_optio_sub' => $this->db->escape_like_str(0),
-                            'add_Choir_routine' => $this->db->escape_like_str(0),
-                            'own_Choir_routine' => $this->db->escape_like_str(1),
-                            'all_Choir_routine' => $this->db->escape_like_str(0),
-                            'rutin_edit_delete' => $this->db->escape_like_str(0),
-                            'attendance_preview' => $this->db->escape_like_str(0),
-                            'take_studence_atten' => $this->db->escape_like_str(0),
-                            'edit_Choir_member_atten' => $this->db->escape_like_str(0),
-                            'add_employee' => $this->db->escape_like_str(0),
-                            'employee_list' => $this->db->escape_like_str(0),
-                            'employ_attendance' => $this->db->escape_like_str(0),
-                            'empl_atte_view' => $this->db->escape_like_str(0),
-                            'add_song' => $this->db->escape_like_str(0),
-                            'all_song' => $this->db->escape_like_str(0),
-                            'make_suggestion' => $this->db->escape_like_str(0),
-                            'all_suggestion' => $this->db->escape_like_str(0),
-                            'own_suggestion' => $this->db->escape_like_str(1),
-                            'add_rehearsal_gread' => $this->db->escape_like_str(0),
-                            'rehearsal_gread' => $this->db->escape_like_str(0),
-                            'add_rehearsal_routin' => $this->db->escape_like_str(0),
-                            'all_rehearsal_routine' => $this->db->escape_like_str(0),
-                            'own_rehearsal_routine' => $this->db->escape_like_str(1),
-                            'rehearsal_attend_preview' => $this->db->escape_like_str(0),
-                            'approve_result' => $this->db->escape_like_str(0),
-                            'view_result' => $this->db->escape_like_str(1),
-                            'all_mark_sheet' => $this->db->escape_like_str(0),
-                            'own_mark_sheet' => $this->db->escape_like_str(1),
-                            'take_rehearsal_attend' => $this->db->escape_like_str(0),
-                            'change_rehearsal_attendance' => $this->db->escape_like_str(0),
-                            'make_result' => $this->db->escape_like_str(0),
-                            'add_category' => $this->db->escape_like_str(0),
-                            'all_category' => $this->db->escape_like_str(1),
-                            'edit_delete_category' => $this->db->escape_like_str(0),
-                            'add_resources' => $this->db->escape_like_str(0),
-                            'all_resources' => $this->db->escape_like_str(1),
-                            'edit_delete_resources' => $this->db->escape_like_str(0),
-                            'add_library_mem' => $this->db->escape_like_str(0),
-                            'memb_list' => $this->db->escape_like_str(0),
-                            'issu_return' => $this->db->escape_like_str(0),
-                            'add_concerts' => $this->db->escape_like_str(0),
-                            'add_set_dormi' => $this->db->escape_like_str(0),
-                            'set_member_seat' => $this->db->escape_like_str(0),
-                            'dormi_report' => $this->db->escape_like_str(1),
-                            'add_transport' => $this->db->escape_like_str(0),
-                            'all_transport' => $this->db->escape_like_str(1),
-                            'transport_edit_dele' => $this->db->escape_like_str(0),
-                            'add_account_title' => $this->db->escape_like_str(0),
-                            'edit_dele_acco' => $this->db->escape_like_str(0),
-                            'trensection' => $this->db->escape_like_str(0),
-                            'fee_collection' => $this->db->escape_like_str(0),
-                            'all_slips' => $this->db->escape_like_str(0),
-                            'own_slip' => $this->db->escape_like_str(1),
-                            'slip_edit_delete' => $this->db->escape_like_str(0),
-                            'pay_salary' => $this->db->escape_like_str(0),
-                            'creat_notice' => $this->db->escape_like_str(0),
-                            'send_message' => $this->db->escape_like_str(0),
-                            'vendor' => $this->db->escape_like_str(0),
-                            'delet_vendor' => $this->db->escape_like_str(0),
-                            'add_inv_cat' => $this->db->escape_like_str(0),
-                            'inve_item' => $this->db->escape_like_str(0),
-                            'delete_inve_ite' => $this->db->escape_like_str(0),
-                            'delete_inv_cat' => $this->db->escape_like_str(0),
-                            'inve_issu' => $this->db->escape_like_str(0),
-                            'delete_inven_issu' => $this->db->escape_like_str(0),
-                            'check_leav_appli' => $this->db->escape_like_str(0),
-                            'setting_manage_user' => $this->db->escape_like_str(0),
-                            'setting_accounts' => $this->db->escape_like_str(0),
-                            'other_setting' => $this->db->escape_like_str(0),
-                            'front_setings' => $this->db->escape_like_str(0),
-                        );
-                        if ($this->db->insert('role_based_access', $section_trainers_access)) {
-                            //check to see if we are creating the user
-                            //redirect them back to the admin page
-                            $this->session->set_flashdata('message', $this->ion_auth->messages());
+$phone = $this->input->post('phoneCode', TRUE) . '' . $this->input->post('phone', TRUE);
+$additional_data = array(
+'first_name' => $this->db->escape_like_str($this->input->post('first_name', TRUE)),
+'last_name' => $this->db->escape_like_str($this->input->post('last_name', TRUE)),
+'phone' => $this->db->escape_like_str($phone),
+'profile_image' => $this->db->escape_like_str($uploadFileInfo['file_name'])
+);
+$group_ids = array(
+'group_id' => $this->db->escape_like_str(5)
+);
+if ($this->ion_auth->register($username, $password, $email, $additional_data, $group_ids)) {
+//This the next user id in users table. If we " -1 " from it we can get current user id 
+$userid = $this->common->usersId();
+$additionalData1 = array(
+    'user_id' => $this->db->escape_like_str($userid),
+    'Choir_member_id' => $this->db->escape_like_str($this->input->post('Choir_memberId', TRUE)),
+    'Choir_title' => $this->db->escape_like_str($Choir_title),
+    'Choir_id' => $this->db->escape_like_str($Choir_id),
+    'section' => $this->db->escape_like_str($this->input->post('section', TRUE)),
+    'section_trainers_name' => $this->db->escape_like_str($username),
+    'level' => $this->db->escape_like_str($this->input->post('guardianLevel', TRUE)),
+    'email' => $this->db->escape_like_str($this->input->post('email', TRUE)),
+    'phone' => $this->db->escape_like_str($phone)
+);
+$this->db->insert('section_trainers_info', $additionalData1);
+$section_trainers_access = array(
+    'user_id' => $this->db->escape_like_str($userid),
+    'group_id' => $this->db->escape_like_str(5),
+    'das_top_info' => $this->db->escape_like_str(0),
+    'Choir_title' => $this->db->escape_like_str($Choir_title),
+    'Choir_id' => $this->db->escape_like_str($Choir_id),
+    'section' => $this->db->escape_like_str($this->input->post('section', TRUE)),
+    'das_grab_chart' => $this->db->escape_like_str(0),
+    'das_Choir_info' => $this->db->escape_like_str(0),
+    'das_message' => $this->db->escape_like_str(1),
+    'das_employ_attend' => $this->db->escape_like_str(0),
+    'das_notice' => $this->db->escape_like_str(1),
+    'das_calender' => $this->db->escape_like_str(1),
+    'admission' => $this->db->escape_like_str(0),
+    'all_Choir_member_info' => $this->db->escape_like_str(0),
+    'stud_edit_delete' => $this->db->escape_like_str(0),
+    'stu_own_info' => $this->db->escape_like_str(1),
+    'section_leader_info' => $this->db->escape_like_str(1),
+    'add_section_leader' => $this->db->escape_like_str(0),
+    'section_leader_details' => $this->db->escape_like_str(0),
+    'section_leader_edit_delete' => $this->db->escape_like_str(0),
+    'all_section_trainers_info' => $this->db->escape_like_str(0),
+    'own_section_trainers_info' => $this->db->escape_like_str(1),
+    'make_section_trainers_id' => $this->db->escape_like_str(0),
+    'section_trainers_edit_dlete' => $this->db->escape_like_str(0),
+    'add_new_Choir' => $this->db->escape_like_str(0),
+    'all_Choir_info' => $this->db->escape_like_str(0),
+    'Choir_details' => $this->db->escape_like_str(0),
+    'Choir_delete' => $this->db->escape_like_str(0),
+    'Choir_promotion' => $this->db->escape_like_str(0),
+    'assin_optio_sub' => $this->db->escape_like_str(0),
+    'add_Choir_routine' => $this->db->escape_like_str(0),
+    'own_Choir_routine' => $this->db->escape_like_str(1),
+    'all_Choir_routine' => $this->db->escape_like_str(0),
+    'rutin_edit_delete' => $this->db->escape_like_str(0),
+    'attendance_preview' => $this->db->escape_like_str(0),
+    'take_studence_atten' => $this->db->escape_like_str(0),
+    'edit_Choir_member_atten' => $this->db->escape_like_str(0),
+    'add_employee' => $this->db->escape_like_str(0),
+    'employee_list' => $this->db->escape_like_str(0),
+    'employ_attendance' => $this->db->escape_like_str(0),
+    'empl_atte_view' => $this->db->escape_like_str(0),
+    'add_song' => $this->db->escape_like_str(0),
+    'all_song' => $this->db->escape_like_str(0),
+    'make_suggestion' => $this->db->escape_like_str(0),
+    'all_suggestion' => $this->db->escape_like_str(0),
+    'own_suggestion' => $this->db->escape_like_str(1),
+    'add_rehearsal_gread' => $this->db->escape_like_str(0),
+    'rehearsal_gread' => $this->db->escape_like_str(0),
+    'add_rehearsal_routin' => $this->db->escape_like_str(0),
+    'all_rehearsal_routine' => $this->db->escape_like_str(0),
+    'own_rehearsal_routine' => $this->db->escape_like_str(1),
+    'rehearsal_attend_preview' => $this->db->escape_like_str(0),
+    'approve_result' => $this->db->escape_like_str(0),
+    'view_result' => $this->db->escape_like_str(1),
+    'all_mark_sheet' => $this->db->escape_like_str(0),
+    'own_mark_sheet' => $this->db->escape_like_str(1),
+    'take_rehearsal_attend' => $this->db->escape_like_str(0),
+    'change_rehearsal_attendance' => $this->db->escape_like_str(0),
+    'make_result' => $this->db->escape_like_str(0),
+    'add_category' => $this->db->escape_like_str(0),
+    'all_category' => $this->db->escape_like_str(1),
+    'edit_delete_category' => $this->db->escape_like_str(0),
+    'add_resources' => $this->db->escape_like_str(0),
+    'all_resources' => $this->db->escape_like_str(1),
+    'edit_delete_resources' => $this->db->escape_like_str(0),
+    'add_library_mem' => $this->db->escape_like_str(0),
+    'memb_list' => $this->db->escape_like_str(0),
+    'issu_return' => $this->db->escape_like_str(0),
+    'add_concerts' => $this->db->escape_like_str(0),
+    'add_set_dormi' => $this->db->escape_like_str(0),
+    'set_member_seat' => $this->db->escape_like_str(0),
+    'dormi_report' => $this->db->escape_like_str(1),
+    'add_transport' => $this->db->escape_like_str(0),
+    'all_transport' => $this->db->escape_like_str(1),
+    'transport_edit_dele' => $this->db->escape_like_str(0),
+    'add_account_title' => $this->db->escape_like_str(0),
+    'edit_dele_acco' => $this->db->escape_like_str(0),
+    'trensection' => $this->db->escape_like_str(0),
+    'fee_collection' => $this->db->escape_like_str(0),
+    'all_slips' => $this->db->escape_like_str(0),
+    'own_slip' => $this->db->escape_like_str(1),
+    'slip_edit_delete' => $this->db->escape_like_str(0),
+    'pay_salary' => $this->db->escape_like_str(0),
+    'creat_notice' => $this->db->escape_like_str(0),
+    'send_message' => $this->db->escape_like_str(0),
+    'vendor' => $this->db->escape_like_str(0),
+    'delet_vendor' => $this->db->escape_like_str(0),
+    'add_inv_cat' => $this->db->escape_like_str(0),
+    'inve_item' => $this->db->escape_like_str(0),
+    'delete_inve_ite' => $this->db->escape_like_str(0),
+    'delete_inv_cat' => $this->db->escape_like_str(0),
+    'inve_issu' => $this->db->escape_like_str(0),
+    'delete_inven_issu' => $this->db->escape_like_str(0),
+    'check_leav_appli' => $this->db->escape_like_str(0),
+    'setting_manage_user' => $this->db->escape_like_str(0),
+    'setting_accounts' => $this->db->escape_like_str(0),
+    'other_setting' => $this->db->escape_like_str(0),
+    'front_setings' => $this->db->escape_like_str(0),
+);
+if ($this->db->insert('role_based_access', $section_trainers_access)) {
+    //check to see if we are creating the user
+    //redirect them back to the admin page
+    $this->session->set_flashdata('message', $this->ion_auth->messages());
 
-                            //redirect("section_trainers/section_trainersInformation", 'refresh');
+    //redirect("section_trainers/section_trainersInformation", 'refresh');
 
-                            $data['s_Choir'] = $this->common->getAllData('Choir');
-                            $data['success'] = '<div class="col-md-12"><div class="alert alert-info alert-dismissable admisionSucceassMessageFont">
-                                                                <button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
-                                                                <strong>Success!</strong> The section_trainers profile made successfully.
-                                                        </div></div>';
-                            $this->load->view('temp/header');
-                            $this->load->view('makeProfile', $data);
-                            $this->load->view('temp/footer');
-                        }
-                        }
-                        } else {
-                        $query = $this->common->countryPhoneCode();
-                        $data['countryPhoneCode'] = $query->countryPhonCode;
-                        $data['s_Choir'] = $this->common->getAllData('Choir');
-                        $this->load->view('temp/header');
-                        $this->load->view('makeProfile', $data);
-                        $this->load->view('temp/footer');
-                        }
-                        }
+    $data['s_Choir'] = $this->common->getAllData('Choir');
+    $data['success'] = '<div class="col-md-12"><div class="alert alert-info alert-dismissable admisionSucceassMessageFont">
+                                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+                                        <strong>Success!</strong> The section_trainers profile made successfully.
+                                </div></div>';
+    $this->load->view('temp/header');
+    $this->load->view('makeProfile', $data);
+    $this->load->view('temp/footer');
+}
+}
+} else {
+$query = $this->common->countryPhoneCode();
+$data['countryPhoneCode'] = $query->countryPhonCode;
+$data['s_Choir'] = $this->common->getAllData('Choir');
+$this->load->view('temp/header');
+$this->load->view('makeProfile', $data);
+$this->load->view('temp/footer');
+}
+}
 
     //This function will give the Choir_member information from Choir_memberID
     public function Choir_memberInfoById() {

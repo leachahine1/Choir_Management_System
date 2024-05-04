@@ -117,8 +117,7 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label"><?php echo lang('admi_Choir'); ?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-6">
-                                    <select name="Choir" onchange="ChoirInfo(this.value)" class="form-control" 
-                                    data-validation="required" data-validation-error-msg="<?php echo lang('admi_Choir_error_msg');?>">
+                                    <select name="Choir" onchange="ChoirInfo(this.value)" class="form-control" data-validation="required" data-validation-error-msg="<?php echo lang('admi_Choir_error_msg');?>">
                                         <option value=""><?php echo lang('admi_select_Choir');?></option>
                             <?php foreach ($s_Choir as $row) { ?>
                                  <option value="<?php echo $row['id']; ?>"><?php echo $row['Choir_title']; ?></option>
@@ -201,7 +200,7 @@
                 document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
             }
         };
-        xmlhttp.open("GET", "index.php/users/Section_trainer_leader_info?q=" + str, true);
+        xmlhttp.open("GET", "index.php/users/Section_trainer_info?q=" + str, true);
         xmlhttp.send();
     }
     function checkEmail(str) {

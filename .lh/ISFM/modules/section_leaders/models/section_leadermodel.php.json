@@ -1,0 +1,18 @@
+{
+    "sourceFile": "ISFM/modules/section_leaders/models/section_leadermodel.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1714842770166,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1714842770166,
+            "name": "Commit-0",
+            "content": "<?php\r\nif (!defined('BASEPATH')) {\r\n    exit('No direct script access allowed');\r\n}\r\nclass Section_leadermodel extends CI_Model {\r\n    /**\r\n     * This model is using into the Choir_members controller\r\n     * Load : $this->load->model('Choir_membermodel');\r\n     */\r\n    function __construct() {\r\n        parent::__construct();\r\n        $this->load->dbforge();\r\n    }\r\n\r\n    //This functiion will return all section_leader information\r\n    public function allSection_leaders() {\r\n        $data = array();\r\n        $query = $this->db->query(\"SELECT * FROM section_leaders_info\");\r\n        foreach ($query->result_array() as $row) {\r\n            $data[] = $row;\r\n        }\r\n        return $data;\r\n    }\r\n}"
+        }
+    ]
+}

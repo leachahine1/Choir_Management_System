@@ -58,8 +58,6 @@ class Section_trainers extends CI_Controller {
         }
     }
 
-    
-    //This function will update the section_trainers information.
     public function editSection_trainersInfo() {
         $userID = $this->input->get('puid');
         $section_trainersInfoId = $this->input->get('painid');
@@ -97,7 +95,7 @@ class Section_trainers extends CI_Controller {
             $this->load->view('temp/footer');
         }
     }
-    //This function is using for delete any section_trainers profile.
+
     public function deleteSection_trainers() {
         $userID = $this->input->get('UcsHeRnHdtfgrfGshId');
         $section_trainersInfoId = $this->input->get('pdfdsfAjhgdfrRdfeNdsfdtSjdcfgdInfOdfgdfhIdnfd');

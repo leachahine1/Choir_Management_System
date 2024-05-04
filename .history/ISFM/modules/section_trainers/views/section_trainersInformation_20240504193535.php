@@ -16,8 +16,8 @@ $userId = $user->id;
         <div class="row">
             <div class="col-md-12">
                 <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-                <h3 class="page-title"> 
-                    <?php echo lang('header_stu_lead'); ?> <small></small>
+                <h3 class="page-title">
+                    <?php echo lang('header_section_trainer_info'); ?> <small></small>
                 </h3>
                 <ul class="page-breadcrumb breadcrumb">
                     <li>
@@ -25,13 +25,13 @@ $userId = $user->id;
                         <?php echo lang('home'); ?>
                     </li>
                     <li>
-                        <?php echo lang('header_stu_lead1'); ?>
+                        <?php echo lang('header_stu_paren'); ?>
                     </li>
                     <li>
-                        <?php echo lang('header_stu_lead2'); ?>
+                        <?php echo lang('header_section_trainer_info'); ?>
                     </li>
                     <li>
-                        <?php echo lang('header_stu_lead3'); ?>
+                        <?php echo lang('header_section_trainer_info'); ?>
                     </li>
                     <li id="result" class="pull-right topClock"></li>
                 </ul>
@@ -46,7 +46,7 @@ $userId = $user->id;
                 <div class="portlet box purple">
                     <div class="portlet-title">
                         <div class="caption">
-                            <?php echo "" . ' ' . lang('tea_ctfib'); ?>
+                            <?php echo "" . ' ' . lang('par_spib'); ?>
                         </div>
                         <div class="tools">
                         </div>
@@ -78,30 +78,29 @@ $userId = $user->id;
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($section_leaders as $row) { ?>
+                                <?php foreach ($section_trainers as $row) { ?>
                                     <tr>
                                     
                                         <td>
                                             <?php echo $row['section']; ?>
                                         </td>
                                         <td>
-                                            <?php echo $row['fullname']; ?>
+                                            <?php echo $row['section_trainers_name']; ?>
                                         </td>
                                        
                                         <td>
-                                            <?php echo $row['working_hour']; ?>
+                                            <?php echo $row['email']; ?>
                                         </td>
                                         <td>
                                             <?php echo $row['phone']; ?>
                                         </td>
                                         
+                                        <?php if ($this->common->user_access('section_trainers_edit_dlete', $userId)) { ?>
                                         <td>
-                                            <a class="btn btn-xs green" href="index.php/section_leaders/section_leaderDetails?id=<?php echo $row['id']; ?>&uid=<?php echo $row['user_id']; ?>"> <i class="fa fa-file-text-o"></i> <?php echo lang('details'); ?> </a>
-                                            <?php if($this->common->user_access('section_leader_edit_delete',$userId)){ ?>
-                                                <a class="btn btn-xs default" href="index.php/section_leaders/edit_section_leader?id=<?php echo $row['id']; ?>&uid=<?php echo $row['user_id']; ?>"> <i class="fa fa-pencil-square"></i> <?php echo lang('edit'); ?> </a>
-                                                <a class="btn btn-xs red" href="index.php/section_leaders/section_leaderDelete?id=<?php echo $row['id']; ?>&uid=<?php echo $row['user_id']; ?>"  onClick="javascript:return confirm('<?php echo lang('tea_tdecon'); ?>')"> <i class="fa fa-trash-o"></i> <?php echo lang('delete'); ?> </a>
-                                            <?php } ?>
+                                                <a class="btn btn-xs default" href="index.php/section_trainers/editSection_trainersInfo?painid=<?php echo $row['id']; ?>&puid=<?php echo $userId; ?>"> <i class="fa fa-pencil-square"></i> <?php echo lang('edit'); ?> </a>
+                                                <a class="btn btn-xs red" href="index.php/section_trainers/deleteSection_trainers?painid=<?php echo $row['id']; ?>&painid=<?php echo $userId; ?>" onClick="javascript:return confirm('<?php echo lang('par_aysywtdtgp'); ?>')"> <i class="fa fa-trash-o"></i> <?php echo lang('delete'); ?> </a>
                                         </td>
+                                        <?php } ?>
                                     </tr>
                                 <?php } ?>
                             </tbody>

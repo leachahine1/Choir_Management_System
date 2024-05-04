@@ -105,12 +105,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="form-group">
-                                <label class="col-md-3 control-label"> <?php echo lang('admi_PresentAddress'); ?> <span class="requiredStar"> * </span></label>
-                                <div class="col-md-6">
-                                    <textarea class="form-control" name="present_address" rows="3" data-validation="required" data-validation-error-msg="<?php echo lang('admi_PresentAddress_error_msg'); ?>"> </textarea>
-                                </div>
-                            </div> -->
+                           
                             <div class="form-group">
                                 <label class="col-md-3 control-label"> <?php echo lang('admi_PermanentAddress'); ?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-6">
@@ -149,60 +144,7 @@
                                     <input type="password" class="form-control" name="password_confirm" placeholder="" data-validation="required" data-validation-error-msg="<?php echo lang('admi_ConfirmPassword_error_msg'); ?>">
                                 </div>
                             </div>
-                            <!-- <div class="form-group">
-                                <label class="col-md-3 control-label"><?php echo lang('admi_blood'); ?> <span class="requiredStar"> * </span></label>
-                                <div class="col-md-6">
-                                    <select name="blood" class="form-control" data-validation="required" data-validation-error-msg="<?php echo lang('admi_blood_err_mess'); ?>">
-                                        <option value=""><?php echo lang('select'); ?></option>
-                                        <option value="O+">O+</option>
-                                        <option value="O-">O-</option>
-                                        <option value="A+">A+</option>
-                                        <option value="A-">A-</option>
-                                        <option value="B+">B+</option>
-                                        <option value="B-">B-</option>
-                                        <option value="AB+">AB+</option>
-                                        <option value="AB-">AB-</option>
-                                    </select>
-                                </div>
-                            </div> -->
-                            <!-- <div class="form-group">
-                                <label class="col-md-3 control-label"><?php echo lang('admi_FatherOccupation'); ?> <span class="requiredStar"> * </span></label>
-                                <div class="col-md-6">
-                                    <select name="father_occupation" class="form-control" data-validation="required" data-validation-error-msg="<?php echo lang('admi_FatherOccupation_error_msg'); ?>">
-                                        <option value=""><?php echo lang('admi_father_occupation_op1'); ?></option>
-                                        <option value="Business"><?php echo lang('admi_father_occupation_op2'); ?></option>
-                                        <option value="Employer"><?php echo lang('admi_father_occupation_op3'); ?></option>
-                                        <option value="Banker"><?php echo lang('admi_father_occupation_op4'); ?></option>
-                                        <option value="Section_leaders"><?php echo lang('admi_father_occupation_op5'); ?></option>
-                                        <option value="Farmer"><?php echo lang('admi_father_occupation_op6'); ?></option>
-                                        <option value="Car Driver"><?php echo lang('admi_father_occupation_op7'); ?></option>
-                                        <option value="Other"><?php echo lang('admi_father_occupation_op8'); ?></option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label"><?php echo lang('admi_father_Income_range'); ?> <span class="requiredStar"> * </span></label>
-                                <div class="col-md-6">
-                                    <input type="text" name="father_incom_range" class="form-control" placeholder="" data-validation="required" data-validation-error-msg="<?php  echo lang('admi_father_Income_range_error_msg'); ?>">
-                                    <span class="help-block"><?php echo lang('admi_father_Income_range_demo_text');?></span>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label"><?php echo lang('admi_Mother_occup'); ?></label>
-                                <div class="col-md-6">
-                                    <select name="mother_occupation" class="form-control" >
-                                        <option value=""><?php echo lang('admi_Mother_occup_valu_1'); ?></option>
-                                        <option value="Housewife"><?php echo lang('admi_Mother_occup_valu_2'); ?></option>
-                                        <option value="Business"><?php echo lang('admi_Mother_occup_valu_3'); ?></option>
-                                        <option value="Employer"><?php echo lang('admi_Mother_occup_valu_4'); ?></option>
-                                        <option value="Banker"><?php echo lang('admi_Mother_occup_valu_5'); ?></option>
-                                        <option value="Section_leaders"><?php echo lang('admi_Mother_occup_valu_6'); ?></option>
-                                        <option value="Farmer"><?php echo lang('admi_Mother_occup_valu_7'); ?></option>
-                                        <option value="Car Driver"><?php echo lang('admi_Mother_occup_valu_8'); ?></option>
-                                        <option value="Other"><?php echo lang('admi_Mother_occup_valu_9'); ?></option>
-                                    </select>
-                                </div>
-                            </div> -->
+                          
                             <div class="form-group">
                                 <label class="col-md-3 control-label"><?php echo lang('admi_Choir'); ?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-6">
@@ -218,56 +160,11 @@
 
                             </div>
 
-                            <!-- <div class="form-group last">
-                                <label class="control-label col-md-3"><?php echo lang('admi_Choir_members_photo');?> <span class="requiredStar"> * </span></label>
-                                <div class="col-md-9">
-                                    <div class="fileinput fileinput-new" data-provides="fileinput">
-                                        <div class="fileinput-new thumbnail">
-                                            <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/>
-                                        </div>
-                                        <div class="fileinput-preview fileinput-exists thumbnail uploadImagePreview">
-                                        </div>
-                                        <div>
-                                            <span class="btn default btn-file">
-                                                <span class="fileinput-new"> <?php echo lang('admi_select_photo'); ?> </span>
-                                                <span class="fileinput-exists">
-                                                    <?php echo lang('admi_stu_photo_change'); ?> </span>
-                                                <input type="file" name="userfile" data-validation="required" data-validation-error-msg="<?php echo lang('admi_Choir_members_photo_error_msg');?>">
-                                            </span>
-                                            <a href="#" class="btn red fileinput-exists" data-dismiss="fileinput">
-                                                <?php echo lang('admi_stu_photo_remove'); ?> </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-
 
                             <div class="alert alert-success">
                                 <?php echo lang('admi_submit_doc');?>
                             </div>
-                            <!-- <div class="form-group">
-                                <label class="col-md-3 control-label"> </label>
-                                <div class="col-md-9">
-                                    <div class="checkbox-list">
-                                        <label>
-                                            <input type="checkbox" name="previous_certificate" value="submited"> <?php echo lang('admi_Pre_Choir_Cer'); ?> </label>
-                                        <label>
-                                            <input type="checkbox" name="tc" value="submited"> <?php echo lang('admi_TC'); ?> </label>
-                                        <label>
-                                            <input type="checkbox" name="at" value="submited"> <?php echo lang('admi_Academic_Transcript');?> </label>
-                                        <label>
-                                            <input type="checkbox" name="nbc" value="submited"> <?php echo lang('admi_NBC'); ?> </label>
-                                        <label>
-                                            <input type="checkbox" name="testmonial" value="submited"> <?php echo lang('admi_Testimonial'); ?>  </label>
-                                    </div>
-                                </div>
-                            </div> -->
-                            <!-- <div class="form-group">
-                                <label class="col-md-3 control-label"><?php echo lang('admi_Submitted_File_Informations'); ?> <span class="requiredStar"> * </span></label>
-                                <div class="col-md-6">
-                                    <input type="text" name="submit_file_information" class="form-control" placeholder="<?php echo lang('admi_Submitted_File_Informations_placeholder'); ?>" data-validation="required" data-validation-error-msg="<?php echo lang('admi_Submitted_File_Info_error_msg'); ?>">
-                                </div>
-                            </div> -->
+                           
                         </div>
                         <div class="form-actions fluid">
                             <div class="col-md-offset-3 col-md-6">
