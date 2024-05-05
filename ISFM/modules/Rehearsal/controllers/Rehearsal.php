@@ -496,9 +496,7 @@ class Rehearsal extends MX_Controller {
     }
     //This function load class's rehearsal title which is declard previously by class title.
     public function ajaxChoirRehearsal() {
-        $Choir_id = $this->input->get('q');
-        $year = date('Y');  // Note: Currently, $year is not used. You might want to include it in your query if necessary.
-    
+        $Choir_id = $this->input->get('q');    
         // Using Active Record to prevent SQL injection
         $query = $this->db->select('*')
                           ->from('add_rehearsal')
@@ -583,6 +581,7 @@ class Rehearsal extends MX_Controller {
             }
             //Whene Rehearsal Attendance was full compleate then lode this page
             $data['previerAttendance'] = $this->rehearsalmodel->previewAttendance($Choir_id, $rehearsalTitle, $rehearsalSong);
+            print_r($data);
             $data['ChoirTitle'] = $this->common->Choir_title($Choir_id);
             $this->load->view('temp/header');
             $this->load->view('viewRehearsalAttendance', $data);
@@ -640,8 +639,7 @@ class Rehearsal extends MX_Controller {
     //This function is called by ajax from view
     public function ajaxAttendanceView() {
         $Choir_id = $this->input->get('q');
-        $year = date('Y');
-        $query = $this->db->query("SELECT * FROM add_rehearsal WHERE Choir_id=$Choir_id AND year=$year");
+        $query = $this->db->query("SELECT * FROM add_rehearsal WHERE Choir_id=$Choir_id");
         foreach ($query->result_array() as $row) {
             $data[] = $row;
         }
