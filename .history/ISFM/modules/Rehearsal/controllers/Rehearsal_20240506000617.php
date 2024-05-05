@@ -591,7 +591,7 @@ class Rehearsal extends MX_Controller {
             $rehearsalTitle = $this->rehearsalmodel->rehearsalTitle($rehearsalId);
             $Choir_id = $this->input->post('Choir', TRUE);
             
-            $check = $this->rehearsalmodel->checkRehearsal($rehearsalId);
+            $check = $this->rehearsalmodel->checkRehearsal($rehearsalId, $date);
             if ($check == 'Have An Rehearsal') {
                 //Here is loding Choir_member for rehearsal attendance.
                 //Get here Choir_members and informations by class title.

@@ -14,7 +14,7 @@ class RehearsalModel extends CI_Model {
     }
 
     //This function is checking that have any rehearsal in that date.
-    public function checkRehearsal($a) {
+    public function checkRehearsal($a, $b) {
         $data = array();
         $query = $this->db->get_where('rehearsal_routine', array('rehearsal_id' => $a));
         foreach ($query->result_array() as $row) {

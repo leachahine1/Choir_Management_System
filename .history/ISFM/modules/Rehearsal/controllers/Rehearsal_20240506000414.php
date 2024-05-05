@@ -591,7 +591,7 @@ class Rehearsal extends MX_Controller {
             $rehearsalTitle = $this->rehearsalmodel->rehearsalTitle($rehearsalId);
             $Choir_id = $this->input->post('Choir', TRUE);
             
-            $check = $this->rehearsalmodel->checkRehearsal($rehearsalId);
+            $check = $this->rehearsalmodel->checkRehearsal($rehearsalId, $date);
             if ($check == 'Have An Rehearsal') {
                 //Here is loding Choir_member for rehearsal attendance.
                 //Get here Choir_members and informations by class title.
@@ -609,12 +609,12 @@ class Rehearsal extends MX_Controller {
                     $this->load->view('rehearsalAttendance', $data);
                     $this->load->view('temp/footer');
                 } else {
-                    echo 'has no any Choir_member.';
+                    echo $ChoirTitle . 'has no any Choir_member.';
                 }
             } elseif ($check == 'No Any Rehearsal') {
                 // $info['ChoirTitle'] = $ChoirTitle;
                 $this->load->view('temp/header');
-                $this->load->view('attendanceFaild');
+                $this->load->view('attendanceFaild', $info);
                 $this->load->view('temp/footer');
             }
         }

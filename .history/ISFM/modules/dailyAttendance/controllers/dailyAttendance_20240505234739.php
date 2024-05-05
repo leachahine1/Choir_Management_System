@@ -232,7 +232,7 @@ class DailyAttendance extends MX_Controller {
                 //if want All section's Choir_members attendence sheet,then work this erea.
                 //if want any Choir's specific section's Choir_members attendence sheet,then work this erea.
                 $queryData = array();
-                $query = $this->db->get_where('daily_attendance', array('Choir_title' => $ChoirTitle,  'section' => $Section));
+                $query = $this->db->get_where('daily_attendance', array('Choir_title' => $ChoirTitle, 'date' => $intDate, 'section' => $Section));
                 foreach ($query->result_array() as $row) {
                     $queryData[] = $row;
                 }
