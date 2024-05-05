@@ -50,57 +50,59 @@ $userId = $user->id;
                         </div>
                         <div class="tools">
                         </div>
-                    </div>
-                    <div class="portlet-body">
+                    </div>  <div class="portlet-body">
                         <table class="table table-striped table-bordered table-hover" id="sample_1">
                             <thead>
                                 <tr>
-                              
                                     <th>
-                                        <?php echo lang('clas_section'); ?>
+                                        <?php echo lang('tea_idno'); ?>
                                     </th>
                                     <th>
-                                        <?php echo lang('par_gar_name'); ?>
-                                    </th>
-                                   
-                                    <th>
-                                        <?php echo lang('par_email'); ?>
+                                        <?php echo lang('tea_photo'); ?>
                                     </th>
                                     <th>
-                                        <?php echo lang('par_pho_num'); ?>
+                                        <?php echo lang('tea_tn'); ?>
                                     </th>
-                                    
-                                    <?php if ($this->common->user_access('section_trainers_edit_dlete', $userId)) { ?>
                                     <th>
-                                        <?php echo lang('par_action'); ?>
+                                        <?php echo lang('tea_add'); ?>
                                     </th>
-                                    <?php } ?>
+                                    <th>
+                                       <?php echo lang('tea_stat'); ?> 
+                                    </th>
+
+                                    <th>
+                                       <?php echo lang('tea_action'); ?> 
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php foreach ($section_leaders as $row) { ?>
                                     <tr>
-                                    
                                         <td>
-                                            <?php echo $row['section']; ?>
+                                            <?php echo $row['id']; ?>
+                                        </td>
+                                        <td>
+                                            <div class="tableImage">
+                                                <img alt="">
+                                            </div>
                                         </td>
                                         <td>
                                             <?php echo $row['fullname']; ?>
                                         </td>
-                                       
                                         <td>
-                                            <?php echo $row['working_hour']; ?>
+                                            <?php echo $row['present_address']; ?>
                                         </td>
                                         <td>
-                                            <?php echo $row['phone']; ?>
+                                            <span class="label label-sm label-success"><?php echo $row['position']; ?></span>
+
                                         </td>
-                                        
-                                        <?php if ($this->common->user_access('section_trainers_edit_dlete', $userId)) { ?>
                                         <td>
-                                                <a class="btn btn-xs default" href="index.php/section_trainers/editSection_leadersInfo?painid=<?php echo $row['id']; ?>&puid=<?php echo $userId; ?>"> <i class="fa fa-pencil-square"></i> <?php echo lang('edit'); ?> </a>
-                                                <a class="btn btn-xs red" href="index.php/section_trainers/deleteSection_leaders?painid=<?php echo $row['id']; ?>&painid=<?php echo $userId; ?>" onClick="javascript:return confirm('<?php echo lang('par_aysywtdtgp'); ?>')"> <i class="fa fa-trash-o"></i> <?php echo lang('delete'); ?> </a>
+                                            <a class="btn btn-xs green" href="index.php/section_leaders/section_leaderDetails?id=<?php echo $row['id']; ?>&uid=<?php echo $row['user_id']; ?>"> <i class="fa fa-file-text-o"></i> <?php echo lang('details'); ?> </a>
+                                            <?php if($this->common->user_access('section_leader_edit_delete',$userId)){ ?>
+                                                <a class="btn btn-xs default" href="index.php/section_leaders/edit_section_leader?id=<?php echo $row['id']; ?>&uid=<?php echo $row['user_id']; ?>"> <i class="fa fa-pencil-square"></i> <?php echo lang('edit'); ?> </a>
+                                                <a class="btn btn-xs red" href="index.php/section_leaders/section_leaderDelete?id=<?php echo $row['id']; ?>&uid=<?php echo $row['user_id']; ?>"  onClick="javascript:return confirm('<?php echo lang('tea_tdecon'); ?>')"> <i class="fa fa-trash-o"></i> <?php echo lang('delete'); ?> </a>
+                                            <?php } ?>
                                         </td>
-                                        <?php } ?>
                                     </tr>
                                 <?php } ?>
                             </tbody>
@@ -114,8 +116,6 @@ $userId = $user->id;
     </div>
 </div>
 <!-- END CONTENT -->
-
-
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
 <script type="text/javascript" src="assets/global/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
@@ -124,13 +124,11 @@ $userId = $user->id;
 <script type="text/javascript" src="assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 <script src="assets/admin/pages/scripts/table-advanced.js"></script>
-
-
 <script>
-                                                    jQuery(document).ready(function () {
-                                                        //here is auto reload after 1 second for time and date in the top
-                                                        jQuery(setInterval(function () {
-                                                            jQuery("#result").load("index.php/home/iceTime");
-                                                        }, 1000));
-                                                    });
+    jQuery(document).ready(function() {
+        //here is auto reload after 1 second for time and date in the top
+        jQuery(setInterval(function() {
+            jQuery("#result").load("index.php/home/iceTime");
+        }, 1000));
+    });
 </script>

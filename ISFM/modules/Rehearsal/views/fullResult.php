@@ -80,16 +80,16 @@
                                             <?php echo $row['Choir_member_name']; ?> 
                                         </td>
                                         <td>
-                                            <?php echo $row['final_grade']; ?> 
+                                            <?php echo $row['grade']; ?> 
                                         </td>
                                         <td>
                                             <?php echo $row['point']; ?> 
                                         </td>
                                         <td>
-                                            <?php echo $row['total_mark']; ?> 
+                                            <?php echo $row['mark']; ?> 
                                         </td>
                                         <td>
-                                            <?php echo $row['status']; ?> 
+                                            <?php echo $row['result']; ?> 
                                         </td>
 
                                     </tr>

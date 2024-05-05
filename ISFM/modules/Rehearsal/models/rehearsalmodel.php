@@ -40,7 +40,7 @@ class RehearsalModel extends CI_Model {
     //This function will return rehearsal title which result is not compleated 
     public function rehearsalTitleRes($Choir_id) {
         $data = array();
-        $query = $this->db->query("SELECT id,rehearsal_title FROM add_rehearsal WHERE Choir_id=$Choir_id AND status='NoResult'");
+        $query = $this->db->query("SELECT id,rehearsal_title FROM add_rehearsal WHERE Choir_id=$Choir_id");
         foreach ($query->result_array() as $row) {
             $data[] = $row;
         }return $data;
@@ -49,7 +49,7 @@ class RehearsalModel extends CI_Model {
     //This function will return which song's result will not publish
     public function rehearsalResSong($rehearsalId) {
         $data = array();
-        $query = $this->db->query("SELECT id,rehearsal_song FROM rehearsal_routine WHERE rehearsal_id='$rehearsalId' AND status='NoResult'");
+        $query = $this->db->query("SELECT id,rehearsal_song FROM rehearsal_routine WHERE rehearsal_id='$rehearsalId' ");
         foreach ($query->result_array() as $row) {
             $data[] = $row;
         }return $data;
@@ -229,7 +229,7 @@ class RehearsalModel extends CI_Model {
     //This function return the data for final reslt.
     public function finalResultShow($Choir_id, $rehearsalTitle) {
         $data = array();
-        $query = $this->db->get_where('final_result', array('Choir_id' => $Choir_id, 'rehearsal_title' => $rehearsalTitle));
+        $query = $this->db->get_where('result_shit', array('Choir_id' => $Choir_id, 'rehearsal_title' => $rehearsalTitle));
         foreach ($query->result_array() as $row) {
             $data[] = $row;
         }

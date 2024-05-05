@@ -497,30 +497,37 @@ class Rehearsal extends MX_Controller {
     //This function load class's rehearsal title which is declard previously by class title.
     public function ajaxChoirRehearsal() {
         $Choir_id = $this->input->get('q');
-        $year = date('Y');
-        $query = $this->db->query("SELECT * FROM add_rehearsal WHERE Choir_id='$Choir_id' AND year=$year");
-        foreach ($query->result_array() as $row) {
-            $data[] = $row;
-        }
+        $year = date('Y');  // Note: Currently, $year is not used. You might want to include it in your query if necessary.
+    
+        // Using Active Record to prevent SQL injection
+        $query = $this->db->select('*')
+                          ->from('add_rehearsal')
+                          ->where('Choir_id', $Choir_id)
+                          ->get();
+    
+        $data = $query->result_array();
+    
+        // Check if we have any data returned
         if (!empty($data)) {
             echo '<div class="form-group">
-                        <label class="col-md-3 control-label">' . lang('exac_4') . '<span class="requiredStar"> * </span></label>
-                        <div class="col-md-6">
-                            <select name="rehearsalId" class="form-control">';
+                      <label class="col-md-3 control-label">' . lang('exac_4') . '<span class="requiredStar"> * </span></label>
+                      <div class="col-md-6">
+                          <select name="rehearsalId" class="form-control">';
             foreach ($data as $sec) {
                 echo '<option value="' . $sec['id'] . '">' . $sec['rehearsal_title'] . '</option>';
             }
             echo '</select></div>
-                    </div>';
+                  </div>';
         } else {
             echo '<div class="form-group">
-                        <label class="col-md-3 control-label"></label>
-                        <div class="col-md-6">
-                        <div class="alert alert-warning">
-                                <strong>' . lang('exac_info') . '</strong> ' . lang('exac_5') . ' 
-                        </div></div></div>';
+                      <label class="col-md-3 control-label"></label>
+                      <div class="col-md-6">
+                          <div class="alert alert-warning">
+                              <strong>' . lang('exac_info') . '</strong> ' . lang('exac_5') . '
+                          </div></div></div>';
         }
     }
+    
     //This function show a success message when an Rehearsal added and made this rehearsal routine fully, with full rutine.
     public function routinView() {
         if ($this->input->post('submit', TRUE) && $this->input->post('rehearsalId', TRUE)) {
@@ -1009,7 +1016,11 @@ class Rehearsal extends MX_Controller {
     public function fullResult() {
         $Choir_id = $this->input->get('Choir');
         $rehearsalTitle = $this->input->get('rehearsal');
+        
         $data['result'] = $this->rehearsalmodel->finalResultShow($Choir_id, $rehearsalTitle);
+        // echo "<pre>";  // Use <pre> for better readability of array or object structures
+        // print_r($data);
+        // echo "</pre>";
         $data['Choir'] = $Choir_id;
         $data['rehearsalTitle'] = $rehearsalTitle;
         $this->load->view('temp/header');

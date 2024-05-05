@@ -67,7 +67,7 @@
                                 <div class="form-group">
                                     <label class="col-md-3 control-label"><?php echo lang('par_cla_tit'); ?><span class="requiredStar">  </span></label>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="" name="Choir_id" value="<?php echo $this->common->Choir_title($row['Choir_id']); ?>" readonly="">
+                                        <input type="text" class="form-control" placeholder="" name="Choir_title" value="<?php echo $this->common->Choir_title($row['Choir_id']); ?>" readonly="">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -97,7 +97,12 @@
                                         <input type="text" class="form-control" placeholder="" value="<?php echo $last_name; ?>"  name="last_name">
                                     </div>
                                 </div>
-                              
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label"><?php echo lang('par_rela'); ?> <span class="requiredStar">  </span></label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" placeholder="" value="<?php echo $row['level']; ?>"  name="guardianLevel">
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label class="col-md-3 control-label"><?php echo lang('par_email'); ?><span class="requiredStar">  </span></label>
                                     <div class="col-md-6">
@@ -111,7 +116,7 @@
                                     </div>
                                 </div>
                             </div>
-<?php } ?>
+                                <?php } ?>
                         <div class="form-actions fluid">
                             <div class="col-md-offset-3 col-md-6">
                                 <button type="submit" class="btn green" name="submit" value="Submit"><?php echo lang('par_update'); ?></button>
@@ -137,3 +142,4 @@
         }, 1000));
     });
 </script>
+

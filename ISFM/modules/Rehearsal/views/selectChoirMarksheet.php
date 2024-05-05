@@ -85,6 +85,7 @@
 </div>
 <!-- END CONTENT -->
 <script src="assets/global/plugins/jquery.form-validator.min.js" type="text/javascript"></script>
+<script rel="stylesheet" href="assets/global/plugins/font-awesome/css/font-awesome.min.css"></script>
 <script> $.validate();</script>
 <script>
     function ChoirSection(str) {

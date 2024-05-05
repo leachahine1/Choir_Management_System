@@ -80,7 +80,7 @@
                             <?php foreach ($Choir_members as $row) { ?>
                                 <tr>
                                     <td>
-                                        <?php echo date("d/m/Y", $row['date']) ?>
+                                        <?php echo $row['date'] ?>
                                     </td>
                                     <td>
                                         <?php echo $row['roll_no'] ?>

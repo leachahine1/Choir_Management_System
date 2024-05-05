@@ -246,28 +246,7 @@
                                         <?php $section = $row2['section'];?>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label"> <?php echo lang('stu_add_sect'); ?> </label>
-                                    <div class="col-md-6">
-                                        <select class="form-control" name="section">
-                                            <option class="claasSelectBGColor" value="<?php echo $section; ?>">
-                                                <?php 
-                                                    if (!empty($sectiond) && !empty($section)) {
-                                                        echo $section;
-                                                    } elseif (!empty($sectiond)) {
-                                                        echo 'No any section selected.';
-                                                    } elseif (empty($sectiond)) {
-                                                        echo 'This Choir has no any section.';
-                                                    } 
-                                                ?></option>
-                                                <?php
-                                                foreach ($sectiond as $sect) {
-                                                    echo '<option value="' . $sect . '">' . $sect . '</option>';
-                                                }
-                                                ?>
-                                        </select>
-                                    </div>
-                                </div>
+                              
                                 <div class="form-group">
                                     <label class="col-md-3 control-label"> <?php echo lang('stu_add_id'); ?> </label>
                                     <div class="col-md-6">
