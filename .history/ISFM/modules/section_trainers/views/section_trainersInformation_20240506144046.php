@@ -71,9 +71,9 @@ $userId = $user->id;
                                     </th>
                                     
                                     <?php if ($this->common->user_access('section_trainers_edit_dlete', $userId)) { ?>
-                                    <!-- <th>
+                                    <th>
                                         <?php echo lang('par_action'); ?>
-                                    </th> -->
+                                    </th>
                                     <?php } ?>
                                 </tr>
                             </thead>

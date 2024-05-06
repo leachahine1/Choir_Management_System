@@ -61,12 +61,23 @@ class Section_trainers extends CI_Controller {
     
     //This function will update the section_trainers information.
     public function editSection_trainersInfo() {
-        $userId = $this->input->get('puid');
-        $section_trainersInfoId = $this->input->get('painid');
+        $userId = $this->input->get('uid');
+        $section_trainersInfoId = $this->input->get('id');
     
         if ($this->input->post('submit', TRUE)) {
-            // Process form data
-            $username = $this->input->post('first_name', TRUE) . ' ' . $this->input->post('last_name', TRUE);
+            // Collect and process education details similarly to the leaders' function
+            $educational_qualifications = [];
+            for ($i = 1; $i <= 5; $i++) {
+                if ($this->input->post('dd_' . $i, TRUE)) {
+                    $educational_qualifications[] = $this->input->post('dd_' . $i) . ',' .
+                                                    $this->input->post('scu_' . $i, TRUE) . ',' .
+                                                    $this->input->post('result_' . $i, TRUE) . ',' .
+                                                    $this->input->post('paYear_' . $i, TRUE);
+                }
+            }
+    
+            // Create username from first and last names
+            $username = strtolower($this->input->post('first_name', TRUE)) . ' ' . strtolower($this->input->post('last_name', TRUE));
             $additional_data = array(
                 'username' => $this->db->escape_like_str($username),
                 'first_name' => $this->db->escape_like_str($this->input->post('first_name', TRUE)),
@@ -79,37 +90,37 @@ class Section_trainers extends CI_Controller {
             $this->db->where('id', $userId);
             $this->db->update('users', $additional_data);
     
-            $additionalData1 = array(
+            // Update trainers info with similar additional details as leaders
+            $trainers_info = array(
                 'section_trainers_name' => $this->db->escape_like_str($username),
                 'level' => $this->db->escape_like_str($this->input->post('guardianLevel', TRUE)),
                 'email' => $this->db->escape_like_str($this->input->post('email', TRUE)),
                 'phone' => $this->db->escape_like_str($this->input->post('phone', TRUE)),
+                'educational_qualifications' => implode(';', $educational_qualifications)
             );
     
-            // Update trainers info
             $this->db->where('id', $section_trainersInfoId);
-            $this->db->update('section_trainers_info', $additionalData1);
+            $this->db->update('section_trainers_info', $trainers_info);
     
-            $data['success'] = '<br><div class="col-md-12"><div class="alert alert-info alert-dismissable admisionSucceassMessageFont">
-            <button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
-            <strong>' . lang('success') . '</strong>' . lang('parc_4') . '
-                </div></div>';
+            // Prepare and show success message
+            $data['success'] = '<div class="alert alert-info alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    <strong>Success!</strong> Trainer information updated successfully.
+                                </div>';
+            
             $this->load->view('temp/header');
             $this->load->view('section_trainers', $data);
             $this->load->view('temp/footer');
         } else {
-            // Load edit form
-            $data['info'] = $this->common->getWhere('section_trainers_info', 'id', $section_trainersInfoId);
-            if (empty($data['info'])) {
-                $data['info'] = array(); // Ensure $info is always an array
-            }
+            // Prepare data for the edit form
+            $data['userInfo'] = $this->common->getWhere('users', 'id', $userId);
+            $data['trainerInfo'] = $this->common->getWhere('section_trainers_info', 'id', $section_trainersInfoId);
     
             $this->load->view('temp/header');
             $this->load->view('editSection_trainers', $data);
             $this->load->view('temp/footer');
         }
     }
-    
     
     
     //This function is using for delete any section_trainers profile.

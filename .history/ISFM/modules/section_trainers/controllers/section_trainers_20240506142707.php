@@ -61,22 +61,22 @@ class Section_trainers extends CI_Controller {
     
     //This function will update the section_trainers information.
     public function editSection_trainersInfo() {
-        $userId = $this->input->get('puid');
+        $userID = $this->input->get('puid');
         $section_trainersInfoId = $this->input->get('painid');
     
         if ($this->input->post('submit', TRUE)) {
             // Process form data
-            $username = $this->input->post('first_name', TRUE) . ' ' . $this->input->post('last_name', TRUE);
+            $username = strtolower($this->input->post('first_name', TRUE)) . ' ' . strtolower($this->input->post('last_name', TRUE));
             $additional_data = array(
                 'username' => $this->db->escape_like_str($username),
                 'first_name' => $this->db->escape_like_str($this->input->post('first_name', TRUE)),
                 'last_name' => $this->db->escape_like_str($this->input->post('last_name', TRUE)),
                 'phone' => $this->db->escape_like_str($this->input->post('phone', TRUE)),
-                'email' => $this->db->escape_like_str($this->input->post('email', TRUE)),
+                'email' => $this->db->escape_like_str($this->input->post('email', TRUE))
             );
     
-            // Update user info
-            $this->db->where('id', $userId);
+            // Update user data
+            $this->db->where('id', $userID);
             $this->db->update('users', $additional_data);
     
             $additionalData1 = array(
@@ -86,31 +86,30 @@ class Section_trainers extends CI_Controller {
                 'phone' => $this->db->escape_like_str($this->input->post('phone', TRUE)),
             );
     
-            // Update trainers info
+            // Update section trainers info
             $this->db->where('id', $section_trainersInfoId);
             $this->db->update('section_trainers_info', $additionalData1);
     
-            $data['success'] = '<br><div class="col-md-12"><div class="alert alert-info alert-dismissable admisionSucceassMessageFont">
-            <button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
-            <strong>' . lang('success') . '</strong>' . lang('parc_4') . '
-                </div></div>';
+            // Prepare success message
+            $data['success'] = '<div class="alert alert-info alert-dismissable">
+                                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                                    <strong>' . lang('success') . '</strong>' . lang('parc_4') . '
+                                </div>';
+    
+            // Load views with header and footer
             $this->load->view('temp/header');
             $this->load->view('section_trainers', $data);
             $this->load->view('temp/footer');
         } else {
-            // Load edit form
+            // Prepare data for edit form
             $data['info'] = $this->common->getWhere('section_trainers_info', 'id', $section_trainersInfoId);
-            if (empty($data['info'])) {
-                $data['info'] = array(); // Ensure $info is always an array
-            }
     
+            // Load edit form views with header and footer
             $this->load->view('temp/header');
             $this->load->view('editSection_trainers', $data);
             $this->load->view('temp/footer');
         }
     }
-    
-    
     
     //This function is using for delete any section_trainers profile.
     public function deleteSection_trainers() {

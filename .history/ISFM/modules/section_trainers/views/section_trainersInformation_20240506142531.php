@@ -71,9 +71,9 @@ $userId = $user->id;
                                     </th>
                                     
                                     <?php if ($this->common->user_access('section_trainers_edit_dlete', $userId)) { ?>
-                                    <!-- <th>
+                                    <th>
                                         <?php echo lang('par_action'); ?>
-                                    </th> -->
+                                    </th>
                                     <?php } ?>
                                 </tr>
                             </thead>
@@ -97,8 +97,8 @@ $userId = $user->id;
                                        
                                         <?php if ($this->common->user_access('section_trainers_edit_dlete', $userId)) { ?>
                                         <td>
-                                                <!-- <a class="btn btn-xs default" href="index.php/section_trainers/editSection_trainersInfo?painid=<?php echo $row['id']; ?>&puid=<?php echo $userId; ?>"> <i class="fa fa-pencil-square"></i> <?php echo lang('edit'); ?> </a> -->
-                                                <!-- <a class="btn btn-xs red" href="index.php/section_trainers/deleteSection_trainers?painid=<?php echo $row['id']; ?>&painid=<?php echo $userId; ?>" onClick="javascript:return confirm('<?php echo lang('par_aysywtdtgp'); ?>')"> <i class="fa fa-trash-o"></i> <?php echo lang('delete'); ?> </a> -->
+                                                <a class="btn btn-xs default" href="index.php/section_trainers/editSection_trainersInfo?painid=<?php echo $row['id']; ?>&puid=<?php echo $row['user_id']; ?>"> <i class="fa fa-pencil-square"></i> <?php echo lang('edit'); ?> </a>
+                                                <a class="btn btn-xs red" href="index.php/section_trainers/deleteSection_trainers?painid=<?php echo $row['id']; ?>&painid=<?php echo $userId; ?>" onClick="javascript:return confirm('<?php echo lang('par_aysywtdtgp'); ?>')"> <i class="fa fa-trash-o"></i> <?php echo lang('delete'); ?> </a>
                                         </td>
                                         <?php } ?>
                                     </tr>

@@ -61,8 +61,8 @@ class Section_trainers extends CI_Controller {
     
     //This function will update the section_trainers information.
     public function editSection_trainersInfo() {
-        $userId = $this->input->get('puid');
-        $section_trainersInfoId = $this->input->get('painid');
+        $userId = $this->input->get('uid');
+        $section_trainersInfoId = $this->input->get('id');
     
         if ($this->input->post('submit', TRUE)) {
             // Process form data
@@ -90,13 +90,8 @@ class Section_trainers extends CI_Controller {
             $this->db->where('id', $section_trainersInfoId);
             $this->db->update('section_trainers_info', $additionalData1);
     
-            $data['success'] = '<br><div class="col-md-12"><div class="alert alert-info alert-dismissable admisionSucceassMessageFont">
-            <button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
-            <strong>' . lang('success') . '</strong>' . lang('parc_4') . '
-                </div></div>';
-            $this->load->view('temp/header');
-            $this->load->view('section_trainers', $data);
-            $this->load->view('temp/footer');
+            // Redirect or display success message
+            redirect('section_trainers'); // Adjust this redirection to your needs
         } else {
             // Load edit form
             $data['info'] = $this->common->getWhere('section_trainers_info', 'id', $section_trainersInfoId);
