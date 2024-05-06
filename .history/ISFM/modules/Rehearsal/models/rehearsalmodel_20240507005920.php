@@ -136,9 +136,13 @@ class RehearsalModel extends CI_Model {
 
     //This function return Choir song amount
     public function ChoirSongAmount($Choir_id) {
-        $query = $this->db->query("SELECT COUNT(DISTINCT song) AS song_count FROM result_submition_info WHERE Choir_id=$Choir_id AND rehearsal_title='$rehearsalTitle'");
-        $result = $query->row();
-        return $result->song_count;
+        $song = array();
+        $query = $this->db->query("SELECT id FROM Choir_song WHERE Choir_id=$Choir_id");
+        foreach ($query->result_array() as $row) {
+            $song[] = $row;
+        }
+        $songAmount = count($song);
+        return $songAmount;
     }
     
 

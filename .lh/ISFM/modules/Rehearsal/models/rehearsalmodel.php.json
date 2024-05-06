@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 8,
             "patches": [
                 {
                     "date": 1714943463490,
@@ -16,6 +16,30 @@
                 {
                     "date": 1714992343883,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -175,9 +175,9 @@\n \r\n     //This function return a rehearsal title in a class.\r\n     public function rehearsalTitleForMarkshit($Choir_id) {\r\n         $data = array();\r\n-        $query = $this->db->get_where('add_rehearsal', array('Choir_id' => $Choir_id, 'publish' => 'Publish'));\r\n+        $query = $this->db->get_where('add_rehearsal', array('Choir_id' => $Choir_id));\r\n         foreach ($query->result_array() as $row) {\r\n             $data[] = $row;\r\n         }return $data;\r\n     }\r\n"
+                },
+                {
+                    "date": 1715031227620,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -134,9 +134,9 @@\n \r\n     //This function return Choir song amount\r\n     public function ChoirSongAmount($Choir_id) {\r\n         $song = array();\r\n-        $query = $this->db->query(\"SELECT id FROM Choir_song WHERE Choir_id=$Choir_id AND optional!=1\");\r\n+        $query = $this->db->query(\"SELECT id FROM Choir_song WHERE Choir_id=$Choir_id\");\r\n         foreach ($query->result_array() as $row) {\r\n             $song[] = $row;\r\n         }\r\n         $songAmount = count($song);\r\n"
+                },
+                {
+                    "date": 1715031454317,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -139,9 +139,9 @@\n         foreach ($query->result_array() as $row) {\r\n             $song[] = $row;\r\n         }\r\n         $songAmount = count($song);\r\n-        return $song;\r\n+        return $songAmount;\r\n     }\r\n \r\n     //This function return absent amountby any Choir_member id\r\n     public function absent($Choir_memberId) {\r\n"
+                },
+                {
+                    "date": 1715031825975,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -128,8 +128,9 @@\n         foreach ($query->result_array() as $row) {\r\n             $data[] = $row;\r\n         }\r\n         $songAmount = count($data);\r\n+        echo $songAmount;\r\n         return $songAmount;\r\n     }\r\n \r\n     //This function return Choir song amount\r\n@@ -139,8 +140,9 @@\n         foreach ($query->result_array() as $row) {\r\n             $song[] = $row;\r\n         }\r\n         $songAmount = count($song);\r\n+        echo $songAmount;\r\n         return $songAmount;\r\n     }\r\n \r\n     //This function return absent amountby any Choir_member id\r\n"
+                },
+                {
+                    "date": 1715032227636,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -128,9 +128,8 @@\n         foreach ($query->result_array() as $row) {\r\n             $data[] = $row;\r\n         }\r\n         $songAmount = count($data);\r\n-        echo $songAmount;\r\n         return $songAmount;\r\n     }\r\n \r\n     //This function return Choir song amount\r\n@@ -140,10 +139,9 @@\n         foreach ($query->result_array() as $row) {\r\n             $song[] = $row;\r\n         }\r\n         $songAmount = count($song);\r\n-        echo $songAmount;\r\n-        return $songAmount;\r\n+        return $song;\r\n     }\r\n \r\n     //This function return absent amountby any Choir_member id\r\n     public function absent($Choir_memberId) {\r\n"
+                },
+                {
+                    "date": 1715032760749,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -124,14 +124,16 @@\n     }\r\n \r\n     public function approuveSongAmount($Choir_id, $rehearsalTitle) {\r\n         $query = $this->db->get_where('result_submition_info', array('Choir_id' => $Choir_id, 'rehearsal_title' => $rehearsalTitle, 'submited' => '1'));\r\n+        $data = [];\r\n         foreach ($query->result_array() as $row) {\r\n             $data[] = $row;\r\n         }\r\n         $songAmount = count($data);\r\n         return $songAmount;\r\n     }\r\n+    \r\n \r\n     //This function return Choir song amount\r\n     public function ChoirSongAmount($Choir_id) {\r\n         $song = array();\r\n@@ -139,10 +141,11 @@\n         foreach ($query->result_array() as $row) {\r\n             $song[] = $row;\r\n         }\r\n         $songAmount = count($song);\r\n-        return $song;\r\n+        return $songAmount;\r\n     }\r\n+    \r\n \r\n     //This function return absent amountby any Choir_member id\r\n     public function absent($Choir_memberId) {\r\n         $data = array();\r\n"
+                },
+                {
+                    "date": 1715032882214,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -135,15 +135,11 @@\n     \r\n \r\n     //This function return Choir song amount\r\n     public function ChoirSongAmount($Choir_id) {\r\n-        $song = array();\r\n-        $query = $this->db->query(\"SELECT id FROM Choir_song WHERE Choir_id=$Choir_id\");\r\n-        foreach ($query->result_array() as $row) {\r\n-            $song[] = $row;\r\n-        }\r\n-        $songAmount = count($song);\r\n-        return $songAmount;\r\n+        $query = $this->db->query(\"SELECT COUNT(DISTINCT song) AS song_count FROM result_submition_info WHERE Choir_id=$Choir_id AND rehearsal_title='$rehearsalTitle'\");\r\n+        $result = $query->row();\r\n+        return $result->song_count;\r\n     }\r\n     \r\n \r\n     //This function return absent amountby any Choir_member id\r\n"
                 }
             ],
             "date": 1714943463490,

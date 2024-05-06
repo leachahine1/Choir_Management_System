@@ -906,17 +906,17 @@ class Rehearsal extends MX_Controller {
             $ChoirSong = $this->rehearsalmodel->ChoirSongAmount($Choir_id);
             //By this if conditation we are chacking that all songs result was submited or not
             //When all songs result is submited in that time insert the informations in "result_action" table then it will ready for final calculation.
+            if ($approuveSong == $ChoirSong) {
                 $actionArrayt = array(
                     'Choir_id' => $this->db->escape_like_str($Choir_id),
                     'rehearsal_title' => $this->db->escape_like_str($rehearsalTitle),
                     'rehearsal_id' => $this->db->escape_like_str($rehearsalId),
-                    'status' => $this->db->escape_like_str('Not Complete'),
-                    'publish' => $this->db->escape_like_str('Not Publish')
+                    'status' => $this->db->escape_like_str('Not Complete')
                 );
                 if ($this->db->insert('result_action', $actionArrayt)) {
                     redirect('rehearsal/aproveShitView', 'refresh');
                 }
-             else {
+            } else {
                 redirect('rehearsal/aproveShitView', 'refresh');
             }
         }
@@ -1024,16 +1024,13 @@ class Rehearsal extends MX_Controller {
     }
     //By this function admin can publish rehearsal result in day.
     public function publishResult() {
-        $query = $this->rehearsalmodel->publish('Not Complete', 'Not Publish');
+        $query = $this->rehearsalmodel->publish('Complete', 'Publish');
         foreach ($query as $row) {
             $id = $row['id'];
             $rehearsalTitle = $row['rehearsal_title'];
             $Choir_id = $row['Choir_id'];
-            
-
             $array = array(
-                'publish' => $this->db->escape_like_str('Publish'),
-                'status' => $this->db->escape_like_str('Complete')
+                'publish' => $this->db->escape_like_str('Publish')
             );
             $this->db->where('id', $id);
             if ($this->db->update('result_action', $array)) {

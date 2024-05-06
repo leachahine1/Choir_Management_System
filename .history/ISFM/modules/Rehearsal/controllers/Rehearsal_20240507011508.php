@@ -910,8 +910,8 @@ class Rehearsal extends MX_Controller {
                     'Choir_id' => $this->db->escape_like_str($Choir_id),
                     'rehearsal_title' => $this->db->escape_like_str($rehearsalTitle),
                     'rehearsal_id' => $this->db->escape_like_str($rehearsalId),
-                    'status' => $this->db->escape_like_str('Not Complete'),
-                    'publish' => $this->db->escape_like_str('Not Publish')
+                    'status' => $this->db->escape_like_str('Complete'),
+                    'publish' => $this->db->escape_like_str('Publish'),
                 );
                 if ($this->db->insert('result_action', $actionArrayt)) {
                     redirect('rehearsal/aproveShitView', 'refresh');
@@ -1024,7 +1024,7 @@ class Rehearsal extends MX_Controller {
     }
     //By this function admin can publish rehearsal result in day.
     public function publishResult() {
-        $query = $this->rehearsalmodel->publish('Not Complete', 'Not Publish');
+        $query = $this->rehearsalmodel->publish('Complete', 'Not Publish');
         foreach ($query as $row) {
             $id = $row['id'];
             $rehearsalTitle = $row['rehearsal_title'];
@@ -1032,8 +1032,7 @@ class Rehearsal extends MX_Controller {
             
 
             $array = array(
-                'publish' => $this->db->escape_like_str('Publish'),
-                'status' => $this->db->escape_like_str('Complete')
+                'publish' => $this->db->escape_like_str('Publish')
             );
             $this->db->where('id', $id);
             if ($this->db->update('result_action', $array)) {

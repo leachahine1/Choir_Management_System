@@ -889,38 +889,35 @@ class Rehearsal extends MX_Controller {
     //This function will approuve result shit which is sent from section_leader.
     public function approuveResultShit() {
         $id = $this->input->get('id');
-        $data = array(
-            'submited' => $this->db->escape_like_str(1)
-        );
+        $data = array('submited' => $this->db->escape_like_str(1));
         $this->db->where('id', $id);
         if ($this->db->update('result_submition_info', $data)) {
             $query = $this->common->getWhere('result_submition_info', 'id', $id);
-            foreach ($query as $row) {
-                $rowInfo = $row;
-            }
+            $rowInfo = end($query);  // Assuming the last row is what we need.
             $Choir_id = $rowInfo['Choir_id'];
             $rehearsalTitle = $rowInfo['rehearsal_title'];
             $rehearsalId = $rowInfo['rehearsal_id'];
             $song = $rowInfo['song'];
             $approuveSong = $this->rehearsalmodel->approuveSongAmount($Choir_id, $rehearsalTitle);
             $ChoirSong = $this->rehearsalmodel->ChoirSongAmount($Choir_id);
-            //By this if conditation we are chacking that all songs result was submited or not
-            //When all songs result is submited in that time insert the informations in "result_action" table then it will ready for final calculation.
-                $actionArrayt = array(
-                    'Choir_id' => $this->db->escape_like_str($Choir_id),
-                    'rehearsal_title' => $this->db->escape_like_str($rehearsalTitle),
-                    'rehearsal_id' => $this->db->escape_like_str($rehearsalId),
-                    'status' => $this->db->escape_like_str('Not Complete'),
-                    'publish' => $this->db->escape_like_str('Not Publish')
+    
+            // Check if all song results were submitted
+            if ($approuveSong == $ChoirSong) {
+                $actionArray = array(
+                    'Choir_id' => $Choir_id,
+                    'rehearsal_title' => $rehearsalTitle,
+                    'rehearsal_id' => $rehearsalId,
+                    'status' => 'Complete'  // Assuming you want to mark it as complete here.
                 );
-                if ($this->db->insert('result_action', $actionArrayt)) {
+                if ($this->db->insert('result_action', $actionArray)) {
                     redirect('rehearsal/aproveShitView', 'refresh');
                 }
-             else {
+            } else {
                 redirect('rehearsal/aproveShitView', 'refresh');
             }
         }
     }
+    
     //This function will make finalresult for class Choir_members
     public function finalResult() {
         $rehearsalActionId = $this->input->get('id');
@@ -1024,7 +1021,7 @@ class Rehearsal extends MX_Controller {
     }
     //By this function admin can publish rehearsal result in day.
     public function publishResult() {
-        $query = $this->rehearsalmodel->publish('Not Complete', 'Not Publish');
+        $query = $this->rehearsalmodel->publish('Complete', 'Not Publish');
         foreach ($query as $row) {
             $id = $row['id'];
             $rehearsalTitle = $row['rehearsal_title'];
@@ -1032,8 +1029,7 @@ class Rehearsal extends MX_Controller {
             
 
             $array = array(
-                'publish' => $this->db->escape_like_str('Publish'),
-                'status' => $this->db->escape_like_str('Complete')
+                'publish' => $this->db->escape_like_str('Publish')
             );
             $this->db->where('id', $id);
             if ($this->db->update('result_action', $array)) {

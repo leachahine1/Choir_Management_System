@@ -911,7 +911,6 @@ class Rehearsal extends MX_Controller {
                     'rehearsal_title' => $this->db->escape_like_str($rehearsalTitle),
                     'rehearsal_id' => $this->db->escape_like_str($rehearsalId),
                     'status' => $this->db->escape_like_str('Not Complete'),
-                    'publish' => $this->db->escape_like_str('Not Publish')
                 );
                 if ($this->db->insert('result_action', $actionArrayt)) {
                     redirect('rehearsal/aproveShitView', 'refresh');
