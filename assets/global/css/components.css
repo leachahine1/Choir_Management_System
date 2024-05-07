@@ -89,9 +89,9 @@ ul,
 code,
 pre,
 li {
-  -webkit-border-radius: 0 !important;
-  -moz-border-radius: 0 !important;
-  border-radius: 0 !important;
+  -webkit-border-radius: 30% !important;
+  -moz-border-radius: 30% !important;
+  border-radius:30% !important;
 }
 
 .img-circle {
@@ -698,6 +698,7 @@ Customized Bootstrap Buttons
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+
   text-shadow: none;
 }
 .btn.dropdown-toggle, .btn-group .btn.dropdown-toggle, .btn:hover, .btn:disabled, .btn[disabled], .btn:focus, .btn:active, .btn.active {
@@ -1120,7 +1121,7 @@ Chats
 }
 .chats li.in .message {
   text-align: left;
-  border-left: 2px solid #1BBC9B;
+  border-left: 2px solid #693B69;
   margin-left: 65px;
   background: #fafafa;
 }
@@ -1133,7 +1134,7 @@ Chats
   height: 0;
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
-  border-right: 8px solid #1BBC9B;
+  border-right: 8px solid #693B69;
 }
 .chats li.out .message {
   border-right: 2px solid #F3565D;
@@ -1911,7 +1912,7 @@ Forms
   color: #333333;
   background-color: rgba(255,255,255,0.7);
   border: 1px solid #e5e5e5;
-  border-radius: 0;
+  border-radius: 25%;
   -webkit-box-shadow: none;
   box-shadow: none;
   -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
@@ -1941,7 +1942,7 @@ Forms
   color: #333333;
   background-color: white;
   border: 1px solid #e5e5e5;
-  border-radius: 0;
+  border-radius: 20%;
   -webkit-box-shadow: none;
   box-shadow: none;
   -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
@@ -2874,6 +2875,7 @@ Portlets
   clear: both;
   margin-top: 15px;
   padding: 0px;
+  border-radius: 10px !important;
 }
 .portlet > .portlet-title {
   margin-bottom: 15px;
@@ -3054,10 +3056,12 @@ Portlets
 /* Box portlet */
 .portlet.box {
   padding: 0px !important;
+  border-radius: 10px !important;
 }
 .portlet.box > .portlet-title {
   margin-bottom: 0px;
   padding: 10px 10px 4px 10px;
+  border-radius: 10px !important;
   border-bottom: 1px solid #eee;
   color: #fff;
 }
@@ -4424,16 +4428,16 @@ Custimized Bootstrap Wells
 
 /* Button */
 .btn.default {
-  color: #333333;
+  color: #ebe8e8;
   background-color: #e5e5e5;
   border-color: "";
 }
 .btn.default:hover, .btn.default:focus, .btn.default:active, .btn.default.active {
-  color: #333333;
+  color: #ebe8e8;
   background-color: #d6d6d6;
 }
 .open .btn.default.dropdown-toggle {
-  color: #333333;
+  color: #ebe8e8;
   background-color: #d6d6d6;
 }
 .btn.default:active, .btn.default.active {
@@ -4560,7 +4564,7 @@ Blue Default
 
 /* General Text & Icon Font Colors */
 .font-blue {
-  color: #4b8df8 !important;
+  color: #511F52 !important;
 }
 
 /***
@@ -7839,7 +7843,7 @@ Purple Default
 /* Button */
 .purple.btn {
   color: white;
-  background-color: #511f52;
+  background-color: #511f52 !important;
   border-color: "";
 }
 .purple.btn:hover, .purple.btn:focus, .purple.btn:active, .purple.btn.active {
@@ -8525,4 +8529,15 @@ Purple Seance
 }
 .sliderTableImage img{
     width: 100%;
+}
+
+/* Apply rounded corners to all boxes and buttons */
+/* Apply rounded corners to all boxes and buttons, with higher specificity */
+div, div * , button, button * {
+  border-radius: 18px !important;
+
+}
+.btn {
+  background-color: #A987A8 !important;
+
 }
