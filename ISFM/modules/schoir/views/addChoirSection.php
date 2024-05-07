@@ -52,10 +52,10 @@
                                 <div class="form-group">
                                     <label class="col-md-3 control-label"> <?php echo lang('clas_title'); ?> <span class="requiredStar">  * </span></label>
                                     <div class="col-md-6">
-                                        <input type="text" name="group" class="form-control" placeholder="<?php echo lang('clas_title_plash'); ?>" name="Choir_title" data-validation="required" data-validation-error-msg="<?php echo lang('clas_cls_tit_requi'); ?>">
+                                        <input type="text" class="form-control" placeholder="<?php echo lang('clas_title_plash'); ?>" name="Choir_title" data-validation="required" data-validation-error-msg="<?php echo lang('clas_cls_tit_requi'); ?>">
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label class="col-md-3 control-label"> <?php echo lang('clas_group'); ?> <span class="requiredStar"> </span></label>
                                     <div class="col-md-6">
                                         <div id="div_scents">
@@ -63,7 +63,7 @@
                                         </div>
                                         <button id="addGroup" class="btn green-meadow floatRight" type="button"><?php echo lang('clas_add_group'); ?></button>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="form-group">
                                     <label class="col-md-3 control-label"> <?php echo lang('clas_section'); ?> <span class="requiredStar">  </span></label>

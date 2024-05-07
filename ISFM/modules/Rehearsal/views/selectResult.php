@@ -49,7 +49,9 @@
                         <div class="tiles">
                             <div class="col-md-12 resultMotherDiv">
                                 <?php
-                                if (!empty($result)) {
+                                // if (!empty($result)) {
+                                    // var_dump($result); // Add this to see what's inside $result
+
                                     foreach ($result as $row) {
                                         ?>
                                         <a href="index.php/rehearsal/fullResult?Choir=<?php echo $row['Choir_id']; ?>&rehearsal=<?php echo $row['rehearsal_title']; ?>">
@@ -69,10 +71,12 @@
                                         </a>
                                         <?php
                                     }
-                                } else {
+                                // } else {
                                     ?>
-                                    <h1 class="textAlignCenter"><?php echo lang('exa_rwnpni'); ?></h1>
-                                <?php } ?>
+                                    <!-- <h1 class="textAlignCenter"><?php echo lang('exa_rwnpni'); ?></h1> -->
+                                <?php
+                            //  }
+                              ?>
                             </div>
                         </div>
                     </div>

@@ -51,27 +51,16 @@
                         </div>
                     </div>
                     <div class="portlet-body form">
-                        <?php
-                        $form_attributs = array('class' => 'form-horizontal', 'role' => 'form');
+                        <?php $form_attributs = array('class' => 'form-horizontal', 'role' => 'form', 'name' => 'myForm', 'onsubmit' => 'return validateForm()');
                         echo form_open_multipart('users/addSection_trainers', $form_attributs);
                         ?>
-
                         <div class="form-body">
-                        <div class="form-group">
-                                <label class="col-md-3 control-label"> <?php echo lang('header_cor_clas'); ?> <span class="requiredStar"> * </span></label>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" onkeyup="Choir_Info(this.value)" placeholder="" name="Choir_id" data-validation="required">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label"> <?php echo lang('clas_section'); ?> <span class="requiredStar"> * </span></label>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control"  placeholder="" name="Choir_memberId" data-validation="required">
-                                </div>
-                            </div>
-                            <div id="ajaxResult">
-                            </div>
-
+                            <?php
+                            if (!empty($success)) {
+                                echo $success;
+                            }
+                            ?>
+                      
                             <div class="form-group">
                                 <label class="col-md-3 control-label"> <?php echo lang('par_gafn'); ?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-6">
@@ -125,7 +114,24 @@
                                     <input type="text" class="form-control" name="phone" placeholder=""  data-validation="required" data-validation-error-msg="">
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label"><?php echo lang('admi_Choir'); ?> <span class="requiredStar"> * </span></label>
+                                <div class="col-md-6">
+                                    <select name="Choir" onchange="ChoirInfo(this.value)" class="form-control" 
+                                    data-validation="required" data-validation-error-msg="<?php echo lang('admi_Choir_error_msg');?>">
+                                        <option value=""><?php echo lang('admi_select_Choir');?></option>
+                            <?php foreach ($s_Choir as $row) { ?>
+                                 <option value="<?php echo $row['id']; ?>"><?php echo $row['Choir_title']; ?></option>
+                            <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div id="txtHint">
 
+                            </div>
+
+
+</div>
                             <!-- <div class="form-group last">
                                 <label class="control-label col-md-3"> <?php echo lang('par_gur_pho'); ?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-9">
@@ -163,73 +169,41 @@
     </div>
 </div>
 <!-- END CONTENT -->
-
-<!-- BEGIN PAGE LEVEL script -->
+<script> $.validate(); </script>
 <script>
-    function Choir_memberInfo(str) {
+    jQuery(document).ready(function() {
+        ComponentsFormTools.init();
+    });
+</script>
+<script type="text/javascript">
+    var RecaptchaOptions = {
+        theme: 'custom',
+        custom_theme_widget: 'recaptcha_widget'
+    };
+</script>
+<script>
+    function ChoirInfo(str) {
         var xmlhttp;
         if (str.length === 0) {
-            document.getElementById("ajaxResult").innerHTML = "";
+            document.getElementById("txtHint").innerHTML = "";
             return;
         }
         if (window.XMLHttpRequest) {
             // code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp = new XMLHttpRequest();
-        } else {
+        }
+        else {
             // code for IE6, IE5
             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
-        xmlhttp.onreadystatechange = function () {
+        xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-                document.getElementById("ajaxResult").innerHTML = xmlhttp.responseText;
+                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
             }
         };
-        xmlhttp.open("GET", "index.php/users/Choir_memberInfoById?q=" + str, true);
+        xmlhttp.open("GET", "index.php/users/Section_trainer_leader_info?q=" + str, true);
         xmlhttp.send();
     }
-
-  
-
-function Choir_Info(ChoirId) {
-    if (!ChoirId) {
-        console.log('Choir ID is required.');
-        return; // Stop the function if no ID is provided
-    }
-    $.ajax({
-        url: 'index.php/users/Choir_InfoById?q=', // Ensure this is the correct endpoint
-        type: 'GET',
-        data: {q: ChoirId},
-        success: function(response) {
-            $('#some_div').html(response); // Ensure this is the correct container ID
-        },
-        error: function(error) {
-            console.error('Error:', error);
-        }
-    });
-}
-
-
-    // function Choir_Info(str) {
-    //     var xmlhttp;
-    //     if (str.length === 0) {
-    //         document.getElementById("ajaxResult").innerHTML = "";
-    //         return;
-    //     }
-    //     if (window.XMLHttpRequest) {
-    //         // code for IE7+, Firefox, Chrome, Opera, Safari
-    //         xmlhttp = new XMLHttpRequest();
-    //     } else {
-    //         // code for IE6, IE5
-    //         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    //     }
-    //     xmlhttp.onreadystatechange = function () {
-    //         if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-    //             document.getElementById("ajaxResult").innerHTML = xmlhttp.responseText;
-    //         }
-    //     };
-    //     xmlhttp.open("GET", "index.php/users/Choir_InfoById?q=" + str, true);
-    //     xmlhttp.send();
-    // }
     function checkEmail(str) {
         var xmlhttp;
         if (str.length === 0) {
@@ -239,11 +213,12 @@ function Choir_Info(ChoirId) {
         if (window.XMLHttpRequest) {
             // code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp = new XMLHttpRequest();
-        } else {
+        }
+        else {
             // code for IE6, IE5
             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
-        xmlhttp.onreadystatechange = function () {
+        xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
                 document.getElementById("checkEmail").innerHTML = xmlhttp.responseText;
             }
@@ -251,15 +226,13 @@ function Choir_Info(ChoirId) {
         xmlhttp.open("GET", "index.php/commonController/checkEmail?val=" + str, true);
         xmlhttp.send();
     }
-    jQuery(document).ready(function () {
-    //here is auto reload after 1 second for time and date in the top
-        jQuery(setInterval(function () {
+</script>
+<script>
+    jQuery(document).ready(function() {
+//here is auto reload after 1 second for time and date in the top
+        jQuery(setInterval(function() {
             jQuery("#result").load("index.php/home/iceTime");
         }, 1000));
     });
 </script>
-<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js"></script>
 <!-- END PAGE LEVEL script -->
-<script src="assets/global/plugins/jquery.form-validator.min.js" type="text/javascript"></script>
-<script> $.validate();</script>
-

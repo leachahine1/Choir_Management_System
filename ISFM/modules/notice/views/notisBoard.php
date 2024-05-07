@@ -59,9 +59,7 @@
                                     <th>
                                         <?php echo lang('not_notfol'); ?>
                                     </th>
-                                    <th>
-                                        <?php echo lang('not_action'); ?>
-                                    </th>
+                                   
                                 </tr>
                             </thead>
                             <tbody>
@@ -88,11 +86,7 @@
                                             <span class="label label-sm label-success noticeFlower">
                                                 <?php echo $row['receiver']; ?> </span>
                                         </td>
-                                        <td>
-                                            <?php if ($this->ion_auth->is_admin()) { ?>
-                                                <a class="btn btn-xs red" onClick="javascript:return confirm('Are you sure you want to delete this notice?')" href="#"> <i class="fa fa-trash-o"></i> <?php echo lang('delete'); ?> </a>
-                                            <?php } ?>
-                                        </td>
+                                       
                                     </tr>
                                     <?php
                                     $i++;

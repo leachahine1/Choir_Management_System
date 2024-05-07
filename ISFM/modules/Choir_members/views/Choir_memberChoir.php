@@ -68,9 +68,7 @@ $userId = $user->id; ?>
                                     <th>
                                         <?php echo lang('stu_clas_Roll_No'); ?>
                                     </th>
-                                    <th>
-                                        <?php echo lang('stu_clas_Photo'); ?>
-                                    </th>
+                                 
                                     <th>
                                         <?php echo lang('stu_clas_Choir_member_Name'); ?>
                                     </th>
@@ -118,11 +116,7 @@ $userId = $user->id; ?>
                                         <td>
                                             <?php echo $row['roll_number']; ?>
                                         </td>
-                                        <td>
-                                            <div class="tableImage">
-                                                <img src="assets/uploads/<?php echo $photo; ?>" alt="">
-                                            </div>
-                                        </td>
+                                      
                                         <td>
                                             <?php echo $row['Choir_member_title']; ?>
                                         </td>
@@ -138,7 +132,7 @@ $userId = $user->id; ?>
                                         <td>
                                             <a class="btn btn-xs green tableActionButtonMargin" href="index.php/Choir_members/Choir_members_details?id=<?php echo $row['id']; ?>&sid=<?php echo $Choir_memberId; ?>&userId=<?php echo $stuUserId; ?>"> <i class="fa fa-file-text-o"></i> <?php echo lang('stu_clas_Details'); ?> </a>
                                             <?php if($this->common->user_access('stud_edit_delete',$userId)){ ?>
-                                                <a class="btn btn-xs default tableActionButtonMargin" href="index.php/Choir_members/editChoir_member?di=<?php echo $row['id']; ?>&sid=<?php echo $Choir_memberId; ?>&userId=<?php echo $stuUserId; ?>&Choir_id=<?php echo $Choir_id; ?>"> <i class="fa fa-pencil-square"></i> <?php echo lang('stu_clas_Edit'); ?> </a>
+                                                <!-- <a class="btn btn-xs default tableActionButtonMargin" href="index.php/Choir_members/editChoir_member?di=<?php echo $row['id']; ?>&sid=<?php echo $Choir_memberId; ?>&userId=<?php echo $stuUserId; ?>&Choir_id=<?php echo $Choir_id; ?>"> <i class="fa fa-pencil-square"></i> <?php echo lang('stu_clas_Edit'); ?> </a> -->
                                                 <a class="btn btn-xs red tableActionButtonMargin" href="index.php/Choir_members/Choir_memberDelete?di=<?php echo $row['id']; ?>&sid=<?php echo $Choir_memberId; ?>&userId=<?php echo $stuUserId; ?>" onClick="javascript:return confirm('Are you sure you want to delete this Choir_member?')"> <i class="fa fa-trash-o"></i> <?php echo lang('stu_clas_Delete'); ?> </a>
                                             <?php } ?>
                                         </td>

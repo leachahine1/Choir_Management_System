@@ -4,7 +4,11 @@
 <link rel="stylesheet" type="text/css" href="assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"/>
 <!-- END PAGE LEVEL STYLES -->
 
-<?php $user = $this->ion_auth->user()->row(); $userId = $user->id;?>
+<?php
+$user = $this->ion_auth->user()->row();
+$userId = $user->id;
+
+?>
 <!-- BEGIN CONTENT -->
 <div class="page-content-wrapper">
     <div class="page-content">
@@ -12,8 +16,8 @@
         <div class="row">
             <div class="col-md-12">
                 <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-                <h3 class="page-title">
-                    <?php echo lang('header_tea_info'); ?> <small></small>
+                <h3 class="page-title"> 
+                    <?php echo lang('header_stu_lead'); ?> <small></small>
                 </h3>
                 <ul class="page-breadcrumb breadcrumb">
                     <li>
@@ -21,32 +25,32 @@
                         <?php echo lang('home'); ?>
                     </li>
                     <li>
-                        <?php echo lang('header_section_leader'); ?>
+                        <?php echo lang('header_stu_lead1'); ?>
                     </li>
                     <li>
-                        <?php echo lang('header_tea_info'); ?>
+                        <?php echo lang('header_stu_lead2'); ?>
+                    </li>
+                    <li>
+                        <?php echo lang('header_stu_lead3'); ?>
                     </li>
                     <li id="result" class="pull-right topClock"></li>
-
                 </ul>
                 <!-- END PAGE TITLE & BREADCRUMB-->
             </div>
         </div>
         <!-- END PAGE HEADER-->
-        
-        
+        <!-- BEGIN PAGE CONTENT-->
         <div class="row">
             <div class="col-md-12">
                 <!-- BEGIN REHEARSALPLE TABLE PORTLET-->
                 <div class="portlet box purple">
                     <div class="portlet-title">
                         <div class="caption">
-                            <?php echo lang('tea_tl'); ?>
+                            <?php echo "" . ' ' . lang('par_spib'); ?>
                         </div>
                         <div class="tools">
                         </div>
-                    </div>
-                    <div class="portlet-body">
+                    </div>  <div class="portlet-body">
                         <table class="table table-striped table-bordered table-hover" id="sample_1">
                             <thead>
                                 <tr>
@@ -72,7 +76,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($section_leader as $row) { ?>
+                                <?php foreach ($section_leaders as $row) { ?>
                                     <tr>
                                         <td>
                                             <?php echo $row['id']; ?>

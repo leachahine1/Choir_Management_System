@@ -753,13 +753,13 @@
                                                             <span class="title bold-black"><?php echo lang('header_info'); ?></span>
                                                         </a>
                                                     </li>
-                                                <?php } if ($this->common->user_access('Choir_promotion', $userId)) { ?>
+                                                <!-- <?php } if ($this->common->user_access('Choir_promotion', $userId)) { ?>
                                                     <li class="nav-item <?php echo $promotion; ?>">
                                                         <a href="index.php/sChoir/promotion" class="nav-link ">
                                                             <span class="title bold-black"><?php echo lang('header_promot'); ?></span>
                                                         </a>
                                                     </li>
-                                                <?php } ?>
+                                                <?php } ?> -->
                                             </ul>
                                         </li>
                                         <?php } if ($this->common->user_access('add_song', $userId) || $this->common->user_access('all_song', $userId) || $this->common->user_access('assin_optio_sub', $userId)) { ?>
@@ -1031,7 +1031,7 @@
                                     <?php } ?>
                                 </ul>
                             </li>
-                        <?php } if ($this->common->user_access('section_leader_info', $userId) || $this->common->user_access('add_employee', $userId) || $this->common->user_access('add_section_leader', $userId)) { ?>
+                            <?php } if ($this->common->user_access('section_leader_info', $userId) || $this->common->user_access('add_employee', $userId) || $this->common->user_access('add_section_leader', $userId)) { ?>
                             <li class="nav-item <?php echo $section_leaders; ?>">
                                 <a href="javascript:;" class="nav-link nav-toggle">
                                     <span class="icon-users" aria-hidden="true"></span>
@@ -1041,7 +1041,7 @@
                                 <ul class="sub-menu">
                                     <?php if ($this->common->user_access('section_leader_info', $userId)) { ?>
                                         <li class="nav-item <?php echo $section_leadersInfromation; ?>">
-                                            <a href="index.php/section_leaders/allSection_leaders" class="nav-link ">
+                                            <a href="index.php/section_leaders/section_leadersInformation" class="nav-link ">
                                                 <span class="title bold-black"><?php echo lang('header_tea_info'); ?></span>
                                             </a>
                                         </li>

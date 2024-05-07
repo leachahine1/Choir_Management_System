@@ -15,7 +15,7 @@
                 <div class="portlet box purple ">
                     <div class="portlet-title">
                         <div class="caption">
-                            <i class="fa fa-bars"></i>  <?php echo lang('exa_mr_1') . ' ' . $rehearsalTitle . lang('exa_mr_1'); ?>
+                            <i class="fa fa-bars"></i>  <?php echo lang('exa_mr_1') . ' ' . $rehearsalTitle  ?>
                         </div>
                         <div class="tools">
                             <a href="" class="collapse">
@@ -41,7 +41,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <input type="hidden" class="form-control" value="<?php echo $rehearsalID; ?>" name="rehearsalId">
-                                                <h3 class="arpl"><?php echo lang('exa_rehearsal'); ?> 1</h3>
+                                                <h3 class="arpl"><?php echo lang('exa_rehearsal'); ?> </h3>
                                                 <input type="hidden" class="form-control" name="rehearsalSunjectFild" value="run">
                                                 <div class="col-md-2 classGroupInput">
                                                     <input type="text" class="form-control" placeholder="<?php echo lang('exa_ddmmyy'); ?>" value="<?php echo $startDate; ?>" name="rehearsalDate" readonly="" data-validation="required" data-validation-error-msg="">

@@ -1,6 +1,7 @@
 <!-- BEGIN PAGE LEVEL STYLES -->
 <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
 <!-- END PAGE LEVEL STYLES -->
+
 <!-- BEGIN CONTENT -->
 <div class="page-content-wrapper">
     <div class="page-content">
@@ -55,9 +56,9 @@
                                 echo $success;
                             }
                             ?>
-
+                               
                             <div class="form-group">
-                                <label class="col-md-3 control-label"><?php echo lang('tea_fn'); ?> <span class="requiredStar"> * </span></label>
+                                <label class="col-md-3 control-label"><?php echo lang('tea_fn1'); ?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" placeholder="First Name" name="first_name" data-validation="required" data-validation-error-msg="">
                                 </div>
@@ -106,12 +107,7 @@
                                     <textarea class="form-control" name="present_address" rows="3"  data-validation="required" data-validation-error-msg=""></textarea>
                                 </div>
                             </div>
-                            <!-- <div class="form-group">
-                                <label class="col-md-3 control-label"><?php echo lang('tea_per_add'); ?> <span class="requiredStar"> * </span></label>
-                                <div class="col-md-6">
-                                    <textarea class="form-control" name="permanent_address" rows="3"  data-validation="required" data-validation-error-msg=""></textarea>
-                                </div>
-                            </div> -->
+                       
                             <div class="form-group">
                                 <label class="col-md-3 control-label"><?php echo lang('tea_pn'); ?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-1">
@@ -164,12 +160,7 @@
                                     <input type="text" class="form-control" name="indexNo" placeholder="" data-validation="required" data-validation-error-msg="">
                                 </div>
                             </div>
-                            <!-- <div class="form-group">
-                                <label class="col-md-3 control-label"><?php echo lang('tea_fs'); ?> <span class="requiredStar"> * </span></label>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" name="facultiesSong" placeholder="" data-validation="required" data-validation-error-msg="" >
-                                </div>
-                            </div> -->
+                       
                             <div class="form-group">
                                 <label class="col-md-3 control-label"><?php echo lang('tea_wh'); ?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-6">
@@ -180,84 +171,23 @@
                                     </select>
                                 </div>
                             </div>
-                            <!-- <div class="form-group">
-                                <label class="col-md-3 control-label"><?php echo lang('tea_eq'); ?><span class="requiredStar"> * </span></label>
-                                <div class="col-md-2">
-                                    <H4 class="eduFormTitle"><?php echo lang('tea_dd'); ?></H4>
-                                    <input class="form-control eduForm" name="dd_1" type="text" placeholder="" data-validation="required" data-validation-error-msg="">
-                                    <input class="form-control eduForm" name="dd_2" type="text" placeholder="" >
-                                    <input class="form-control eduForm" name="dd_3" type="text" placeholder="" >
-                                    <input class="form-control" name="dd_4" type="text" placeholder="" >
-                                    <input class="form-control" name="dd_5" type="text" placeholder="" >
-                                </div>
-                                <div class="col-md-3">
-                                    <H4 class="eduFormTitle"><?php echo lang('tea_scu'); ?></H4>
-                                    <input class="form-control eduForm" name="scu_1" type="text" placeholder="" data-validation="required" data-validation-error-msg="">
-                                    <input class="form-control eduForm" name="scu_2" type="text" placeholder="" >
-                                    <input class="form-control eduForm" name="scu_3" type="text" placeholder="" >
-                                    <input class="form-control eduForm" name="scu_4" type="text" placeholder="" >
-                                    <input class="form-control eduForm" name="scu_5" type="text" placeholder="" >
-                                </div>
-                                <div class="col-md-2">
-                                    <H4 class="eduFormTitle"><?php echo lang('tea_result'); ?></H4>
-                                    <input class="form-control eduForm" name="result_1" type="text" placeholder="" data-validation="required" data-validation-error-msg="">
-                                    <input class="form-control eduForm" name="result_2" type="text" placeholder="" >
-                                    <input class="form-control eduForm" name="result_3" type="text" placeholder="" >
-                                    <input class="form-control eduForm" name="result_4" type="text" placeholder="" >
-                                    <input class="form-control eduForm" name="result_5" type="text" placeholder="" >
-                                </div>
-                                <div class="col-md-2">
-                                    <H4 class="eduFormTitle"><?php echo lang('tea_py'); ?></H4>
-                                    <input class="form-control eduForm" name="paYear_1" type="text" placeholder="YYYY" data-validation="required" data-validation-error-msg="">
-                                    <input class="form-control eduForm" name="paYear_2" type="text" placeholder="YYYY" >
-                                    <input class="form-control eduForm" name="paYear_3" type="text" placeholder="YYYY" >
-                                    <input class="form-control eduForm" name="paYear_4" type="text" placeholder="YYYY" >
-                                    <input class="form-control eduForm" name="paYear_5" type="text" placeholder="YYYY" >
-                                </div>
-                            </div> -->
-                            <!-- <div class="form-group last">
-                                <label class="control-label col-md-3"><?php echo lang('tea_photo'); ?> <span class="requiredStar"> * </span></label>
-                                <div class="col-md-9">
-                                    <div class="fileinput fileinput-new" data-provides="fileinput">
-                                        <div class="fileinput-new thumbnail">
-                                            <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/>
-                                        </div>
-                                        <div class="fileinput-preview fileinput-exists thumbnail uploadImagePreview">
-                                        </div>
-                                        <div>
-                                            <span class="btn default btn-file">
-                                                <span class="fileinput-new"><?php echo lang('tea_si'); ?> </span>
-                                                <span class="fileinput-exists"><?php echo lang('tea_change'); ?> </span>
-                                                <input type="file" name="userfile" data-validation="required" data-validation-error-msg="">
-                                            </span>
-                                            <a href="#" class="btn red fileinput-exists" data-dismiss="fileinput"><?php echo lang('tea_remove'); ?> </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-                            <div class="alert alert-success">
-                                <strong><?php echo lang('tea_note'); ?> :</strong> <?php echo lang('tea_sadi'); ?>
-                            </div>
-                            <!-- <div class="form-group">
-                                <label class="col-md-3 control-label"> </label>
-                                <div class="col-md-9">
-                                    <div class="checkbox-list">
-                                        <label>
-                                            <input name="cv" value="submited" type="checkbox"> <?php echo lang('tea_cv'); ?></label>
-                                        <label>
-                                            <input name="educational_certificat" value="submited" type="checkbox"> <?php echo lang('tea_ec'); ?> </label>
-                                        <label>
-                                            <input name="exc" value="submited" type="checkbox"> <?php echo lang('tea_exc'); ?></label>
-                                    </div>
-                                </div>
-                            </div> -->
-                            <!-- <div class="form-group">
-                                <label class="col-md-3 control-label"><?php echo lang('tea_sfi'); ?> <span class="requiredStar">  </span></label>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label"><?php echo lang('admi_Choir'); ?> <span class="requiredStar"> * </span></label>
                                 <div class="col-md-6">
-                                    <input type="text" name="submited_info" class="form-control" placeholder="<?php echo lang('tea_fntaoi'); ?>" data-validation="required" data-validation-error-msg="">
+                                    <select name="Choir" onchange="ChoirInfo(this.value)" class="form-control"
+                                     data-validation="required" data-validation-error-msg="<?php echo lang('admi_Choir_error_msg');?>">
+                                        <option value=""><?php echo lang('admi_select_Choir');?></option>
+                                     <?php foreach ($s_Choir as $row) { ?>
+                                 <option value="<?php echo $row['id']; ?>"><?php echo $row['Choir_title']; ?></option>
+                                             <?php } ?>
+                                    </select>
                                 </div>
-                            </div> -->
+                            </div>
+                            <div id="txtHint">
+                          
+                            
                         </div>
+                        
                         <div class="form-actions fluid">
                             <div class="col-md-offset-3 col-md-6">
                                 <button type="submit" class="btn green" name="submit" value="submit"><?php echo lang('tea_si'); ?></button>
@@ -275,6 +205,7 @@
 </div>
 <!-- END CONTENT -->
 <!-- BEGIN PAGE LEVEL script -->
+<!-- BEGIN PAGE LEVEL script -->
 <script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js"></script>
 <script type="text/javascript" src="assets/global/plugins/jquery.input-ip-address-control-1.0.min.js"></script>
 <script type="text/javascript" src="assets/global/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js"></script>
@@ -284,38 +215,10 @@
 <script src="assets/global/plugins/typeahead/typeahead.bundle.min.js" type="text/javascript"></script>
 <script src="assets/admin/pages/scripts/components-form-tools.js"></script>
 <script src="assets/global/plugins/jquery.form-validator.min.js" type="text/javascript"></script>
-<script> $.validate();</script>
+<script> $.validate(); </script>
 <script>
-    jQuery(document).ready(function () {
-            ComponentsFormTools.init();
-        });
-        function checkEmail(str) {
-            var xmlhttp;
-            if (str.length === 0) {
-                document.getElementById("checkEmail").innerHTML = "";
-                return;
-            }
-            if (window.XMLHttpRequest) {
-                // code for IE7+, Firefox, Chrome, Opera, Safari
-                xmlhttp = new XMLHttpRequest();
-            } else {
-                // code for IE6, IE5
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.onreadystatechange = function () {
-                if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-                    document.getElementById("checkEmail").innerHTML = xmlhttp.responseText;
-                }
-            };
-            xmlhttp.open("GET", "index.php/commonController/checkEmail?val=" + str, true);
-            xmlhttp.send();
-        }
-
-    jQuery(document).ready(function () {
-//here is auto reload after 1 second for time and date in the top
-        jQuery(setInterval(function () {
-            jQuery("#result").load("index.php/home/iceTime");
-        }, 1000));
+    jQuery(document).ready(function() {
+        ComponentsFormTools.init();
     });
 </script>
 <script type="text/javascript">
@@ -323,5 +226,59 @@
         theme: 'custom',
         custom_theme_widget: 'recaptcha_widget'
     };
+</script>
+<script>
+    function ChoirInfo(str) {
+        var xmlhttp;
+        if (str.length === 0) {
+            document.getElementById("txtHint").innerHTML = "";
+            return;
+        }
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+            }
+        };
+        xmlhttp.open("GET", "index.php/users/Section_trainer_leader_info?q=" + str, true);
+        xmlhttp.send();
+    }
+    function checkEmail(str) {
+        var xmlhttp;
+        if (str.length === 0) {
+            document.getElementById("checkEmail").innerHTML = "";
+            return;
+        }
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                document.getElementById("checkEmail").innerHTML = xmlhttp.responseText;
+            }
+        };
+        xmlhttp.open("GET", "index.php/commonController/checkEmail?val=" + str, true);
+        xmlhttp.send();
+    }
+</script>
+<script>
+    jQuery(document).ready(function() {
+//here is auto reload after 1 second for time and date in the top
+        jQuery(setInterval(function() {
+            jQuery("#result").load("index.php/home/iceTime");
+        }, 1000));
+    });
 </script>
 <!-- END PAGE LEVEL script -->

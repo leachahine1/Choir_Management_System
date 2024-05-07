@@ -94,7 +94,6 @@
                             <div class="form-actions fluid marginTopNone">
                                 <div class="col-md-offset-3 col-md-9">
                                     <button class="btn blue" type="submit" name="submit2" value="Add Routine Song"><?php echo lang('clas_add_button'); ?></button>
-                                    <button class="btn default" type="reset"><?php echo lang('clas_add_button'); ?></button>
                                 </div>
                             </div>
                         <?php echo form_close(); ?>

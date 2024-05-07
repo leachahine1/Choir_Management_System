@@ -56,7 +56,7 @@
                                     <div class="col-md-6">
                                         <select onchange="ChoirSection(this.value)" class="form-control" name="Choir" data-validation="required" data-validation-error-msg="This field is required field.">
                                             <option value="">Select one</option>
-                                            <?php foreach ($ChoirTile as $row) { ?>
+                                            <?php foreach ($ChoirTitle as $row) { ?>
                                                 <option value="<?php echo $row['id']; ?>"><?php echo $row['Choir_title']; ?></option>
                                             <?php } ?>
                                         </select>
@@ -69,7 +69,7 @@
                                     <div class="col-md-6">
                                         <select class="form-control" name="nextChoir" data-validation="required" data-validation-error-msg="This field is required field.">
                                             <option value="">Select one</option>
-                                            <?php foreach ($ChoirTile as $row) { ?>
+                                            <?php foreach ($ChoirTitle as $row) { ?>
                                                 <option value="<?php echo $row['id']; ?>"><?php echo $row['Choir_title']; ?></option>
                                             <?php } ?>
                                         </select>

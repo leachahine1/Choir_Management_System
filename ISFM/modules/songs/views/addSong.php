@@ -66,7 +66,7 @@
                                 <div class="form-group">
                                     <label class="col-md-3 control-label"> <?php echo lang('sub_title'); ?> <span class="requiredStar">  </span></label>
                                     <div class="col-md-6">
-                                        <input type="text" name="song class="form-control" placeholder="Song title here" data-validation="required" data-validation-error-msg="">
+                                        <input type="text" name="song_title_1" class="form-control" placeholder="Song title here" data-validation="required" data-validation-error-msg="">
                                     </div>
                                 </div>
                                 <div class="form-group">

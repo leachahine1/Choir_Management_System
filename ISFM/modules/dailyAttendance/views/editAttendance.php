@@ -70,7 +70,6 @@
                             </div>
                         </div>
                         <?php
-                        $i = 1;
                         foreach ($editInfo as $row) {
                             ?>
                             <div class="form-body">
@@ -99,7 +98,7 @@
                                     <input type=hidden name="in_velu" value="<?php echo $i; ?>">
                                 </div>
                             </div>
-                            <?php $i++; } ?> 
+                            <?php } ?> 
                         <div class="form-actions fluid">
                             <div class="col-sm-offset-3 col-md-9">
                                 <button class="btn blue" type="submit" name="submit" value="Submit"><?php echo lang('att_submit'); ?></button>

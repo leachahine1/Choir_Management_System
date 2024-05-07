@@ -38,7 +38,7 @@
         <div class="row">
             <div class="col-md-12" id="print">
                 <div class="col-md-12 btn-group floatRight">
-                    <button class="btn green-meadow prin-link" onclick="jQuery('#print').print()" type="button"><i class="fa fa-print"></i> Print</button>
+                    <button class="btn green-meadow prin-link" onclick="window.print();" type="button"><i class="fa fa-print"></i> Print</button>
                 </div>       
                 <!--BEGIN REHEARSALPLE TABLE PORTLET-->
                 <div class="col-md-12 markshitMotherDive">

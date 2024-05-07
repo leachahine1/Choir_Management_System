@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12 ">
                 <div class="alert alert-danger">
-                    <h3><?php echo lang('exa_today_a').$ChoirTitle.lang('exa_today_b'); ?></h3><hr>
+                    <!-- <h3><?php echo lang('exa_today_a').$ChoirTitle.lang('exa_today_b'); ?></h3><hr> -->
                     <strong><?php echo lang('exa_today_c'); ?></strong><hr>
                     <div class="clearfix">
                         <button class="btn blue btn-lg" type="button" onclick="location.href = 'javascript:history.back();'"><?php echo lang('back'); ?></button>

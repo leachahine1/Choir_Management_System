@@ -39,12 +39,12 @@
                                 echo form_open('dailyAttendance/attendencePreview', $form_attributs);
                                 ?>
                                 <div class="form-body">
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label class="control-label col-md-3"><?php echo lang('date'); ?></label>
                                         <div class="col-md-3">
                                             <input class="form-control form-control-inline input-medium date-picker" size="16" type="text" name="date" value=""/>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="form-group">
                                         <label class="col-md-3 control-label"><?php echo lang('att_Choir'); ?></label>
                                         <div class="col-md-4">

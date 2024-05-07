@@ -29,6 +29,53 @@ class Section_leaders extends MX_Controller {
         $this->load->view('section_leaders', $data);
         $this->load->view('temp/footer');
     }
+    public function section_leadersInformation() {
+        if ($this->input->post('submit', TRUE)) {
+            $Choir_id = $this->input->post('Choir_id', TRUE);
+            $selected_section = $this->input->post('section', TRUE); // Get selected section name
+            $data['Choir_title'] = $this->common->Choir_title($Choir_id);
+            $data['selected_section'] = $selected_section; // Pass selected section name to the view
+            $data['section_leaders'] = $this->common->getWhere22('section_leaders_info', 'Choir_id', $Choir_id, 'section', $selected_section); // Fetch trainers for the selected section
+            $this->load->view('temp/header');
+            $this->load->view('section_leadersInformation', $data);
+            $this->load->view('temp/footer');
+        } else {
+            $data['s_Choir'] = $this->common->getAllData('Choir');
+            $this->load->view('temp/header');
+            $this->load->view('section_leaders', $data);
+            $this->load->view('temp/footer');
+        }
+    }
+
+    public function ajaxChoirSection() {
+        $Choir_id = $this->input->get('q');
+        $query = $this->common->getWhere('Choir', 'id', $Choir_id);
+        foreach ($query as $row) {
+            $data = $row;
+        }
+        echo '<input type="hidden" name="Choir_title" value="' . $data['id'] . '">';
+        if (!empty($data['section'])) {
+            $section = $data['section'];
+            $sectionArray = explode(",", $section);
+            echo '<div class="form-group">
+                        <label class="col-md-3 control-label">'.lang('clasc_3').' <span class="requiredStar"> * </span></label>
+                        <div class="col-md-6">
+                            <select name="section" class="form-control">
+                                <option value="all">'.lang('clasc_4').'</option>';
+            foreach ($sectionArray as $sec) {
+                echo '<option value="' . $sec . '">' . $sec . '</option>';
+            }
+            echo '</select></div>
+                    </div>';
+        } else {
+            echo '<div class="form-group">
+                        <label class="col-md-3 control-label"></label>
+                        <div class="col-md-6">
+                        <div class="alert alert-warning">
+                                <strong>'.lang('clasc_5').'</strong> '.lang('clasc_6').'
+                        </div></div></div>';
+        }
+    }
 
     //This function gives all details about any section_leader
     public function section_leaderDetails() {

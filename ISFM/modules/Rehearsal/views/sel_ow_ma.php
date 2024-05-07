@@ -53,7 +53,7 @@
                                 <!-- BEGIN FORM-->
                                 <?php
                                 $form_attributs = array('class' => 'form-horizontal', 'role' => 'form');
-                                echo form_open('rehearsal/sel_ow_ma', $form_attributs);
+                                echo form_open('Rehearsal/sel_ow_ma', $form_attributs);
                                 ?>
                                 <div class="form-body">
                                     <div class="form-group">
@@ -110,7 +110,7 @@
                 document.getElementById("ajaxResult").innerHTML = xmlhttp.responseText;
             }
         };
-        xmlhttp.open("GET", "index.php/rehearsal/ajax_ow_ma?q=" + str, true);
+        xmlhttp.open("GET", "index.php/Rehearsal/ajax_ow_ma?q=" + str, true);
         xmlhttp.send();
     }
 </script>

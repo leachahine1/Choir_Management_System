@@ -1827,7 +1827,7 @@ CREATE TABLE IF NOT EXISTS `suggestion` (
 --
 
 INSERT INTO `suggestion` (`id`, `author_id`, `author_name`, `Choir`, `song`, `suggestion_title`, `suggestion`, `date`) VALUES
-(2, 8, 'Willie B. Quint', 'Choir 1', '', 'This is test suggestion.', '<p>This is test suggestion.This is test suggestion.This is test suggestion.This is test suggestion.This is test suggestion.This is test suggestion.This is test suggestion.This is test suggestion.This is test suggestion.This is test suggestion.This is test suggestion.This is test suggestion.This is test suggestion.This is test suggestion.This is test suggestion.This is test suggestion.This is test suggestion.This is test suggestion.This is test suggestion.This is test suggestion.</p>\\r\\n', 1466152654);
+(2, 8, 'Willie B. Quint', 'Choir 1', '', 'This is test suggestion.', '<p>This is test suggestion.This is test suggestion.</p>\\r\\n', 1466152654);
 
 -- --------------------------------------------------------
 

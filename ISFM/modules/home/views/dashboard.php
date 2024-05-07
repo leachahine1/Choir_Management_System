@@ -617,10 +617,10 @@ foreach ($ChoirAttendance as $cap) {
                                 show: true,
                                 fill: true,
                                 radius: 4,
-                                fillColor: "#A987A8",
+                                fillColor: "#FDF4FF",
                                 lineWidth: 2
                             },
-                            color: '#A987A8',
+                            color: '#FDF4FF',
                             shadowSize: 1
                         }, {
                             data: data1,
@@ -629,7 +629,7 @@ foreach ($ChoirAttendance as $cap) {
                                 fill: false,
                                 lineWidth: 3
                             },
-                            color: '#A987A8',
+                            color: '#FDF4FF',
                             shadowSize: 0
                         }],
                     {

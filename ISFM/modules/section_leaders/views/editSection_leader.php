@@ -109,7 +109,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label class="col-md-3 control-label"><?php echo lang('tea_fn'); ?></label>
                             <div class="col-md-6">
                                 <input type="text" name="father_name" class="form-control" value="<?php echo $farther_name; ?>">
@@ -120,7 +120,7 @@
                             <div class="col-md-6">
                                 <input type="text" name="mother_name" class="form-control" value="<?php echo $mother_name; ?>">
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label class="control-label col-md-3"><?php echo lang('tea_dob'); ?><span class="requiredStar"> * </span></label>
                             <div class="col-md-4">
@@ -128,7 +128,7 @@
                                 <span class="help-block"><?php echo lang('tea_dformet'); ?> </span>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label class="col-md-3 control-label"><?php echo lang('tea_sex'); ?><span class="requiredStar"> * </span></label>
                             <div class="col-md-6 marginLeftSex">
                                 <div class="radio-list">
@@ -152,19 +152,19 @@
                                         ?>> <?php echo lang('tea_other'); ?></label>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label class="col-md-3 control-label"><?php echo lang('tea_prea'); ?></label>
                             <div class="col-md-6">
                                 <textarea rows="3" name="present_address" class="form-control"><?php echo $present_address; ?></textarea>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label class="col-md-3 control-label"><?php echo lang(''); ?></label>
                             <div class="col-md-6">
                                 <textarea rows="3" name="permanent_address" class="form-control"><?php echo $permanent_address; ?></textarea>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="form-group">
                             <label class="col-md-3 control-label"><?php echo lang('tea_email'); ?></label>
@@ -195,12 +195,12 @@
                                 <input type="text" class="form-control" name="position" value="<?php echo $position; ?>">
                             </div>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label class="col-md-3 control-label"><?php echo lang('tea_fs'); ?> <span class="requiredStar"> * </span></label>
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="facultiesSong" value="<?php echo $song; ?>">
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label class="col-md-3 control-label"><?php echo lang('tea_wh'); ?><span class="requiredStar"> * </span></label>
                             <div class="col-md-6">
@@ -211,7 +211,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label class="col-md-3 control-label"><?php echo lang('tea_eq'); ?><span class="requiredStar"> * </span></label>
                             <div class="col-md-2">
                                 <H4 class="eduFormTitle"><?php echo lang('tea_dd'); ?></H4>
@@ -363,7 +363,7 @@
                                 }
                                 ?>">
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-actions fluid">
                             <div class="col-md-offset-3 col-md-6">
                                 <button type="submit" class="btn green" name="submit" value="Update"><?php echo lang('save'); ?></button>
