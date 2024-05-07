@@ -370,7 +370,7 @@ class SChoir extends MX_Controller {
     public function ownChoirRoutin() {
         $data = array();
         $userId = $this->input->get('uisd');
-        $query = $this->db->query("SELECT Choir_id FROM Choir_member_info WHERE user_id=$userId");
+        $query = $this->db->query("SELECT Choir_id FROM Choir_member_info WHERE user_id='$userId'");
         foreach ($query->result_array() as $row) {
             $Choir_id = $row['Choir_id'];
         }

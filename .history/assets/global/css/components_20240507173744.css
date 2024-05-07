@@ -8543,6 +8543,7 @@ div, div * , button, button * {
 }
 
 body {
+  font-family: 'Poppins', sans-serif; /* Sets the font family */
   font-size: 16px; /* Sets the base font size */
   color:#511f52 ; /* Sets the text color */
 }

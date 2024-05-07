@@ -167,7 +167,7 @@
                                                         <label class="control-label"><?php echo lang('pro_mobile_name'); ?></label>
                                                         <input name="mobileNumber" type="text purple" class="form-control" value="<?php echo $mobileNumber; ?>"/>
                                                     </div>
-                                                    <div class="form-group purple">
+                                                    <div class="form-group">
                                                         <label class="control-label"><?php echo lang('pro_email'); ?></label>
                                                         <input name="email" type="text" class="form-control" value="<?php echo $email; ?>"/>
                                                     </div>
