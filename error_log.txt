@@ -1,0 +1,323 @@
+MIDI Ref File Path: C:\wamp\www\Choir_Management_System-final\Test Files\Gamme Do M.mid
+MXL File Path: C:\wamp\www\Choir_Management_System-final\Test Files\Gamme Do M.mxl
+MIDI Test File Path: C:\wamp\www\Choir_Management_System-final\Test Files\Gamme Do M test.mid
+Ref: 8 [[(0, 48, 455)], [(480, 50, 455)], [(960, 52, 455)], [(1440, 53, 455)], [(1920, 55, 455)], [(2400, 57, 455)], [(2880, 59, 455)], [(3360, 60, 455)]]
+_________________
+Test (before combining notes): 8 [[(0, 48, 455)], [(480, 50, 455)], [(960, 52, 455)], [(1440, 53, 227)], [(1920, 55, 455)], [(2400, 48, 455)], [(2880, 59, 455)], [(3360, 60, 455)]]
+_________________
+Test (after combining notes): 8 [[(0, 48, 455)], [(480, 50, 455)], [(960, 52, 455)], [(1440, 53, 227)], [(1920, 55, 455)], [(2400, 48, 455)], [(2880, 59, 455)], [(3360, 60, 455)]]
+[(0, 48, 455), (480, 50, 455), (960, 52, 455), (1440, 53, 455), (1920, 55, 455), (2400, 57, 455), (2880, 59, 455), (3360, 60, 455)] [(0, 48, 455), (480, 50, 455), (960, 52, 455), (1440, 53, 227), (1920, 55, 455), (2400, 48, 455), (2880, 59, 455), (3360, 60, 455)]
+_______________
+Alignments:
+Tuple from seq1: (0, 48, 455), Tuple from seq2: (0, 48, 455)
+Tuple from seq1: (480, 50, 455), Tuple from seq2: (480, 50, 455)
+Tuple from seq1: (960, 52, 455), Tuple from seq2: (960, 52, 455)
+Tuple from seq1: (1440, 53, 455), Tuple from seq2: (1440, 53, 227)
+Tuple from seq1: (1920, 55, 455), Tuple from seq2: (1920, 55, 455)
+Tuple from seq1: (2400, 57, 455), Tuple from seq2: (2400, 48, 455)
+Tuple from seq1: (2880, 59, 455), Tuple from seq2: (2880, 59, 455)
+Tuple from seq1: (3360, 60, 455), Tuple from seq2: (3360, 60, 455)
+_______________
+matches [('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Mismatch'), ('Pitch Match', 'Dur. Match'), ('Pitch Mismatch', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match')]
+sliding list: [('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Mismatch'), ('Pitch Match', 'Dur. Match'), ('Pitch Mismatch', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match')]
+_______________
+new list ['Match', 'Match', 'Match', ('Pitch Match', 'Dur. Mismatch'), 'Match', 'No Match', 'Match', 'Match']
+_______________
+Measure 1: ['Match', 'Match', 'Match', ('Pitch Match', 'Dur. Mismatch')]
+Measure 2: ['Match', 'No Match', 'Match', 'Match']
+C:\wamp\www\Choir_Management_System-final
+70.0
+8.571428571428571
+10.0
+Total score:  88.57 / 100
+Error executing Python script:
+'C:\Users\Charles\AppData\Local\Programs\Python\Python312\Scripts\python.exe' is not recognized as an internal or external command,
+operable program or batch file.
+MIDI Ref File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M.mid
+MXL File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M.mxl
+MIDI Test File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M test.mid
+Ref: 8 [[(0, 48, 455)], [(480, 50, 455)], [(960, 52, 455)], [(1440, 53, 455)], [(1920, 55, 455)], [(2400, 57, 455)], [(2880, 59, 455)], [(3360, 60, 455)]]
+_________________
+Test (before combining notes): 8 [[(0, 48, 455)], [(480, 50, 455)], [(960, 52, 455)], [(1440, 53, 227)], [(1920, 55, 455)], [(2400, 48, 455)], [(2880, 59, 455)], [(3360, 60, 455)]]
+_________________
+Test (after combining notes): 8 [[(0, 48, 455)], [(480, 50, 455)], [(960, 52, 455)], [(1440, 53, 227)], [(1920, 55, 455)], [(2400, 48, 455)], [(2880, 59, 455)], [(3360, 60, 455)]]
+[(0, 48, 455), (480, 50, 455), (960, 52, 455), (1440, 53, 455), (1920, 55, 455), (2400, 57, 455), (2880, 59, 455), (3360, 60, 455)] [(0, 48, 455), (480, 50, 455), (960, 52, 455), (1440, 53, 227), (1920, 55, 455), (2400, 48, 455), (2880, 59, 455), (3360, 60, 455)]
+_______________
+Alignments:
+Tuple from seq1: (0, 48, 455), Tuple from seq2: (0, 48, 455)
+Tuple from seq1: (480, 50, 455), Tuple from seq2: (480, 50, 455)
+Tuple from seq1: (960, 52, 455), Tuple from seq2: (960, 52, 455)
+Tuple from seq1: (1440, 53, 455), Tuple from seq2: (1440, 53, 227)
+Tuple from seq1: (1920, 55, 455), Tuple from seq2: (1920, 55, 455)
+Tuple from seq1: (2400, 57, 455), Tuple from seq2: (2400, 48, 455)
+Tuple from seq1: (2880, 59, 455), Tuple from seq2: (2880, 59, 455)
+Tuple from seq1: (3360, 60, 455), Tuple from seq2: (3360, 60, 455)
+_______________
+matches [('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Mismatch'), ('Pitch Match', 'Dur. Match'), ('Pitch Mismatch', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match')]
+sliding list: [('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Mismatch'), ('Pitch Match', 'Dur. Match'), ('Pitch Mismatch', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match')]
+_______________
+new list ['Match', 'Match', 'Match', ('Pitch Match', 'Dur. Mismatch'), 'Match', 'No Match', 'Match', 'Match']
+_______________
+Measure 1: ['Match', 'Match', 'Match', ('Pitch Match', 'Dur. Mismatch')]
+Measure 2: ['Match', 'No Match', 'Match', 'Match']
+C:\xampp\htdocs\Choir_Management_System-final
+70.0
+8.571428571428571
+10.0
+Total score:  88.57 / 100
+MIDI Ref File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M.mid
+MXL File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M.mxl
+MIDI Test File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M test.mid
+Ref: 8 [[(0, 48, 455)], [(480, 50, 455)], [(960, 52, 455)], [(1440, 53, 455)], [(1920, 55, 455)], [(2400, 57, 455)], [(2880, 59, 455)], [(3360, 60, 455)]]
+_________________
+Test (before combining notes): 8 [[(0, 48, 455)], [(480, 50, 455)], [(960, 52, 455)], [(1440, 53, 227)], [(1920, 55, 455)], [(2400, 48, 455)], [(2880, 59, 455)], [(3360, 60, 455)]]
+_________________
+Test (after combining notes): 8 [[(0, 48, 455)], [(480, 50, 455)], [(960, 52, 455)], [(1440, 53, 227)], [(1920, 55, 455)], [(2400, 48, 455)], [(2880, 59, 455)], [(3360, 60, 455)]]
+[(0, 48, 455), (480, 50, 455), (960, 52, 455), (1440, 53, 455), (1920, 55, 455), (2400, 57, 455), (2880, 59, 455), (3360, 60, 455)] [(0, 48, 455), (480, 50, 455), (960, 52, 455), (1440, 53, 227), (1920, 55, 455), (2400, 48, 455), (2880, 59, 455), (3360, 60, 455)]
+_______________
+Alignments:
+Tuple from seq1: (0, 48, 455), Tuple from seq2: (0, 48, 455)
+Tuple from seq1: (480, 50, 455), Tuple from seq2: (480, 50, 455)
+Tuple from seq1: (960, 52, 455), Tuple from seq2: (960, 52, 455)
+Tuple from seq1: (1440, 53, 455), Tuple from seq2: (1440, 53, 227)
+Tuple from seq1: (1920, 55, 455), Tuple from seq2: (1920, 55, 455)
+Tuple from seq1: (2400, 57, 455), Tuple from seq2: (2400, 48, 455)
+Tuple from seq1: (2880, 59, 455), Tuple from seq2: (2880, 59, 455)
+Tuple from seq1: (3360, 60, 455), Tuple from seq2: (3360, 60, 455)
+_______________
+matches [('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Mismatch'), ('Pitch Match', 'Dur. Match'), ('Pitch Mismatch', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match')]
+sliding list: [('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Mismatch'), ('Pitch Match', 'Dur. Match'), ('Pitch Mismatch', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match')]
+_______________
+new list ['Match', 'Match', 'Match', ('Pitch Match', 'Dur. Mismatch'), 'Match', 'No Match', 'Match', 'Match']
+_______________
+Measure 1: ['Match', 'Match', 'Match', ('Pitch Match', 'Dur. Mismatch')]
+Measure 2: ['Match', 'No Match', 'Match', 'Match']
+C:\xampp\htdocs\Choir_Management_System-final
+70.0
+8.571428571428571
+10.0
+Total score:  88.57 / 100
+MIDI Ref File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M.mid
+MXL File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M.mxl
+MIDI Test File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M test.mid
+Ref: 8 [[(0, 48, 455)], [(480, 50, 455)], [(960, 52, 455)], [(1440, 53, 455)], [(1920, 55, 455)], [(2400, 57, 455)], [(2880, 59, 455)], [(3360, 60, 455)]]
+_________________
+Test (before combining notes): 8 [[(0, 48, 455)], [(480, 53, 455)], [(960, 52, 455)], [(1440, 53, 455)], [(1920, 55, 455)], [(2400, 57, 455)], [(2880, 59, 455)], [(3360, 60, 455)]]
+_________________
+Test (after combining notes): 8 [[(0, 48, 455)], [(480, 53, 455)], [(960, 52, 455)], [(1440, 53, 455)], [(1920, 55, 455)], [(2400, 57, 455)], [(2880, 59, 455)], [(3360, 60, 455)]]
+[(0, 48, 455), (480, 50, 455), (960, 52, 455), (1440, 53, 455), (1920, 55, 455), (2400, 57, 455), (2880, 59, 455), (3360, 60, 455)] [(0, 48, 455), (480, 53, 455), (960, 52, 455), (1440, 53, 455), (1920, 55, 455), (2400, 57, 455), (2880, 59, 455), (3360, 60, 455)]
+_______________
+Alignments:
+Tuple from seq1: (0, 48, 455), Tuple from seq2: (0, 48, 455)
+Tuple from seq1: (480, 50, 455), Tuple from seq2: (480, 53, 455)
+Tuple from seq1: (960, 52, 455), Tuple from seq2: (960, 52, 455)
+Tuple from seq1: (1440, 53, 455), Tuple from seq2: (1440, 53, 455)
+Tuple from seq1: (1920, 55, 455), Tuple from seq2: (1920, 55, 455)
+Tuple from seq1: (2400, 57, 455), Tuple from seq2: (2400, 57, 455)
+Tuple from seq1: (2880, 59, 455), Tuple from seq2: (2880, 59, 455)
+Tuple from seq1: (3360, 60, 455), Tuple from seq2: (3360, 60, 455)
+_______________
+matches [('Pitch Match', 'Dur. Match'), ('Pitch Mismatch', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match')]
+sliding list: [('Pitch Match', 'Dur. Match'), ('Pitch Mismatch', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match')]
+_______________
+new list ['Match', 'No Match', 'Match', 'Match', 'Match', 'Match', 'Match', 'Match']
+_______________
+Measure 1: ['Match', 'No Match', 'Match', 'Match']
+Measure 2: ['Match', 'Match', 'Match', 'Match']
+C:\xampp\htdocs\Choir_Management_System-final
+70.0
+10.0
+10.0
+Total score:  90.00 / 100
+MIDI Ref File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M.mid
+MXL File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M.mxl
+MIDI Test File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M test.mid
+Ref: 8 [[(0, 48, 455)], [(480, 50, 455)], [(960, 52, 455)], [(1440, 53, 455)], [(1920, 55, 455)], [(2400, 57, 455)], [(2880, 59, 455)], [(3360, 60, 455)]]
+_________________
+Test (before combining notes): 8 [[(0, 48, 455)], [(480, 53, 455)], [(960, 52, 455)], [(1440, 53, 455)], [(1920, 55, 455)], [(2400, 57, 455)], [(2880, 59, 455)], [(3360, 60, 455)]]
+_________________
+Test (after combining notes): 8 [[(0, 48, 455)], [(480, 53, 455)], [(960, 52, 455)], [(1440, 53, 455)], [(1920, 55, 455)], [(2400, 57, 455)], [(2880, 59, 455)], [(3360, 60, 455)]]
+[(0, 48, 455), (480, 50, 455), (960, 52, 455), (1440, 53, 455), (1920, 55, 455), (2400, 57, 455), (2880, 59, 455), (3360, 60, 455)] [(0, 48, 455), (480, 53, 455), (960, 52, 455), (1440, 53, 455), (1920, 55, 455), (2400, 57, 455), (2880, 59, 455), (3360, 60, 455)]
+_______________
+Alignments:
+Tuple from seq1: (0, 48, 455), Tuple from seq2: (0, 48, 455)
+Tuple from seq1: (480, 50, 455), Tuple from seq2: (480, 53, 455)
+Tuple from seq1: (960, 52, 455), Tuple from seq2: (960, 52, 455)
+Tuple from seq1: (1440, 53, 455), Tuple from seq2: (1440, 53, 455)
+Tuple from seq1: (1920, 55, 455), Tuple from seq2: (1920, 55, 455)
+Tuple from seq1: (2400, 57, 455), Tuple from seq2: (2400, 57, 455)
+Tuple from seq1: (2880, 59, 455), Tuple from seq2: (2880, 59, 455)
+Tuple from seq1: (3360, 60, 455), Tuple from seq2: (3360, 60, 455)
+_______________
+matches [('Pitch Match', 'Dur. Match'), ('Pitch Mismatch', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match')]
+sliding list: [('Pitch Match', 'Dur. Match'), ('Pitch Mismatch', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match')]
+_______________
+new list ['Match', 'No Match', 'Match', 'Match', 'Match', 'Match', 'Match', 'Match']
+_______________
+Measure 1: ['Match', 'No Match', 'Match', 'Match']
+Measure 2: ['Match', 'Match', 'Match', 'Match']
+C:\xampp\htdocs\Choir_Management_System-final
+70.0
+10.0
+10.0
+Total score:  90.00 / 100
+MIDI Ref File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M.mid
+MXL File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M.mxl
+MIDI Test File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M test.mid
+Ref: 8 [[(0, 48, 455)], [(480, 50, 455)], [(960, 52, 455)], [(1440, 53, 455)], [(1920, 55, 455)], [(2400, 57, 455)], [(2880, 59, 455)], [(3360, 60, 455)]]
+_________________
+Test (before combining notes): 8 [[(0, 48, 455)], [(480, 53, 455)], [(960, 52, 455)], [(1440, 53, 455)], [(1920, 55, 455)], [(2400, 57, 455)], [(2880, 59, 455)], [(3360, 60, 455)]]
+_________________
+Test (after combining notes): 8 [[(0, 48, 455)], [(480, 53, 455)], [(960, 52, 455)], [(1440, 53, 455)], [(1920, 55, 455)], [(2400, 57, 455)], [(2880, 59, 455)], [(3360, 60, 455)]]
+[(0, 48, 455), (480, 50, 455), (960, 52, 455), (1440, 53, 455), (1920, 55, 455), (2400, 57, 455), (2880, 59, 455), (3360, 60, 455)] [(0, 48, 455), (480, 53, 455), (960, 52, 455), (1440, 53, 455), (1920, 55, 455), (2400, 57, 455), (2880, 59, 455), (3360, 60, 455)]
+_______________
+Alignments:
+Tuple from seq1: (0, 48, 455), Tuple from seq2: (0, 48, 455)
+Tuple from seq1: (480, 50, 455), Tuple from seq2: (480, 53, 455)
+Tuple from seq1: (960, 52, 455), Tuple from seq2: (960, 52, 455)
+Tuple from seq1: (1440, 53, 455), Tuple from seq2: (1440, 53, 455)
+Tuple from seq1: (1920, 55, 455), Tuple from seq2: (1920, 55, 455)
+Tuple from seq1: (2400, 57, 455), Tuple from seq2: (2400, 57, 455)
+Tuple from seq1: (2880, 59, 455), Tuple from seq2: (2880, 59, 455)
+Tuple from seq1: (3360, 60, 455), Tuple from seq2: (3360, 60, 455)
+_______________
+matches [('Pitch Match', 'Dur. Match'), ('Pitch Mismatch', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match')]
+sliding list: [('Pitch Match', 'Dur. Match'), ('Pitch Mismatch', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match')]
+_______________
+new list ['Match', 'No Match', 'Match', 'Match', 'Match', 'Match', 'Match', 'Match']
+_______________
+Measure 1: ['Match', 'No Match', 'Match', 'Match']
+Measure 2: ['Match', 'Match', 'Match', 'Match']
+C:\xampp\htdocs\Choir_Management_System-final
+70.0
+10.0
+10.0
+Total score:  90.00 / 100
+MIDI Ref File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M.mid
+MXL File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M.mxl
+MIDI Test File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M test.mid
+Ref: 8 [[(0, 48, 455)], [(480, 50, 455)], [(960, 52, 455)], [(1440, 53, 455)], [(1920, 55, 455)], [(2400, 57, 455)], [(2880, 59, 455)], [(3360, 60, 455)]]
+_________________
+Test (before combining notes): 8 [[(0, 48, 455)], [(480, 53, 455)], [(960, 52, 455)], [(1440, 53, 455)], [(1920, 55, 455)], [(2400, 57, 455)], [(2880, 59, 455)], [(3360, 60, 455)]]
+_________________
+Test (after combining notes): 8 [[(0, 48, 455)], [(480, 53, 455)], [(960, 52, 455)], [(1440, 53, 455)], [(1920, 55, 455)], [(2400, 57, 455)], [(2880, 59, 455)], [(3360, 60, 455)]]
+[(0, 48, 455), (480, 50, 455), (960, 52, 455), (1440, 53, 455), (1920, 55, 455), (2400, 57, 455), (2880, 59, 455), (3360, 60, 455)] [(0, 48, 455), (480, 53, 455), (960, 52, 455), (1440, 53, 455), (1920, 55, 455), (2400, 57, 455), (2880, 59, 455), (3360, 60, 455)]
+_______________
+Alignments:
+Tuple from seq1: (0, 48, 455), Tuple from seq2: (0, 48, 455)
+Tuple from seq1: (480, 50, 455), Tuple from seq2: (480, 53, 455)
+Tuple from seq1: (960, 52, 455), Tuple from seq2: (960, 52, 455)
+Tuple from seq1: (1440, 53, 455), Tuple from seq2: (1440, 53, 455)
+Tuple from seq1: (1920, 55, 455), Tuple from seq2: (1920, 55, 455)
+Tuple from seq1: (2400, 57, 455), Tuple from seq2: (2400, 57, 455)
+Tuple from seq1: (2880, 59, 455), Tuple from seq2: (2880, 59, 455)
+Tuple from seq1: (3360, 60, 455), Tuple from seq2: (3360, 60, 455)
+_______________
+matches [('Pitch Match', 'Dur. Match'), ('Pitch Mismatch', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match')]
+sliding list: [('Pitch Match', 'Dur. Match'), ('Pitch Mismatch', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match')]
+_______________
+new list ['Match', 'No Match', 'Match', 'Match', 'Match', 'Match', 'Match', 'Match']
+_______________
+Measure 1: ['Match', 'No Match', 'Match', 'Match']
+Measure 2: ['Match', 'Match', 'Match', 'Match']
+C:\xampp\htdocs\Choir_Management_System-final
+70.0
+10.0
+10.0
+Total score:  90.00 / 100
+MIDI Ref File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M.mid
+MXL File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M.mxl
+MIDI Test File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M test.mid
+Ref: 8 [[(0, 48, 455)], [(480, 50, 455)], [(960, 52, 455)], [(1440, 53, 455)], [(1920, 55, 455)], [(2400, 57, 455)], [(2880, 59, 455)], [(3360, 60, 455)]]
+_________________
+Test (before combining notes): 8 [[(0, 48, 455)], [(480, 49, 455)], [(960, 52, 455)], [(1440, 53, 455)], [(1920, 52, 455)], [(2400, 57, 455)], [(2880, 59, 455)], [(3360, 60, 455)]]
+_________________
+Test (after combining notes): 8 [[(0, 48, 455)], [(480, 49, 455)], [(960, 52, 455)], [(1440, 53, 455)], [(1920, 52, 455)], [(2400, 57, 455)], [(2880, 59, 455)], [(3360, 60, 455)]]
+[(0, 48, 455), (480, 50, 455), (960, 52, 455), (1440, 53, 455), (1920, 55, 455), (2400, 57, 455), (2880, 59, 455), (3360, 60, 455)] [(0, 48, 455), (480, 49, 455), (960, 52, 455), (1440, 53, 455), (1920, 52, 455), (2400, 57, 455), (2880, 59, 455), (3360, 60, 455)]
+_______________
+Alignments:
+Tuple from seq1: (0, 48, 455), Tuple from seq2: (0, 48, 455)
+Tuple from seq1: (480, 50, 455), Tuple from seq2: (480, 49, 455)
+Tuple from seq1: (960, 52, 455), Tuple from seq2: (960, 52, 455)
+Tuple from seq1: (1440, 53, 455), Tuple from seq2: (1440, 53, 455)
+Tuple from seq1: (1920, 55, 455), Tuple from seq2: (1920, 52, 455)
+Tuple from seq1: (2400, 57, 455), Tuple from seq2: (2400, 57, 455)
+Tuple from seq1: (2880, 59, 455), Tuple from seq2: (2880, 59, 455)
+Tuple from seq1: (3360, 60, 455), Tuple from seq2: (3360, 60, 455)
+_______________
+matches [('Pitch Match', 'Dur. Match'), ('Pitch Mismatch', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Mismatch', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match')]
+sliding list: [('Pitch Match', 'Dur. Match'), ('Pitch Mismatch', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Mismatch', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match')]
+_______________
+new list ['Match', 'No Match', 'Match', 'Match', 'No Match', 'Match', 'Match', 'Match']
+_______________
+Measure 1: ['Match', 'No Match', 'Match', 'Match']
+Measure 2: ['No Match', 'Match', 'Match', 'Match']
+C:\xampp\htdocs\Choir_Management_System-final
+60.0
+10.0
+10.0
+Total score:  80.00 / 100
+Error executing Python script:
+MIDI Ref File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M.mid
+MXL File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M.mxl
+MIDI Test File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M test.mid
+Ref: 8 [[(0, 48, 455)], [(480, 50, 455)], [(960, 52, 455)], [(1440, 53, 455)], [(1920, 55, 455)], [(2400, 57, 455)], [(2880, 59, 455)], [(3360, 60, 455)]]
+_________________
+Test (before combining notes): 8 [[(0, 48, 455)], [(480, 49, 455)], [(960, 52, 455)], [(1440, 53, 455)], [(1920, 52, 455)], [(2400, 51, 455)], [(2880, 59, 455)], [(3360, 59, 455)]]
+_________________
+Test (after combining notes): 8 [[(0, 48, 455)], [(480, 49, 455)], [(960, 52, 455)], [(1440, 53, 455)], [(1920, 52, 455)], [(2400, 51, 455)], [(2880, 59, 455)], [(3360, 59, 455)]]
+[(0, 48, 455), (480, 50, 455), (960, 52, 455), (1440, 53, 455), (1920, 55, 455), (2400, 57, 455), (2880, 59, 455), (3360, 60, 455)] [(0, 48, 455), (480, 49, 455), (960, 52, 455), (1440, 53, 455), (1920, 52, 455), (2400, 51, 455), (2880, 59, 455), (3360, 59, 455)]
+_______________
+Alignments:
+Tuple from seq1: (0, 48, 455), Tuple from seq2: (0, 48, 455)
+Tuple from seq1: (480, 50, 455), Tuple from seq2: (480, 49, 455)
+Tuple from seq1: (960, 52, 455), Tuple from seq2: (960, 52, 455)
+Tuple from seq1: (1440, 53, 455), Tuple from seq2: (1440, 53, 455)
+Tuple from seq1: (1920, 55, 455), Tuple from seq2: (1920, 52, 455)
+Tuple from seq1: (2400, 57, 455), Tuple from seq2: (2400, 51, 455)
+Tuple from seq1: (2880, 59, 455), Tuple from seq2: (2880, 59, 455)
+Tuple from seq1: (3360, 60, 455), Tuple from seq2: (3360, 59, 455)
+_______________
+matches [('Pitch Match', 'Dur. Match'), ('Pitch Mismatch', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Mismatch', 'Dur. Match'), ('Pitch Mismatch', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Mismatch', 'Dur. Match')]
+Traceback (most recent call last):
+  File "C:\xampp\htdocs\Choir_Management_System-final\comparison\FYP-master\final_results.py", line 3, in <module>
+    from compare_notes import sliding_list
+  File "C:\xampp\htdocs\Choir_Management_System-final\comparison\FYP-master\compare_notes.py", line 63, in <module>
+    sliding_list = sliding()
+                   ^^^^^^^^^
+  File "C:\xampp\htdocs\Choir_Management_System-final\comparison\FYP-master\compare_notes.py", line 48, in sliding
+    if ((alignment1_chars[i+1][1]) == (alignment2_chars[i+1][1])) and ((alignment1_chars[i][1]) == (alignment2_chars[i+1][1])) and abs((alignment1_chars[i][1])-(alignment2_chars[i][1])) <= 2:
+         ~~~~~~~~~~~~~~~~^^^^^
+IndexError: list index out of range
+MIDI Ref File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M.mid
+MXL File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M.mxl
+MIDI Test File Path: C:\xampp\htdocs\Choir_Management_System-final\Test Files\Gamme Do M test.mid
+Ref: 8 [[(0, 48, 455)], [(480, 50, 455)], [(960, 52, 455)], [(1440, 53, 455)], [(1920, 55, 455)], [(2400, 57, 455)], [(2880, 59, 455)], [(3360, 60, 455)]]
+_________________
+Test (before combining notes): 8 [[(0, 48, 455)], [(480, 52, 455)], [(960, 52, 455)], [(1440, 53, 455)], [(1920, 55, 455)], [(2400, 57, 455)], [(2880, 55, 455)], [(3360, 60, 455)]]
+_________________
+Test (after combining notes): 8 [[(0, 48, 455)], [(480, 52, 455)], [(960, 52, 455)], [(1440, 53, 455)], [(1920, 55, 455)], [(2400, 57, 455)], [(2880, 55, 455)], [(3360, 60, 455)]]
+[(0, 48, 455), (480, 50, 455), (960, 52, 455), (1440, 53, 455), (1920, 55, 455), (2400, 57, 455), (2880, 59, 455), (3360, 60, 455)] [(0, 48, 455), (480, 52, 455), (960, 52, 455), (1440, 53, 455), (1920, 55, 455), (2400, 57, 455), (2880, 55, 455), (3360, 60, 455)]
+_______________
+Alignments:
+Tuple from seq1: (0, 48, 455), Tuple from seq2: (0, 48, 455)
+Tuple from seq1: (480, 50, 455), Tuple from seq2: (480, 52, 455)
+Tuple from seq1: (960, 52, 455), Tuple from seq2: (960, 52, 455)
+Tuple from seq1: (1440, 53, 455), Tuple from seq2: (1440, 53, 455)
+Tuple from seq1: (1920, 55, 455), Tuple from seq2: (1920, 55, 455)
+Tuple from seq1: (2400, 57, 455), Tuple from seq2: (2400, 57, 455)
+Tuple from seq1: (2880, 59, 455), Tuple from seq2: (2880, 55, 455)
+Tuple from seq1: (3360, 60, 455), Tuple from seq2: (3360, 60, 455)
+_______________
+matches [('Pitch Match', 'Dur. Match'), ('Pitch Mismatch', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Mismatch', 'Dur. Match'), ('Pitch Match', 'Dur. Match')]
+sliding list: [('Pitch Match', 'Dur. Match'), ('Pitch Mismatch', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Match', 'Dur. Match'), ('Pitch Mismatch', 'Dur. Match'), ('Pitch Match', 'Dur. Match')]
+_______________
+new list ['Match', 'No Match', 'Match', 'Match', 'Match', 'Match', 'No Match', 'Match']
+_______________
+Measure 1: ['Match', 'No Match', 'Match', 'Match']
+Measure 2: ['Match', 'Match', 'No Match', 'Match']
+C:\xampp\htdocs\Choir_Management_System-final
+60.0
+10.0
+10.0
+Total score:  80.00 / 100
